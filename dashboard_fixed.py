@@ -654,7 +654,7 @@ with tab4:
         fig7 = px.scatter(timeline_df, x="Index", y="Duration",
                          title="Evolution of Downtime",
                          labels={"Index": "intervention number", "Duration": "Duration (days)"},
-                         color="Durée",
+                         color="Duration",
                          color_continuous_scale="RdYlGn_r")
         fig7.update_traces(marker=dict(size=8))
         st.plotly_chart(fig7, use_container_width=True)
