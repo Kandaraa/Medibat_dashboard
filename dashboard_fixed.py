@@ -64,12 +64,12 @@ def pct(n, d):
 st.sidebar.title("📂 Data Sources")
 
 default_paths = {
-    "etat_index": "mnt/data/etat Index.csv",
-    "index_hours": "mnt/data/index hours.csv",
-    "fluids_conf": "mnt/data/Recommended Fluids and Conformity.csv",
-    "maintenance": "mnt/data/SUIVI DE MAINTENANCE.csv",
-    "causes": "mnt/data/categorie panne.csv",
-    "vidange": "mnt/data/suivie vidange.csv",
+    "etat_index": "etat Index.csv",
+    "index_hours": "index hours.csv",
+    "fluids_conf": "Recommended Fluids and Conformity.csv",
+    "maintenance": "SUIVI DE MAINTENANCE.csv",
+    "causes": "categorie panne.csv",
+    "vidange": "suivie vidange.csv",
 }
 
 @st.cache_data(show_spinner=True)
