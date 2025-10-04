@@ -1,0 +1,465 @@
+﻿"ID Intervention
+عرّف التدخُّل","Matériel
+en panne 
+المعدّات او الجهاز المعطَّل",Désignation ,Localisation de la panne ,Marque,Numéro de Série / العدد الرتبي, Immatricule /لوحة التسجيل ,Matériel sous garantie,standardisation des pannes ,"Description de la panne
+وصف العطب","Date de Détection
+تاريخ اكتشاف العطب","Analyse du Problème
+(cause)
+سبب العطب",Diagnostic Recommandé (théorique),"Date prévue d'intervention
+التاريخ المُتوقَّع للتدخُّل","Date Effective d’Intervention
+التاريخ الفعلي للتدخُّل
+",Date fin  d’Intervention ,"Correction
+Réparation
+التصليح","Réparation en interne
+المسؤول عن التدخّل
+
+","Réparation en externe
+الصيانة الخارجية","Pièces de rechange
+ قطع الغيار المستخدمة",,,,," Date Fin d’Intervention
+تاريخ انتهاء التدخُّل","État  Statut
+الحالة / الوضع ","Causes possibles
+الاحتمالات","Causes Racines
+السبب الجذري ",classification des causes racine,obs,"Action Corrective Proposée
+الإجراء التصحيحي المقترح 
+","Vérification Post Intervention
+التحقُّق بعد التدخُّل","Commentaires
+ الملاحظات ","catégorie de panne en terme de disponibilité des pieces de rechanges
+(non disponible,difficilement accessible, disponible) ","catégorie de panne en terme de cout
+ ( pas cher, moyen, cher)","catégorie de panne en terme de complexité 
+ ( facile, intermediaire, difficile)"
+,T3,Tractopelle,,HIDROMEK,35B111682,15399ES,,P12 - cannibalisation de l'engin,"Probleme de roulement 
++Son radiateur, alternateur et démarreur ont été utilisés pour d'autres engins HIDROMEK .",1/1/2023,"Probleme de roulement 
++Son radiateur, alternateur et démarreur ont été utilisés pour d'autres engins HIDROMEK .
+=> il faut acheter ces pieces et les remplacer .","Remplacer le roulement complet (on ne répare pas un roulement abîmé).
+Changer le joint d’étanchéité en même temps.
+Nettoyer soigneusement le logement, éliminer la vieille graisse.
+Graisser le nouveau roulement à 30‑50 % de son volume (trop de graisse chauffe).
+Serrer l’écrou au couple préconisé par le constructeur (ni trop fort, ni trop faible).",8/25/2025,,8/25/2025,"Le roulement, le radiateur, l'alternateur et le démarreur ont été changés.",,,,,,,,,en cours,"-Graissage insuffisant ou contaminé (eau, poussière).
+-Surcharge ou chocs (sol accidenté, trottoir, lourdes charges).
+-Mauvais montage (écrou mal serré après intervention).
+-Joints endommagés (entrée d’eau/boue, fuite de graisse).","Manque de disponibilité des pièces sur le marché local, ayant conduit à la dépose temporaire des pièces du tractopelle pour équiper d’autres engins, provoquant un arrêt et une défaillance du système.",Panne fonctionnelle (provoquée),,Réapprovisionnement planifié et sécurisation du stock minimal critique,,#NOM?,Difficilement accessible,moyen,Difficile
+,CH1,Chargeuse ,,KOMATSU,WA380II21254,10262ES,,P02 - Défaillance hydraulique,Problème de Pompe hydraulique ,5/20/2023, Pompe hydraulique endommagée,,7/29/2025,,7/29/2025,"Remplacement de la pompe hydraulique et repose de la tôle de capotage sur la section pompe hydraulique de la chargeuse, suivis d’une remise en peinture.",AMMAR TAYIB – Resp Maintenance Curative ,,pompe hydraulique,,1,,,,Terminé,"-Contamination (poussière, limailles)
+-Huile basse
+-Entrée d’air (joints/colliers lâches)
+-Surchauffe huile (échangeur bouché, ventilateur HS)
+-Surpression/chocs hydrauliques
+-Lubrifiant inadapté
+-Mauvais remontage précédent",impureté dans le circuit hydraulique,Panne aléatoire,,"-Vider, nettoyer le circuit (Évacuer l’huile usagée ; rincer toutes les conduites ; installer des filtres neufs).
+-Remplir avec l’huile constructeur, au bon niveau.
+-Nettoyer la crépine et remplacer les flexibles défectueux.
+-Purger l’air du circuit.
+-Nettoyer l’échangeur et vérifier le ventilateur.
+-Régler la pression selon les valeurs constructeur.
+-Aligner pompe et moteur, remplacer l’accouplement usé.
+-Former l’opérateur pour éviter surcharges et manœuvres brusques.",,,Disponible,cher,Intermédiaire
+agrement ,BD2,Bulldozer,,CATERPILLAR,04X08609,SANS C.G,,P03 - Fuite huile moteur -probleme démarreur et injecteurs,"Fuite d’huile moteur démarreur défectueux, injecteurs mécaniques defaillant ",4/1/2024,Surpression ou fuite : perte d’huile → niveau bas → mauvaise lubrification → surchauffe & usure → risque de serrage ou feu au collecteur.,"Remplacer joint fautif (kit joints carter ou SPI).
+• Rénover durites, colliers, filtres à huile.
+• Déboucher ou remplacer reniflard/PCV.
+• Vérifier planéité surfaces d’appui, nettoyer & appliquer pâte d’étanchéité constructeur.
+• Remplir avec huile grade constructeur, purger air.
+• Contrôler à chaud : pas de fuite après 30 min à charge.",4/1/2024,,4/1/2024,"Les joints et le démarreur ont été remplacés, et les injecteurs réparés.",,,,,,,,,Terminé,#NOM?,Duré de vie des piéces,Panne d'usure,,"-Vidange moteur et filtres (tous 250 h / manuel constructeur)
+-Graissage joints et contrôle couples de serrage (après intervention / recommandations constructeur)
+-Inspection visuelle hebdomadaire (niveaux d’huile, fuites/suintements)
+-Nettoyage moteur trimestriel (début fuites/suintements)
+-Entretien ventilation du carter (PCV) 
+-Vérification silentblocs et couples de bride (limitation vibrations, prévention défaillances)",,,Disponible,moyen,Intermédiaire
+,B6,Mini chargeuse ,,CATERPILLAR,CAT0216BEPWK02329,PWK02329,,P06 - Utilisation intensive sur terrain,Fissure structurelle détectée sur le godet,6/22/2024,Fissure détectée sur le godet – soudure corrective à réaliser sur site par un soudeur avec groupe électrogène.,,6/22/2024,,6/22/2024,Godet soudé,,,,,,,,,Terminé,,"Terrain rocheux – angles d’attaque inadaptés par l’opérateur, provoquant des torsions latérales.",Mauvaise utilisation,,Nettoyage du godet quotidiennement pour détecter les fissures naissantes et prévenir la corrosion.,,,Disponible,pas cher,Intermédiaire
+,B4,Mini chargeuse ,,BOBCAT,,A1Z777963,,P99 - Panne moteur,Panne moteur,11/1/2024,duré de vie des pieces internes du moteur,,8/2/2025,,8/2/2025,"
+-Dépose du moteur.
+-Rectification du vilebrequin et remplacement des coussinets de palier principal et de bielle.
+-Réalésage et chemisage du bloc-cylindres.
+-Remplacement des ensembles chemise-piston-segments et reconditionnement des bielles.
+-Pose complète des joints moteur (haut et bas) : culasse, cache-culbuteurs, collecteurs, joints spi vilebrequin avant/arrière, carter d’huile, pompe à eau, joints toriques et rondelles injecteurs/canalisations.
+-Remplacement des joints de queue et guides de soupapes.
+-Remontage, mise en huile et essais de fonctionnement.",,,culasse,,,,,,Terminé,"-Surchauffe moteur due à un radiateur obstrué.
+-Niveau de liquide de refroidissement bas ou dégradé → corrosion.
+-Couple de serrage de culasse incorrect.
+-Contamination de l’huile (eau + huile).
+-Déformation thermique de la culasse.
+-Calage injection ou détente incorrect.
+-Microfissures ou défauts de fabrication.",Durée de vie dépassée,Panne d'usure,,"-Nettoyer le radiateur et vérifier le flux d’air tous les 250 h ; souffler les ailettes et remplacer le filtre.
+-Utiliser le liquide de refroidissement recommandé par l’OEM ; vidange et remplacement tous les 2 ans ou 2 000 h.
+-Respecter la séquence et le couple de serrage avec clé dynamométrique calibrée à chaque remontage.
+-Plan de vidange et analyse d’huile tous les 250 h ; remplacer les joints défectueux.
+-Laisser tourner le moteur au ralenti 2 min avant coupure ; surveiller la température quotidiennement et appliquer les bonnes pratiques opérateur.
+-Calibration périodique du système d’injection selon le manuel tous les 500 h.",,,Disponible,cher,Difficile
+,G4,Nivleuse,,CAT,CAT0012KCSZP00275,22303ES,Travail de 3 semaines,"P05 - Usure lames, axe ou articulation",Système de lame d’une niveleuse : jeu excessif et perte de précision de nivellement., 30/ 06/2025 ,Usure combinée mécanique (glissière et axe) et hydraulique (distributeur).,,7/30/2025,,7/30/2025,"Dépose de la glissière et remplacement du support de guide-rail usé.
+Remplacement complet de l’axe de pivot et des bagues associées.
+Réfection du distributeur hydraulique avec kit de joints complet.
+Remontage, graissage et essais fonctionnels.
+lames changés",AMMAR TAYIB – Resp Maintenance Curative ,,,,,,,,Terminé,"-Graissage insuffisant ou contamination par poussières et boue.
+-Réglage des cales négligé.
+-Surcharge opérationnelle.
+-Couple de serrage incorrect.
+-Qualité des pièces de rechange inférieure (dureté élevée).
+-Fin de vie naturelle des composants non détectée.","-Défaut d’entretien (mesures non respectées).
+-Lubrification insuffisante.
+-Nettoyage négligé.
+-Conditions de terrain défavorables.",Panne d'entretien,,"-Graissage toutes les 8 h et vérification de l’extrusion autour de la couronne.
+-Contrôle/remplacement des joints d’étanchéité dès fissure et nettoyage cercle‑pignon.
+-Mesure mensuelle du jeu vertical : 0,3‑0,5 mm (selon constructeur).
+-Contrôle du jeu des engrenages et cales à chaque révision (1 000 h) ; remplacement si >0,15 mm.
+-Vérification du jeu du système de lame avec contrôleur cadran, jauge d’épaisseur, fil de plomb, soudure à l’étain ou test manuel.
+-Plan de contrôle périodique : glissière tous 250 h, backlash et end‑play à 1 000 h- en cas de bruit inhabituel.
+-Formation conducteur : limiter profondeur sur terrain dur, régime moteur, serrer supports au couple.
+-Changement des cales de réglage et inclinaison tous 2 000 h.
+-Nettoyage haute pression (HP) hebdomadaire pour modèle G10",,,Disponible,cher,Intermédiaire
+,G5,Nivleuse,,CAT,CAT0012KJSZP00685,28189ES,,"P05 - Usure lames, axe ou articulation",Système de lame d’une niveleuse : jeu excessif et perte de précision de nivellement.,7/5/2025,"Usure prononcée des pignons d’entraînement de la lame et détérioration des cales de réglage→ jeu excessif et perte de précision du nivellement. Remplacement nécessaire des supports de lame (pignons et/ou cales). 
+Constat : 1 support présent au lieu de 3 requis.",,7/18/2025,,7/19/2025,remplacer les supports de la lame (pignons et cales).,AMMAR TAYIB – Resp Maintenance Curative ,,,,,,,7/19/2024,Terminé,,"-Défaut d’entretien (mesures non respectées).
+-Lubrification insuffisante.
+-Nettoyage négligé.
+-Conditions de terrain défavorables.",Panne d'entretien,,"-Graissage régulier des pignons et cales tous les 250 h ou selon manuel constructeur.
+-Nettoyage haute pression (HP) de la zone lame/cales tous les 250 h ou après utilisation sur terrain difficile.
+-Mesure du jeu vertical des pignons et cales tous les 250 h, maintenir 0,3‑0,5 mm selon spécifications constructeur
+-Remplacement préventif des cales tous les 2 000 h ou selon manuel.
+-Vérification du nombre et état des supports de lame avant apparition de jeu excessif.
+-Formation opérateur : limiter profondeur et charges sur terrain dur, éviter manœuvres brusques.",,,Disponible,moyen,Intermédiaire
+,G10,Nivleuse,,CAT,CAT0012KTSZP00665,27802ES,,P04 - Surchauffe moteur,Hausse de température ,7/5/2025,Probleme radiateur ,,7/24/2025,,7/25/2025,"-Lavage haute pression (HP) du radiateur moteur, du refroidisseur d’huile hydraulique et du refroidisseur d’huile de boîte powershift ; rinçage et nettoyage interne du réservoir hydraulique.
+-Remplacement des pignons et cales de lame.
+-Remplacement de la durite.",AMMAR TAYIB – Resp Maintenance Curative ,,,,,,,7/25/2025,Terminé,,Lavage insuffisant,Panne d'entretien,,"-Lavage HP des radiateurs et refroidisseurs (hebdomadaire ou selon usage).
+-Rinçage et nettoyage du réservoir hydraulique.
+-Graissage et inspection des pignons et cales (250 h).
+-Contrôle et remplacement des durites avant défaillance.
+-Mesure du jeu de lame et usure cales/pignons (mensuel / 1 000 h).",,,Disponible,cher,Intermédiaire
+,G6,Nivleuse,,CAT,CAT0012KCSZP00770,29759ES,,P05 - Usure axe ou articulation,Système de lame d’une niveleuse : jeu excessif et perte de précision de nivellement.,7/5/2025, Détérioration des cales de réglage→ jeu excessif et perte de précision de nivellement obligeant à remplacer les supports de la lame (pignons et/ou cales).,,7/14/2025,,7/15/2025,Remplacer  les cales de réglage.,AMMAR TAYIB – Resp Maintenance Curative ,,,,,,,7/20/2025,Terminé,,"-Défaut d’entretien (mesures non respectées).
+-Lubrification insuffisante.
+-Nettoyage négligé.
+-Conditions de terrain défavorables.",Panne d'entretien,,"-Graissage régulier des pignons et cales de lame (tous les 250 h ou selon manuel constructeur).
+-Inspection visuelle mensuelle du jeu de lame et des cales de réglage.
+-Nettoyage périodique de la zone lame/cales pour éviter accumulation de boue et poussière.
+-Remplacement préventif des cales usées avant apparition de jeu excessif.",,,Disponible,pas cher,Intermédiaire
+,T5,Tractopelle,,HIDROMEK,35113895,17077ES,,P04 - Surchauffe moteur,Surchauffe du moteur ,6/25/2025,,"• Remplacer pompe à eau et thermostat par pièces d’origine.
+• Rincer le circuit pour éliminer dépôts/boue.
+• Remplir avec mélange LdR/eau déminéralisée au ratio constructeur (typiquement 50 %).
+• Purger tout l’air, contrôler pression du bouchon de radiateur.",7/19/2025,,7/20/2025,"Problème radiateur : La partie centrale du radiateur (tubes + ailettes), où le liquide de refroidissement cède sa chaleur à l’air ambiant, est obstruée (tubes bouchés ou ailettes colmatées). Cela réduit fortement l’échange thermique, provoquant une élévation de la température du LDR et le déclenchement de l’alarme.",,,,,,,,7/25/2025,Terminé,Manque d’entretien → colmatage des tubes et ailettes du radiateur.,LDR non conforme,Panne aléatoire,,"-Nettoyage régulier du radiateur pour éviter colmatage des tubes et ailettes.
+-Utiliser un liquide de refroidissement de qualité.
+-Vidange et rinçage du LDR tous les 2 ans ou selon manuel constructeur.
+-Remplacement préventif du thermostat à chaque 2 vidanges ou 100 000 km/h équivalent.
+-Contrôle régulier du voyant par l’opérateur, consignation dans le registre.
+-Formation opérateurs : arrêt immédiat en cas de surchauffe pour éviter dommages irréversibles.",,,Disponible,pas cher,Facile
+,T12,Tractopelle,,HIDROMEK,HMK102BTK35A20654,23111ES,,P02-Défaillance hydraulique ,Fuite d’huile persistante sur la boîte de vitesses de l'avant-train,5/1/2025,"Boîte de vitesses non équipée d’un reniflard, ce qui a entraîné une surpression interne. Cette accumulation de pression a provoqué la détérioration des joints et une fuite d’huile."," Déposer la boîte avant ; l’ouvrir sur établi.
+• Remplacer tous les joints SPI, joints toriques et joints papier.
+• Contrôler lisse d’arbre ; polir ou baguer si rayée.
+• Vérifier roulements, engrenages ; remplacer si traces de chauffe/usure.
+• Contrôler et dégager le reniflard.
+• Reposer au couple constructeur avec pâte d’étanchéité adaptée.
+• Faire essai de pression et remplir avec huile conforme API/viscosité constructeur.",6/29/2025,,6/30/2025,Installation de deux flexibles jouant le rôle de reniflard afin d’assurer la mise à l’air et éviter toute nouvelle surpression.,,,,,,,,6/30/2025,Terminé,,Défaut de fabrication,Défaut de fabrication,"chaque panne liée à une fuite d'huile est considéré défaillance hydraulique. 
+Un système hydraulique fonctionne toujours avec de l’huile (ou un fluide hydraulique spécifique), parce que :
+
+L’huile transmet la puissance : la pompe met l’huile sous pression et elle actionne les vérins ou moteurs hydrauliques.
+
+Elle assure aussi la lubrification des composants internes (pompe, distributeurs, vérins).
+
+Elle joue un rôle de refroidissement en évacuant une partie de la chaleur générée.
+
+Elle protège contre la corrosion et l’usure grâce aux additifs.
+
+👉 Donc sans huile → pas de pression → le système hydraulique ne peut pas fonctionner.","-Identifier les tractopelles avec le même type de moteur et boîte de vitesses et installer préventivement deux flexibles de mise à l’air pour éviter surpression et fuite.
+-Vérifier périodiquement la présence et le bon fonctionnement du reniflard ou système de mise à l’air.
+-Contrôler la pression interne de la boîte et inspecter régulièrement l’état des joints d’étanchéité.",,,Disponible,pas cher,Intermédiaire
+,CO1,Compacteur,zouari handay,AMMANN,,3742007,,P07 - Problème électrique général,Alternateur hors service (en arret à beni khalled),7/4/2025,"Alternateur hors service et batterie défaillante sur compacteur, malgré leur remplacement, dus à une  masse électrique, forte accumulation de poussière, ou défaut de câblage.","• Remplacer ou réparer l’alternateur (kit balais + régulateur ou échange standard).
+• Poser courroie neuve et régler tension au couple constructeur.
+• Recharger la batterie au banc puis contrôler son état (test CCA).
+• Nettoyer/sertir cosses et masses, appliquer graisse conductive.
+• Vérifier consommation globale (projecteurs, accessoires) et dimensionner alternateur si besoin.r.",7/15/2025,,7/15/2025,"-Vérification approfondie et nettoyage des masses électriques et des connexions.
+-Contrôle de l’intégrité des câbles et de la continuité électrique (masse, câblage alternateur-batterie).
+-Nettoyage complet du compartiment moteur pour éliminer poussières et contaminants.
+-Contrôle des organes de charge (régulateur, fusibles).",,,,,,,,,Terminé," -Masse électrique défectueuse ou mal connectée, provoquant une mauvaise continuité électrique.
+-Câblage endommagé, oxydé ou mal fixé (faux contact).
+-Accumulation importante de poussière et saletés dans le compartiment moteur, isolant les connexions.
+-Régulateur de tension défectueux ou circuit de charge endommagé.
+-Courroie d’alternateur mal tendue ou usée, empêchant une bonne charge.
+-Surcharge électrique non maîtrisée (ajout d’équipements non compatibles).
+-Problème interne au moteur électrique de l’alternateur non détecté (bobinage, balais).",Duré de vie des piéces,Panne d'usure,,"-Inspection régulière des masses et connexions électriques.
+-Nettoyage périodique du compartiment moteur.
+-Surveillance de la tension de courroie et de l’état des câbles.
+-Éviter surcharge électrique et protéger contre l’humidité/poussière.",,,Disponible,pas cher,facile
+,BD1,Bulldozer,,CATERPILLAR,CAT00D6RES6T00872,S6T00872,,P07 - Problème électrique général,Fausse alerte d'un temoin indiquant un probleme d'alternateur ,6/1/2025,"fausse alerte : Le témoin de batterie reste allumé sur le tableau de bord, signalant un problème de charge du système électrique mais l’alternateur est en bon état  et  fournit la tension nécessaire à la batteri et  le circuit de charge n'est pas  interrompu.",,6/1/2025,,6/1/2025,Réparer faisceau electrique lié au témoin de batterie ,,,,,,,,,Terminé,"Défaillance du témoin lumineux lui-même (ampoule ou circuit de signalisation du combiné d’instrument).
+Faux contact ou oxydation au niveau des connecteurs de l’alternateur ou du câblage du témoin.
+Usure ou mauvais fonctionnement du régulateur de tension intégré à l’alternateur.
+Problème de masse (masse flottante) entre l’alternateur, la batterie ou le châssis.
+Tension de sortie stable mais insuffisante sous charge, causée par une faiblesse de l’alternateur non détectée à vide.
+Câble de retour (B+) endommagé ou en court-circuit partiel.
+Capteur intelligent de batterie (BSM ou IBS) défectueux (selon les modèles modernes).","Inspection visuelle périodique lors de l'entretien preventif  du compartiment  moteur du câblage électrique (recherche de fissures, oxydation, dénudement).",Panne aléatoire,,"lors de l'entretien preventif, contrôle régulier de la tension de charge moteur tournant à l’aide d’un multimètre (attendue : 13,5 à 14,5 V).
+Nettoyage et serrage des bornes de batterie et des connecteurs d’alternateur.
+Inspection visuelle périodique du câblage électrique (recherche de fissures, oxydation, dénudement).
+Vérification du bon état du régulateur de tension, surtout sur les systèmes intégrés à l’alternateur.
+Utilisation d’un outil de diagnostic OBD pour lire les éventuels codes d’erreur liés à la charge.
+Contrôle de la courroie d’alternateur (tension, usure, patinage).",,,Disponible,moyen,Intermédiaire
+,TR6,Tracteur Routier,,LANDINI,TLMLR17109,119550 TRAC,,P11 - Panne mécanique,Panne roulement roue avant ,7/23/2025,"Jeu anormal détecté au niveau du logement de pivot de direction sur le tracteur routier, causant une large ouverture et une perte de précision de l’orientation des roues avant.",,7/27/2025,,7/28/2025,"-Remplacement des deux rotules de pivot.
+-Rechargement du logement du pivot par soudure à l’arc, pour combler l’usure et redonner du volume au logement.
+-Rectification au tour du logement rechargé pour un ajustement précis des rotules neuves.
+-Remontage avec contrôle du jeu et graissage.",,,,,,,,,Terminé,"-Usure excessive des rotules de pivot, provoquant un jeu fonctionnel important.
+-Ovalisation ou élargissement du logement du pivot sur le porte-fusée suite à des efforts répétés.
+-Absence de graissage régulier, favorisant l’usure par friction.
+-Chocs, vibrations et manœuvres en surcharge sur terrains accidentés.
+-Fatigue du matériau au niveau du logement du pivot.",Duré de vie des piéces,Panne d'usure,,"-Contrôle périodique du jeu aux rotules et au pivot de direction.
+-Graissage régulier des points de pivotement selon le plan de maintenance.
+-Inspection visuelle du porte-fusée et des rotules après utilisation intensive.
+-Remplacement préventif des rotules selon les heures de fonctionnement ou dès apparition de jeu.
+-Éviter les manœuvres brutales et les surcharges qui accélèrent l’usure des éléments de direction.",,,Disponible,pas cher,Intermédiaire
+,G7,Nivleuse,,CAT,CAT0012KESZP00369,24260ES,,P02 - Défaillance hydraulique,Frottement et usure du flexible hydraulique de rotation de lame,7/23/2025,"Le flexible hydraulique assurant la rotation de la lame présente un frottement anormal, entraînant une dégradation prématurée du flexible et un dysfonctionnement potentiel du système de rotation.",,7/23/2025,,7/23/2025,"-Remplacement du flexible hydraulique défectueux par un flexible neuf conforme aux spécifications constructeur.
+-Réajustement du passage du flexible pour éviter tout contact avec les surfaces susceptibles de provoquer frottement ou écrasement.
+-Installation de protections supplémentaires (gaine anti-abrasion, guides) si nécessaire.
+-Vérification de la mobilité de la lame et du système hydraulique pour s’assurer de l’absence de contraintes anormales.",,,,,,,,,Terminé,"-Usure mécanique due à des frottements répétés entre le flexible et les éléments mobiles ou structures adjacentes.
+-Flexibles mal positionnés ou non protégés, favorisant le contact abrasif.
+-Rigidité ou vieillissement du flexible réduisant sa flexibilité et augmentant les risques de frottement.
+-Absence de supports ou guides pour maintenir le flexible hors des zones d’usure.
+-Conditions environnementales agressives (poussières, projections) accentuant l’abrasion.",Duré de vie des piéces,Panne d'usure,,#NOM?,,,Disponible,moyen,Intermédiaire
+,B7,Mini chargeuse ,,CATERPILLAR,CAT0216BKPWK04104,PWK04104,,P04 - Surchauffe moteur,Dysfonctionnement du manocontact de température d'huile moteur,7/23/2025,Le capteur (manocontact) est endommagé accidentellement par le mécanicien lors d’interventions précédentes car il ne se bouche pas naturellement.,probleme au niveau du fil ou changement mano,7/23/2025,,7/23/2025,#NOM?,,,,,,,,,Terminé,#NOM?,Duré de vie des piéces et LDR NON CONFORME,Panne d'usure,,"Vérification régulière de l’état du capteur et du câblage.
+Contrôle périodique du circuit de refroidissement.
+Nettoyage régulier du radiateur pour éviter toute obstruction.
+Remplacement préventif du thermostat selon les heures d’utilisation recommandées",,,Disponible,pas cher,Facile
+,C12,Cylindre,,DYNAPAC,,575500,,"P05 - Usure lame, axe ou articulation",Usure du demi-arbre de roue et jeu anormal dans la couronne du réducteur de moyeu,6/7/2025," L’usure avancée du demi-arbre de roue a engendré un frottement excessif, entraînant un jeu important dans la couronne du réducteur de moyeu.
+"," • Remplacer le demi‑arbre usé et la couronne trop marquée.
+• Contrôler / remplacer roulements, bagues, joints du moyeu.
+• Nettoyer soigneusement le carter, rincer à l’huile propre.
+• Remplir avec huile réducteur neuve grade constructeur (EP 80W‑90 ou équivalent).
+• Régler le jeu backlash selon spécification (cale ou rondelle de réglage).
+• Resserrer la roue et le flasque au couple constructeur.
+• Faire un essai route : température et bruit OK avant reprise travaux.",6/4/2025,,6/4/2025,#NOM?,AMMAR TAYIB – Resp Maintenance Curative ,,Demi-arbre de roue et couronne,,1,,,6/7/2025,Terminé,#NOM?,Duré de vie des piéces,Panne d'usure,,"Surveillance régulière des jeux dans les transmissions de roue.
+Contrôle et remplacement périodique des lubrifiants du réducteur.
+Inspection visuelle et mécanique des composants (couronne +demi-arbre +roue) après un nombre d’heures défini.à chaque vidange ?",À planifier,,Disponible,cher,Difficile
+,F2,Finisseur,,VOGELE,,14821889,,P10 -accident suite à un choc,Rupture de la chenille suite à un choc ,5/15/2025,Rupture brutale de la chenille causée par un choc direct avec un regard ,,5/20/2025,,5/22/2025,Remplacement complet de la chenille endommagée.,AMMAR TAYIB – Resp Maintenance Curative ,, chenille,,1,,,5/24/2025,Terminé,"Collision violente avec un obstacle rigide (regard non visible ou mal signalé).
+Usure préalable ou fragilisation de la chenille.",manque d'attention de l'opérateur,Mauvaise utilisation,,"Inspection visuelle quotidienne de la voie de roulement.
+Sensibilisation des opérateurs à la détection des obstacles.
+Amélioration du balisage et du repérage des regards sur les zones de travail.",,,Disponible,pas cher,Intermédiaire
+,P1,Pelle ,,KOMATSU,PC340NLC-6K,K32256,,P99 - panne moteur,Moteur ne démarre pas malgré révision ( A verifier),7/5/2025,"Après une révision moteur, le moteur ne démarre toujours pas. Inspection approfondie a révélé plusieurs anomalies mécaniques  (vilebrequin, chemises, pistons, coussinets, soupapes) à cause de l’intrusion de poussières et débris suite à jauge d’huile et bouchon moteur laissés ouverts précedemment.",,7/5/2025,,9/30/2025,"Révision complète du moteur, incluant :
+Remplacement des chemises et pistons,
+Installation d’une pochette complète d’étanchéité (interne + externe),
+Changement des coussinets de ligne d’arbre à cames et de bielles, 
+Remplacement des soupapes . 
+Remplacement du vilebrequin",AMMAR TAYIB – Resp Maintenance Curative ,,un piston,,1,,,7/12/2025,Terminé,,"Jauge d’huile laissée ouverte par le conducteur.
+Bouchon de logement moteur non refermé correctement.
+Intrusion de corps étrangers (poussières, ferraille) due à u à l’oubli du bouchon ouvert.
+Usure du vilebrequin et des composants internes suite à frottements anormaux.
+",Panne d'usure,,"Vérification systématique du bouchon de jauge et des trappes moteur après chaque intervention.
+Formation et sensibilisation des conducteurs à l’importance des vérifications de routine.
+Mise en place d’un contrôle de conformité après maintenance (check-list de fermeture et serrage).
+Surveillance régulière de la  lubrification pour prévenir toute usure prématurée.
+",7/12/2025,,Disponible,cher,Difficile
+,CH4,Chargeuse ,,CAT,CAT00950CM5K01527,30687ES,,P02 - Défaillance hydraulique,Présence d’un bouchon plastique dans la pompe hydraulique,5/25/2025,"Le bouchon plastique introduit accidentellement dans le circuit a provoqué un blocage partiel de la pompe hydraulique, entraînant une baisse de performance et un risque de détérioration des organes internes.",,6/20/2025,,6/25/2025,"Remplacement de 2 para-huiles (filtres hydrauliques du surplus de gaz et vapeur).
+Remplacement de 2 crousillons du.
+Remplacement du cardan ( transmission de puissance hydraulique au niveau de la pompe ).
+Nettoyage complet du circuit hydraulique pour éliminer toute trace de plastique.",AMMAR TAYIB – Resp Maintenance Curative ,,"*pompe hydraulique
+*Capteur de pression d’huile
+*2 roulements
+",,3,,,7/15/2025,Terminé,"Introduction involontaire d’un bouchon lors d’une maintenance ou remplissage d’huile.
+
+Mauvaises pratiques de nettoyage et de protection pendant intervention.
+
+Absence ou défaut de filtration efficace dans le circuit.",bouchon plastique ,mauvaise utilisation,,"Mise en place d’un protocole strict de fermeture et protection des orifices lors des interventions.
+Contrôle périodique des filtres et remplacement préventif des para-huiles.
+Formation des opérateurs et techniciens sur le risque   des contaminations internes.
+Inspection régulière du circuit pour détecter toute présence de débris.",,,Disponible,pas cher,facile
+,B14,Mini chargeuse ,,KOMATSU,KMTS004ENUF06077,F06077,ss garantie,P02 - Défaillance hydraulique,"Fuite d’huile hydraulique + panne manette d’accélérateur 
+Perte de pression et risque de défaillance hydraulique liés à la fuite.",6/20/2025,"
+
+Dysfonctionnement de la manette d’accélérateur entraînant une perte de contrôle du régime moteur.","Remplacer le flexible ou le joint fautif (toujours utiliser joints/flexibles haute pression conformes).
+• Serrer les raccords au couple constructeur avec paste d’étanchéité adaptée (Loctite 542 ou téflon).
+• Vidanger/filtrer l’huile si pollution notable ; changer filtre retour.
+• Purger l’air du circuit (manœuvres complètes bras/godet).
+• Contrôler la mise à l’air du réservoir hydraulique (reniflard propre).",6/20/2025,,6/20/2025,"Identifier l’origine de la fuite, Réparer ou remplacer les composants défectueux, Refaire le niveau d’huile, Vérifier la pression du circuit, Nettoyer la zone",AMMAR TAYIB – Resp Maintenance Curative ,,,,,,,,Terminé,"Usure ou détérioration d’un flexible, joint ou raccord hydraulique.
+
+Mauvais serrage ou fissure sur une conduite.
+
+Câble ou commande d’accélérateur endommagé, grippé ou mal réglé.",Duré de vie des piéces,Panne d'usure,,#NOM?,,,Disponible,pas cher,Intermédiaire
+,B15,Mini chargeuse ,,KOMATSU,KMTS004ERUF06080,F06080,ss garantie,P09 -Fuite de gasoil ,"Fuite de gasoil 
+( risque d’incendie, de pollution et de baisse d’autonomie",6/20/2025,".
+
+Présence d’impuretés dans le réservoir favorisant l’usure du circuit d’alimentation."," 1. Essuyage / nettoyage moteur et réservoir, puis observation moteur tournant.
+2. Tampon papier absorbant sur chaque raccord ; tâche humide = fuite.
+3. Seringue + pression faible (pompe manuelle) pour repérer gouttes sous pression.
+4. Traceur fluorescent (additif UV) si la fuite est minime ou diffuse.
+5. Contrôle retour injecteurs : débit > tolérance = pointeau usé.",6/20/2025,,6/20/2025,remplacement des joints d'étencheité ,AMMAR TAYIB – Resp Maintenance Curative ,,,,,,,,terminé,"Changement de type d’huile ayant pu dégrader certains joints ou durites compatibles uniquement avec l’ancien fluide.
+
+Contamination du réservoir par des particules solides (poussière, boue, rouille).
+
+Vieillissement ou fissuration d’une durite ou raccord gasoil.",Duré de vie des joints,Panne d'entretien -Panne d'usure,le gazoil asseche le plastique des joints à long terme,"changement du filtre carburant Inspection durites et raccords (usure/fissures ,et odeur gazoil intense au niveau de la diurite).
+Contrôle visuel d’étanchéité
+Tous les 250 h (avec la vidange moteur)
+Remplacement préventif des joints de conduites carburant
+Tous les 2 000",,,Disponible,pas cher,Facile
+,C15,Cylindre ,,BOMAG,,9.6188E+11,,P10 -accident suite à un choc,Bras endommagé suite à un choc,6/23/2025,Déformation et/ou fissuration suite à un choc sur chantier.,,6/23/2025,,6/23/2025,"Soudure des zones fissurées.
+
+Dressage du bras pour rétablir sa forme initiale.",,,,,,,,6/23/2025,Terminé,"Impact avec un obstacle ou chute de charge lourde.
+
+Mauvaise manipulation ou erreur d’opérateur.",manque d'attention de l'opérateur,Mauvaise utilisation,,,,,Disponible,pas cher,Intermédiaire
+,C13,Cylindre ,Sidi Thabet ,JCB VIBRROMAX,,1701002,,"P05 - Usure lame, axe ou articulation",Rupture de l’axe de rotation du cylindre,7/5/2025,"L’axe de rotation s’est rompu en deux, probablement dû à un couple de torsion excessif.
+
+Cette rupture a été aggravée par une usure avancée ou une fissure mal réparée.","• Usiner ou commander un axe neuf en acier allié conforme au plan d’origine.
+• Rectifier ou remplacer paliers et bagues si ovalisés.
+• Remonter en respectant l’alignement (< 0,05 mm de faux‑rond) et le couple de serrage recommandé.
+",8/2/2025,,8/2/2025,"Remplacement complet de l’axe de rotation.
+
+Graissage systématique de l’axe et des points mobiles.
+
+Remplacement de 2 électrovannes Fibreu.
+
+Réparation du faisceau électrique.
+",AMMAR TAYIB – Resp Maintenance Curative ,,,,,,,8/2/2025,Terminé,"Surcharge mécanique ou utilisation au-delà des limites.
+
+Usure prolongée sans remplacement ni réparation adéquate.
+
+Défaut de maintenance ou réparation antérieure insuffisante.",manque de graissage,Panne d'entretien,,"-Inspection régulière de l’état de l’axe et des composants associés.
+-Lubrification périodique selon recommandations constructeur.
+-Surveillance des efforts mécaniques pour éviter les surcharges.
+-Contrôle et maintenance du système électrique (électrovannes et faisceau).
+",,,Disponible,cher,Intermédiaire
+,B7,Mini chargeuse ,BORJ  ETTOUMI,CATERPILLAR,PWK04104,216B3,,P04 - Surchauffe moteur,Surchauffe du moteur ,7/28/2025,"Radiateur encrassé ou bouché réduisant l’échange thermique.
+
+Pompe à eau défectueuse empêchant la circulation correcte du liquide de refroidissement.","1-Vérifier visuellement le niveau de liquide de refroidissement
+2-Contrôler l’état du radiateur et des durites
+3-Faire tourner le moteur et observer si le ventilateur fonctionne
+4-Contrôler l’ouverture du thermostat à chaud
+5-Tester la pompe à eau (écoulement visible dans vase d’expansion)",7/28/2025,,7/28/2025,"Nettoyage radiateur.
+
+Nettoyage approfondi (circuit de lubrification du moteur ""ailettes et passages"" ).
+",,,,,,,,,Terminé,"La mauvaise qualité du liquide de refroidissement (LDR) utilisé dans le moteur provoque la corrosion du bloc moteur, ce qui entraîne ensuite la contamination de l’ensemble du circuit de refroidissement","Manque d’entretien régulier du système de refroidissement et utlisiation de produit non conforme,",Panne d'entretien,,"-Lavage et inspection du radiateur toutes les 100–150 heures pour environnements poussiéreux.
+-Vérification régulière du fonctionnement de la pompe à eau.
+-Contrôle du niveau et qualité du liquide de refroidissement.
+-Sensibilisation des opérateurs à l’importance du refroidissement moteur.",,,Disponible,pas cher,facile
+,C4,"Cylindre pneumatique ""monobulle""",BIZERTE,HAMM,3412,H1600729,,P04 - Surchauffe moteur,Surchauffe du moteur ,7/28/2025,radiateur colmaté,"Remplacement du joint de culasse
+Réalésage ou remplacement du cylindre/piston concerné
+Nettoyage du circuit d’huile et de refroidissement
+Réglage ou remplacement des injecteurs ou soupapes
+Révision complète du moteur si dégâts important",7/28/2025,,7/28/2025,"Nettoyage radiateur.
+
+À vérifier : Nettoyage approfondi (circuit de lubrification du moteur ""ailettes et passages"" ). ",,,,,,,,7/28/2025,Terminé,"Niveau d’huile trop bas.
+
+Manque de lavage
+
+Entretien insuffisant du système de lubrification.",LDR non conforme,Panne aléatoire,,#NOM?,,,Disponible,pas cher,Facile
+,CH13,chargeuse ,BIZERTE MENZEL ABDERRAHMEN,LON KING,CDM856,31939ES,,P04 - Surchauffe moteur,Surchauffe du moteur ,7/28/2025,"Surchauffe causée par un échangeur thermique encrassé ou une fuite de liquide de refroidissement (LDR).
+
+Ventilateur inefficace réduisant la dissipation de chaleur.","Nettoyage haute pression / soufflage inverse des faisceaux radiateurs.
+
+Purge & remplissage du circuit LDR avec liquide aux spécifications OEM.
+
+Remplacement : thermostat, pompe à eau, durites, joints qui fuient.
+
+Réfection ventilateur : viscocoupleur, moteur hydraulique, roulements.
+
+Réglage ou remplacement injecteurs si combustion trop chaude",7/28/2025,,7/28/2025,Entretien complet et lavage de l’échangeur thermique.,,,,,,,,,Terminé,"Accumulation de saletés, poussières ou débris dans l’échangeur.
+
+Fuite de liquide de refroidissement entraînant une baisse de niveau et de pression.
+
+Dysfonctionnement ou défaillance du ventilateur.",LDR non conforme,Panne aléatoire,,"-Inspection régulière de l’échangeur et du circuit de refroidissement.
+-Contrôle périodique du niveau et de l’état du liquide de refroidissement.
+-Vérification du bon fonctionnement du ventilateur.
+-Nettoyage périodique tous les 250 à 500 heures pour éviter l’accumulation de poussières.",,,Disponible,pas cher,Intermédiaire
+,P3,Pelle ,,HYUNDAI EXCAVATOR,ROBEX300LC-9S,HHKHZ810CC0000484,,P11 - Panne mécanique,Porte-vérin endommagé,7/28/2025,l'Usure ou dégradation du porte-vérin  entraine un Risque de jeu excessif ou fuite hydraulique.,,7/28/2025,,7/28/2025,"Remplacement d'axe, des joints d'étencheité et des bagues usés.
+
+",,,,,,,,,Terminé,"Manque de graissage ou lubrification insuffisante.
+
+Usure normale liée à l’utilisation intensive.
+
+Chocs ou mauvaises manipulations.",manque de lubrification,Panne aléatoire,,#NOM?,,,Disponible,cher,Difficile
+,T13,Tractopelle,,HIDROMEK,HMK102BTA35A23012,25452ES,,P07 - Problème électrique général,Problème de démarreur,7/28/2025,Démarreur défectueux empêchant le moteur de démarrer correctement.,,7/29/2025,,7/29/2025,"Remplacement complet du démarreur.
+",,,,,,,,7/29/2025,Terminé,"Usure normale ou panne électrique interne.
+
+Connexions électriques défectueuses ou corrosion.",duré de vie d'alternateur ,Panne d'usure,,"-Contrôle serrage des bornes et câbles et Nettoyage oxydation éventuelle.
+-Test périodique du démarreur (Faire tourner le démarreur à vide + Mesurer intensité absorbée et tension)
+-Protection contre l’humidité et la corrosion des composants électriques (Utiliser graisses ou sprays isolants sur bornes ou Protéger câblage avec gaines/étanchéité).",,,Disponible,moyen,Intermédiaire
+,T11,Tractopelle,,HIDROMEK,HMK102BTC35A20656,23108ES  ,,P02 - défaillance hydraulique,Fuite d’huile et échappement,7/30/2025,"Fuite d’huile au niveau du convertisseur et du cardan.
+
+Fuite d’huile sur la roue avant (parahuile).
+
+Fuite d’huile dans la boîte de vitesses, causant surchauffe.
+
+Échappement lié à des fissures ou dommages nécessitant soudure sur le réservoir d’huile.
+",,8/1/2025,,8/1/2025,"Changement du distributeur hydraulique.
+
+Remplacement ou réparation de la boîte de vitesses.
+
+Soudure des fuites sur le réservoir d’huile et échappement.",,,,,,,,,Terminé,Durée de vie des parahuiles ( piéces d'usure),"
+
+Défaillance du distributeur hydraulique.
+
+Surchauffe due à un mauvais fonctionnement de la boîte de vitesses.",Panne aléatoire,,#NOM?,,,Disponible,moyen,Intermédiaire
+,T10,Tractopelle,sidi thabet,HIDROMEK,HMK102BTJ35A20655,23110ES,,P02 - Défaillance hydraulique,"Panne commodo, pneus, distributeurs et démarrage+mano température + compteur ",7/30/2025,"Dysfonctionnement du comodo (commande électrique multifonction).
+
+Problèmes liés aux pneus (usure ou pression insuffisante).
+
+Défauts sur 2 distributeurs hydrauliques de boîte.
+
+Problème de démarrage électrique.
+
+Circuit gasoil encrassé nécessitant nettoyage et remplacement de composants d’étanchéité.","1. Vérifier la pression hydraulique pilote à la prise manomètre ; comparer au manuel du constructeur.
+2. Contrôler l’état de l’huile : niveau, couleur, odeur de brûlé, présence de particules.
+3. Inspecter filtres et crépine : colmatage & Delta-P élevé = alerte.
+4. Tester chaque distributeur en by-passant le joystick (commande manuelle directe si possible).
+5. Tester continuité électrique des électro-valves et résistance des bobines (Ω).
+6. Observer les flexibles pilote : suintement ou bulle d’air → purge ou remplacement.",8/2/2025,,8/2/2025,"-Remplacement ou réparation des 2 distributeurs hydrauliques de boîte.
+-Nettoyage complet du circuit gasoil.
+-Remplacement du kit de joints (coupelle, cale).
+-Contrôle et maintenance des pneus.
+-Changement mano température + compteur de la T11",,,,,,,,,Terminé,#NOM?,,Panne aléatoire,,#NOM?,,,Disponible,pas cher,Intermédiaire
+,T8,Tractopelle,,HIDROMEK,35115428,17583ES,,P07 - Problème électrique général,Coupure de courant due à des  fils électriques,7/30/2025,"Interruption de l’alimentation électrique causée par des fils déconnectés ou retirés.
+
+",,7/30/2025,,7/30/2025,#NOM?,,,,,,,,7/30/2025,Terminé,#NOM?,manque d'inspection cablage faisceau electrique lors de l'entretien préventif,Panne aléatoire-Panne d'entretien,,#NOM?,,,Disponible,pas cher,Intermédiaire
+,CH6,Chargueuse,gammarth,KOMATSU,KMTWA043CHA082632,32996ES,,"P04 - Surchauffe moteur
+P09 -Fuite de gasoil ",Fuite d’eau pompe à eau / fuite gasoil injecteur,7/31/2025,#NOM?,,7/31/2025,,7/31/2025,"Remplacement ou réparation des joints et pièces défectueuses de la pompe à eau.
+Réparation ou remplacement des joints et composants des injecteurs.
+Vérification et réparation du système d’amortissement.
+",,,,,,,,,Terminé,"-Usure ou dégradation des joints et composants de la pompe à eau.
+-Défaut d’étanchéité sur les injecteurs (joints, raccords).
+-Problèmes mécaniques ou hydrauliques liés à l’amortissement (amortisseurs usés ou endommagés).",durée de vie des pièces (pomope à eau et injecteurs),Panne d'usure,,#NOM?,,,Disponible,moyen,Intermédiaire
+,B3,Mini-Chargeuse,AIN ZAGHOUAN,CATERPILLAR,CAT0216BEPWK02198,PWK02198,,P11 - Panne mécanique,Problème de goujon,7/31/2025,"Goujon endommagé ou cassé affectant la fixation des roues
+",,8/2/2025,,8/2/2025,"Remplacement des goujons sur les 4 roues
+",,,,,,,,,Terminé,#NOM?,Couple élevée,Panne aléatoire,,"-Vérification régulière de l’état des goujons.
+-Contrôle du serrage et fixation correcte des roues.
+-Éviter les surcharges et chocs violents.",,,Disponible,pas cher,Facile
+,G4,Nivleuse ,PARC,CAT,CAT0012KCSZP00275,22303ES,,"P05 - Usure lame, axe ou articulation","Usure des cales, lames, pignons, amortissement et distributeurs",7/31/2025,"-Les cales, lames et pignons sont usés, ce qui réduit l’efficacité de la machine.
+-Le système d’amortissement est défaillant, affectant la stabilité.
+-Deux distributeurs hydrauliques doivent être remplacés",,8/7/2025,,8/7/2025,#NOM?,,,,,,,,,Terminé,#NOM?,"durée de vie des pièces (cales, lames, pignons, amortisseurs et distributeurs)",Panne d'usure,,"un stock de sécurité des piéces (,,,,,,,) pour éviter la rupture en cas de délai d’approvisionnement.
+Contrôle régulier des pièces d’usure.
+Entretien périodique du système d’amortissement.
+Vérification des distributeurs et remplacement préventif.",,,Difficilement accessible,cher,difficile
+,T16,Tractopelle,El Ghazala,HIDROMEK,HMK102BMK2B261331,35011ES,,P07 - Problème électrique général,Croie alternateur défectueuse,8/8/2025,"La courroie d’alternateur est usée ou cassée, empêchant la recharge de la batterie et le bon fonctionnement électrique.",,8/8/2025,,8/8/2025,changement de courroie,,,,,,,,,Terminé,#NOM?,duré de vie de courroie,Panne d'usure,,"-Contrôle régulier de l’état et de la tension de la courroie.
+-Remplacement préventif avant rupture.",,,Disponible,pas cher,facile
+,T8,Tractopelle,DHU Soukra,HIDROMEK,35115428,17583ES,,P07 - Problème électrique général,Problèmes de démarrage,8/8/2025,"Démarreur défectueux
+",,8/8/2025,,8/8/2025,changement de démarreur,,,,,,,,,Terminé,"-Problèmes électriques (batterie, démarreur).
+-Circuit carburant obstrué ou défectueux.
+-Problèmes de commande ou de relais.",fin de vie de démarreur,Panne d'usure,,#NOM?,,,Disponible,moyen,Intermédiaire
+,C1,Cylindre ,Sidi Thabet Mbarka,BITELLI ,,991346,,P07 - Problème électrique général,Problème électrique marche avant et arrière,8/8/2025,Dysfonctionnement du système électrique contrôlant les mouvements avant et arrière.,,8/8/2025,,8/8/2025,changement de selecteur de vitesse + changement d'alternateur,,,,,,,,,Terminé,#NOM?,Défaut de fabrication,Défaut de fabrication,,#NOM?,,,Disponible,pas cher,facile
+,T10,Tractopelle,Sidi Thabet Ettbaieb,HIDROMEK,HMK102BTJ35A20655,23110ES,,P07 - Problème électrique général,mano temperature moteur+comodo +entretien,8/11/2025,oxydation des fils electrique,,8/11/2025,,8/11/2025,"entretien complet fait , réparation faisceau mano temperature et comodo",,,,,,,,,Terminé,,Infiltration d’humidité dans le faisceau électrique due à une protection insuffisante des connecteurs et à un mauvais routage des câbles exposés aux projections d’eau ou aux lavages.,Panne d'entretien,,Pose de gain(es) thermo-rétractable(s) chauffante(s) sur les câbles réparés et les jonctions pour assurer une étanchéité durable.,,,Disponible,pas cher,facile
+,P2,Pelle ,,KOMATSU,,7125164,,P07 - Problème électrique général,courroie alternateur,8/12/2025,duré de vie de courroie,,8/12/2025,,8/12/2025,changement de courroie et alternateur,,,,,,,,,Terminé,,Duré de vie des pieces,Panne d'usure,,,,,Disponible,pas cher,facile
+,G9,Nivleuse,,SINOMACH,,38038ES,,P11 - Panne mécanique,flexible de frein,8/12/2025,fin de vie de flexible,,8/12/2025,,8/12/2025,changement de flexible de frein et purger tout le système,,,,,,,,,Terminé,,Duré de vie de flexible,Panne d'usure,,,,,Disponible,pas cher,Facile
+,B13,Mini chargeuse ,,KOMATSU,,F06056,,P11 - Panne mécanique,deux pneus usés,8/12/2025,fin de vie des pneus ,,8/12/2025,,8/12/2025,changement des pneus neuf ,,,,,,,,,Terminé,,Duré de vie des pneus,Panne d'usure,,,,,Disponible,moyen,Intermédiaire
+,CH4,Chargeuse ,Ezzahra,CAT,CAT00950CM5K01527,30687ES,,P02 - Défaillance hydraulique,Pression hydraulique insuffisante,8/12/2025,Pompe à huile obstruée par huile contaminée,,8/12/2025,,8/12/2025,démontage de carter et rincage de crépine de pompe a huile et changement des injecteurs,,,,,,,,,Terminé,,"Huile sale ou vieille, il n’ y pas eu changement d'huile à temps pendant la vidange",Panne d'usure,,"Utilisation huile adaptée et ne pas dépassé la période de vidange 
+",,,Disponible,moyen,Intermédiaire
+,G7,Nivleuse,,CAT,,24260ES,,"P05 - Usure lame, axe ou articulation",Système de lame (cales et tige )d’une niveleuse : jeu excessif et perte de précision de nivellement.,8/18/2025,Usure mécanique des cales et de l’axe due aux frottements répétés et manque de lubrification,,8/18/2025,,8/18/2025,démontage du système de lame et changement d'axe et cales ,,,,,,,,,Terminé,, insuffisance de graissage régulier et absence de contrôle périodique du jeu +Durée de vie atteinte des cales et axes ,Panne d'usure,,,,,Disponible,cher,difficile
+,FR1,Fraiseuse,Morneg,WIRTGEN,,12200824,,P04 - Surchauffe moteur,Température élevée ,8/11/2025,Surchauffe moteur due à un radiateur colmaté par des feuilles d’arbre aspirées par le ventilateur dans la zone verte de Morneg.,,8/11/2025,,8/11/2025,Nettoyage complet du radiateur.,,,,,,,,8/12/2025,Terminé,,manque de lavage,Panne d'entretien,,#NOM?,,,Disponible,pas cher,Intermédiaire
+,P9,Pelle,Bouargoub,DOSAN,,DHKCECAPLF0006248,,P07 - Problème électrique général,Alternateur + batterie,8/23/2025,"batterie + roulement alternateur defectueux (probleme ddu rotor ""induit"" qui est cher donc vaut mieux proceder au remplacement de tout l'alternateur) et regulateur fin de vie",faire diagnostique et changer les pieces d'usure si besoin  sinon changement d'alternateur et batterie,8/23/2025,,8/23/2025,changement alternateur et batterie,,,,,,,,,Terminé,,Duré de vie des pieces,Panne d'usure,,mesurer tension alternateur avec multimètre,,,Disponible,moyen,Intermédiaire
+,P3,Pelle,Ezzahra,HYUNDAI EXCAVATOR,,HHKHZ810CC0000484,,P07 - Problème électrique général,Démarreur,8/23/2025,"Aucune alimentation n’arrive au démarreur,  ou le démarreur est en fin de vie",,8/23/2025,,8/23/2025,Nettoyage les cosses des fils  avec un produit antioxydant WD40 et resserrage des connexions électriques.,,,,,,,,,Terminé,,Oxydation ou mauvais contact électrique au niveau des cosses,Panne aléatoire,,Intégrer un contrôle périodique des connexions électriques (tous les 250 h),,,Disponible,pas cher,facile
+,CP2,Compresseur,Klibia,,,,,P04 -Surchauffe moteur,Système de refroidissement,8/23/2025,"manque de LDR
+ et radiateur boucher
+pompe à eau defectuex",verifier le fonctionnement de pompe à eau  et rincage de tout le circuit de refroidissement,8/23/2025,,8/23/2025,changement de radiateur  et rincage de tout le circuit de refroidissement,,,,,,,,,Terminé,,qualite du LDR ,Panne aléatoire,,"analyse du LDR  chez SOTULIB ou SpectroLab International SA ou MediClean | Fluides Auto
+",,,Disponible,moyen,Intermédiaire
+,T5,Tractopelle,Sidi Hcine,HIDROMEK,35113895,17077ES,,P07 - Problème électrique général,probleme Electrique pas de contact ou temoin allumé en continu,8/23/2025,oxydation des fils electrique,,8/23/2025,,8/23/2025,Réparation du faisceau electrique ,,,,,,,,,Terminé,,"Vieillissement naturel du câble
+Exposition du faisceau électrique à l’humidité, à la poussière
+rat 
+Détérioration du faisceau électrique causée par des rongeurs (morsures entraînant court-circuit ou perte de continuité).",Panne d'usure,,"Nettoyage régulier, répulsifs, gaines blindées.",,,Disponible,pas cher,facile
+,T7,Tractopelle,Tertiaire,HIDROMEK,35115331,17245ES,,"P02 - Défaillance hydraulique
+P09 -Fuite de gasoil",Vérin +circuit carburant,8/23/2025,"Usure des éléments d’étanchéité du vérin ou manque d’huile dans le système.
+Présence d’impuretés, de saletés ou obstruction du circuit de carburant.",,8/23/2025,,8/23/2025,"changement des éléments nécessaire de vérin (parahuile) ou purger le circuit d'huile.
+vérification de tout le circuit de carburant (reservoir,tuyauterie, pompe à gazoil)  et changement du filtre de carburant.",,,,,,,,,Terminé,,"Manque d'entretien (lavage) (
+ 
+Usure naturelle (étanchéité du vérin)
+
+mauvaise qualité carburant : Contamination / manque de filtration (circuit carburant)
+
+Défaut d’entretien préventif (remplacement fluide/filtre non respecté)",Panne d'usure,,"lavage quotidien (un torchom imbibé d'un produit antioxydant puis graissage avec un pinceau), changement de parahuile",,,Disponible,cher,difficile
+,C4,Cylindre,DGPC BIZERTE Zouawine,HAMM,,H1600729,,P11 - Panne mécanique,Tendeur + courroie,8/25/2025,durée de vie de courroie + tendeur,,8/25/2025,,8/25/2025,changement de kit courroie  + tendeur,,,,,,,,,Terminé,,Duré de vie des pieces,Panne d'usure,,,,,Disponible,pas cher,Intermédiaire
+,B4,Mini chargeuse ,DHU entretien ben AROUS,BOBCAT,,A1Z777963,,P04 -Surchauffe moteur,Joint de culasse,8/25/2025,surchauffe moteur,,8/30/2025,,8/30/2025,"Démontage de la culasse et vérification de l’état de surface.
+Rectification de la culasse et remplacement du joint de culasse.",,,,,,,,,Terminé,,LDR non compatible,Panne aléatoire,,,,,Disponible,cher,Difficile
+,CH13,Chargeuse ,Menzel Abderrahmen,LON KING,LSH0856NPHAB08922,31939ES,,P11 - Panne mécanique,"Système
+de freinage",8/25/2025,plaquettes ou machoirs usé  ou bien fuite d'huile au niveau de systéme de freinage ,,8/25/2025,,8/25/2025,"Remplacement des plaquettes ou des mâchoires de frein.
+remplacement des durites et Purge du système de freinage ,",,,,,,,,,Terminé,,Duré de vie des pieces,Panne d'usure,,,,,Disponible,pas cher,Intermédiaire
+,T8,Tractopelle,DGPC Bizerte Zouawine,HIDROMEK,35B111682,15399ES,,P11 - Panne mécanique,"Rotules direction +
+roulement roue avant",8/25/2025,Rotule direction et roulement en fin de vie ,,8/26/2025,,8/26/2025,changement du rotule de direction et roulement des roues avant,,,,,,,,,Terminé,,Duré de vie des pieces,Panne d'usure,,,,,Disponible,pas cher,Intermédiaire
+,G7,Niveleuse,Commune Sokra,CAT,CAT0012KESZP00369,24260ES,,"P05 - Usure lame, axe ou articulation",Cales lame,8/25/2025,cales lames usés réduits  l'éfficacité de machine,,8/25/2025,,8/25/2025,changement des cales lames,,,,,,,,,Terminé,,,Panne aléatoire,,,,,Disponible,moyen,Intermédiaire
+,G4,Niveleuse,Jardin El menzeh,CAT,CAT0012KCSZP00275,22303ES,,P07 - Problème électrique général,Absence du courant,Absence du courant,court circuit,,8/25/2025,,8/25/2025,Réparation du faisceau electrique et remplacement du fusible,,,,,,,,,Terminé,,,Panne aléatoire,,,,,Disponible,pas cher,Facile
+,C8,Cylindre,Jardin El menzeh,HAMM,,H1811852,,P04 -Surchauffe moteur,Fuite d'eau au niveau du radiateur,8/25/2025,radiateur defectueux,,8/25/2025,,8/25/2025,Réparation radiateur (soudure  du radiateur en cuivre avec du plomb),,,,,,,,,Terminé,,problème lié au LDR ou oubli de remplacement du LDR lors vidange radiateur,Panne d'entretien,on considere qu il a fait une vidange radiateur 1000h  demande s il n y a pas eu de vidange complet 1000h il faut completer vidange boite reducteur pont huile de transfert,,,,Disponible,pas cher,Intermédiaire
+,P3,Pelle,Ezzahra,HYUNDAI EXCAVATOR,ROBEX300LC-9S,HHKHZ810CC0000484,,P07 - Problème électrique général,Problème de démarrage,8/30/2025,batterie fin de vie,,8/30/2025,,8/30/2025,Changement de batterie,,,,,,,,,Terminé,,Duré de vie des pieces,Panne d'usure,,,,,Disponible,pas cher,Facile

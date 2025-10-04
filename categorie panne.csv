@@ -1,0 +1,1280 @@
+﻿,Désignation ,standardisation des pannes ,"Description de la panne
+وصف العطب","Analyse du Problème
+(cause)
+سبب العطب","Correction
+Réparation
+التصليح","État  Statut
+الحالة / الوضع ","Causes Racines
+السبب الجذري ",classification des causes racine,"Action Corrective Proposée
+الإجراء التصحيحي المقترح 
+"
+T3,Tractopelle,P12 - cannibalisation de l'engin,"Probleme de roulement 
++Son radiateur, alternateur et démarreur ont été utilisés pour d'autres engins HIDROMEK .","Probleme de roulement 
++Son radiateur, alternateur et démarreur ont été utilisés pour d'autres engins HIDROMEK .
+=> il faut acheter ces pieces et les remplacer .","Le roulement, le radiateur, l'alternateur et le démarreur ont été changés.",en cours,"Manque de disponibilité des pièces sur le marché local, ayant conduit à la dépose temporaire des pièces du tractopelle pour équiper d’autres engins, provoquant un arrêt et une défaillance du système.",Panne fonctionnelle (provoquée),Réapprovisionnement planifié et sécurisation du stock minimal critique
+CH1,Chargeuse ,P02 - Défaillance hydraulique,Problème de Pompe hydraulique , Pompe hydraulique endommagée,"Remplacement de la pompe hydraulique et repose de la tôle de capotage sur la section pompe hydraulique de la chargeuse, suivis d’une remise en peinture.",Terminé,impureté dans le circuit hydraulique,Panne aléatoire,"-Vider, nettoyer le circuit (Évacuer l’huile usagée ; rincer toutes les conduites ; installer des filtres neufs).
+-Remplir avec l’huile constructeur, au bon niveau.
+-Nettoyer la crépine et remplacer les flexibles défectueux.
+-Purger l’air du circuit.
+-Nettoyer l’échangeur et vérifier le ventilateur.
+-Régler la pression selon les valeurs constructeur.
+-Aligner pompe et moteur, remplacer l’accouplement usé.
+-Former l’opérateur pour éviter surcharges et manœuvres brusques."
+BD2,Bulldozer,P03 - Fuite huile moteur -probleme démarreur et injecteurs,"Fuite d’huile moteur démarreur défectueux, injecteurs mécaniques defaillant ",Surpression ou fuite : perte d’huile → niveau bas → mauvaise lubrification → surchauffe & usure → risque de serrage ou feu au collecteur.,"Les joints et le démarreur ont été remplacés, et les injecteurs réparés.",Terminé,Duré de vie des piéces,Panne d'usure,"-Vidange moteur et filtres (tous 250 h / manuel constructeur)
+-Graissage joints et contrôle couples de serrage (après intervention / recommandations constructeur)
+-Inspection visuelle hebdomadaire (niveaux d’huile, fuites/suintements)
+-Nettoyage moteur trimestriel (début fuites/suintements)
+-Entretien ventilation du carter (PCV) 
+-Vérification silentblocs et couples de bride (limitation vibrations, prévention défaillances)"
+B6,Mini chargeuse ,P06 - Utilisation intensive sur terrain,Fissure structurelle détectée sur le godet,Fissure détectée sur le godet – soudure corrective à réaliser sur site par un soudeur avec groupe électrogène.,Godet soudé,Terminé,"Terrain rocheux – angles d’attaque inadaptés par l’opérateur, provoquant des torsions latérales.",Mauvaise utilisation,Nettoyage du godet quotidiennement pour détecter les fissures naissantes et prévenir la corrosion.
+B4,Mini chargeuse ,P99 - Panne moteur,Panne moteur,duré de vie des pieces internes du moteur,"
+-Dépose du moteur.
+-Rectification du vilebrequin et remplacement des coussinets de palier principal et de bielle.
+-Réalésage et chemisage du bloc-cylindres.
+-Remplacement des ensembles chemise-piston-segments et reconditionnement des bielles.
+-Pose complète des joints moteur (haut et bas) : culasse, cache-culbuteurs, collecteurs, joints spi vilebrequin avant/arrière, carter d’huile, pompe à eau, joints toriques et rondelles injecteurs/canalisations.
+-Remplacement des joints de queue et guides de soupapes.
+-Remontage, mise en huile et essais de fonctionnement.",Terminé,Durée de vie dépassée,Panne d'usure,"-Nettoyer le radiateur et vérifier le flux d’air tous les 250 h ; souffler les ailettes et remplacer le filtre.
+-Utiliser le liquide de refroidissement recommandé par l’OEM ; vidange et remplacement tous les 2 ans ou 2 000 h.
+-Respecter la séquence et le couple de serrage avec clé dynamométrique calibrée à chaque remontage.
+-Plan de vidange et analyse d’huile tous les 250 h ; remplacer les joints défectueux.
+-Laisser tourner le moteur au ralenti 2 min avant coupure ; surveiller la température quotidiennement et appliquer les bonnes pratiques opérateur.
+-Calibration périodique du système d’injection selon le manuel tous les 500 h."
+G4,Nivleuse,"P05 - Usure lames, axe ou articulation",Système de lame d’une niveleuse : jeu excessif et perte de précision de nivellement.,Usure combinée mécanique (glissière et axe) et hydraulique (distributeur).,"Dépose de la glissière et remplacement du support de guide-rail usé.
+Remplacement complet de l’axe de pivot et des bagues associées.
+Réfection du distributeur hydraulique avec kit de joints complet.
+Remontage, graissage et essais fonctionnels.
+lames changés",Terminé,"-Défaut d’entretien (mesures non respectées).
+-Lubrification insuffisante.
+-Nettoyage négligé.
+-Conditions de terrain défavorables.",Panne d'entretien,"-Graissage toutes les 8 h et vérification de l’extrusion autour de la couronne.
+-Contrôle/remplacement des joints d’étanchéité dès fissure et nettoyage cercle‑pignon.
+-Mesure mensuelle du jeu vertical : 0,3‑0,5 mm (selon constructeur).
+-Contrôle du jeu des engrenages et cales à chaque révision (1 000 h) ; remplacement si >0,15 mm.
+-Vérification du jeu du système de lame avec contrôleur cadran, jauge d’épaisseur, fil de plomb, soudure à l’étain ou test manuel.
+-Plan de contrôle périodique : glissière tous 250 h, backlash et end‑play à 1 000 h- en cas de bruit inhabituel.
+-Formation conducteur : limiter profondeur sur terrain dur, régime moteur, serrer supports au couple.
+-Changement des cales de réglage et inclinaison tous 2 000 h.
+-Nettoyage haute pression (HP) hebdomadaire pour modèle G10"
+G5,Nivleuse,"P05 - Usure lames, axe ou articulation",Système de lame d’une niveleuse : jeu excessif et perte de précision de nivellement.,"Usure prononcée des pignons d’entraînement de la lame et détérioration des cales de réglage→ jeu excessif et perte de précision du nivellement. Remplacement nécessaire des supports de lame (pignons et/ou cales). 
+Constat : 1 support présent au lieu de 3 requis.",remplacer les supports de la lame (pignons et cales).,Terminé,"-Défaut d’entretien (mesures non respectées).
+-Lubrification insuffisante.
+-Nettoyage négligé.
+-Conditions de terrain défavorables.",Panne d'entretien,"-Graissage régulier des pignons et cales tous les 250 h ou selon manuel constructeur.
+-Nettoyage haute pression (HP) de la zone lame/cales tous les 250 h ou après utilisation sur terrain difficile.
+-Mesure du jeu vertical des pignons et cales tous les 250 h, maintenir 0,3‑0,5 mm selon spécifications constructeur
+-Remplacement préventif des cales tous les 2 000 h ou selon manuel.
+-Vérification du nombre et état des supports de lame avant apparition de jeu excessif.
+-Formation opérateur : limiter profondeur et charges sur terrain dur, éviter manœuvres brusques."
+G10,Nivleuse,P04 - Surchauffe moteur,Hausse de température ,Probleme radiateur ,"-Lavage haute pression (HP) du radiateur moteur, du refroidisseur d’huile hydraulique et du refroidisseur d’huile de boîte powershift ; rinçage et nettoyage interne du réservoir hydraulique.
+-Remplacement des pignons et cales de lame.
+-Remplacement de la durite.",Terminé,Lavage insuffisant,Panne d'entretien,"-Lavage HP des radiateurs et refroidisseurs (hebdomadaire ou selon usage).
+-Rinçage et nettoyage du réservoir hydraulique.
+-Graissage et inspection des pignons et cales (250 h).
+-Contrôle et remplacement des durites avant défaillance.
+-Mesure du jeu de lame et usure cales/pignons (mensuel / 1 000 h)."
+G6,Nivleuse,P05 - Usure axe ou articulation,Système de lame d’une niveleuse : jeu excessif et perte de précision de nivellement., Détérioration des cales de réglage→ jeu excessif et perte de précision de nivellement obligeant à remplacer les supports de la lame (pignons et/ou cales).,Remplacer  les cales de réglage.,Terminé,"-Défaut d’entretien (mesures non respectées).
+-Lubrification insuffisante.
+-Nettoyage négligé.
+-Conditions de terrain défavorables.",Panne d'entretien,"-Graissage régulier des pignons et cales de lame (tous les 250 h ou selon manuel constructeur).
+-Inspection visuelle mensuelle du jeu de lame et des cales de réglage.
+-Nettoyage périodique de la zone lame/cales pour éviter accumulation de boue et poussière.
+-Remplacement préventif des cales usées avant apparition de jeu excessif."
+T5,Tractopelle,P04 - Surchauffe moteur,Surchauffe du moteur ,,"Problème radiateur : La partie centrale du radiateur (tubes + ailettes), où le liquide de refroidissement cède sa chaleur à l’air ambiant, est obstruée (tubes bouchés ou ailettes colmatées). Cela réduit fortement l’échange thermique, provoquant une élévation de la température du LDR et le déclenchement de l’alarme.",Terminé,LDR non conforme,Panne aléatoire,"-Nettoyage régulier du radiateur pour éviter colmatage des tubes et ailettes.
+-Utiliser un liquide de refroidissement de qualité.
+-Vidange et rinçage du LDR tous les 2 ans ou selon manuel constructeur.
+-Remplacement préventif du thermostat à chaque 2 vidanges ou 100 000 km/h équivalent.
+-Contrôle régulier du voyant par l’opérateur, consignation dans le registre.
+-Formation opérateurs : arrêt immédiat en cas de surchauffe pour éviter dommages irréversibles."
+T12,Tractopelle,P02-Défaillance hydraulique ,Fuite d’huile persistante sur la boîte de vitesses de l'avant-train,"Boîte de vitesses non équipée d’un reniflard, ce qui a entraîné une surpression interne. Cette accumulation de pression a provoqué la détérioration des joints et une fuite d’huile.",Installation de deux flexibles jouant le rôle de reniflard afin d’assurer la mise à l’air et éviter toute nouvelle surpression.,Terminé,Défaut de fabrication,Défaut de fabrication,"-Identifier les tractopelles avec le même type de moteur et boîte de vitesses et installer préventivement deux flexibles de mise à l’air pour éviter surpression et fuite.
+-Vérifier périodiquement la présence et le bon fonctionnement du reniflard ou système de mise à l’air.
+-Contrôler la pression interne de la boîte et inspecter régulièrement l’état des joints d’étanchéité."
+CO1,Compacteur,P07 - Problème électrique général,Alternateur hors service (en arret à beni khalled),"Alternateur hors service et batterie défaillante sur compacteur, malgré leur remplacement, dus à une  masse électrique, forte accumulation de poussière, ou défaut de câblage.","-Vérification approfondie et nettoyage des masses électriques et des connexions.
+-Contrôle de l’intégrité des câbles et de la continuité électrique (masse, câblage alternateur-batterie).
+-Nettoyage complet du compartiment moteur pour éliminer poussières et contaminants.
+-Contrôle des organes de charge (régulateur, fusibles).",Terminé,Duré de vie des piéces,Panne d'usure,"-Inspection régulière des masses et connexions électriques.
+-Nettoyage périodique du compartiment moteur.
+-Surveillance de la tension de courroie et de l’état des câbles.
+-Éviter surcharge électrique et protéger contre l’humidité/poussière."
+BD1,Bulldozer,P07 - Problème électrique général,Fausse alerte d'un temoin indiquant un probleme d'alternateur ,"fausse alerte : Le témoin de batterie reste allumé sur le tableau de bord, signalant un problème de charge du système électrique mais l’alternateur est en bon état  et  fournit la tension nécessaire à la batteri et  le circuit de charge n'est pas  interrompu.",Réparer faisceau electrique lié au témoin de batterie ,Terminé,"Inspection visuelle périodique lors de l'entretien preventif  du compartiment  moteur du câblage électrique (recherche de fissures, oxydation, dénudement).",Panne aléatoire,"lors de l'entretien preventif, contrôle régulier de la tension de charge moteur tournant à l’aide d’un multimètre (attendue : 13,5 à 14,5 V).
+Nettoyage et serrage des bornes de batterie et des connecteurs d’alternateur.
+Inspection visuelle périodique du câblage électrique (recherche de fissures, oxydation, dénudement).
+Vérification du bon état du régulateur de tension, surtout sur les systèmes intégrés à l’alternateur.
+Utilisation d’un outil de diagnostic OBD pour lire les éventuels codes d’erreur liés à la charge.
+Contrôle de la courroie d’alternateur (tension, usure, patinage)."
+TR6,Tracteur Routier,P11 - Panne mécanique,Panne roulement roue avant ,"Jeu anormal détecté au niveau du logement de pivot de direction sur le tracteur routier, causant une large ouverture et une perte de précision de l’orientation des roues avant.","-Remplacement des deux rotules de pivot.
+-Rechargement du logement du pivot par soudure à l’arc, pour combler l’usure et redonner du volume au logement.
+-Rectification au tour du logement rechargé pour un ajustement précis des rotules neuves.
+-Remontage avec contrôle du jeu et graissage.",Terminé,Duré de vie des piéces,Panne d'usure,"-Contrôle périodique du jeu aux rotules et au pivot de direction.
+-Graissage régulier des points de pivotement selon le plan de maintenance.
+-Inspection visuelle du porte-fusée et des rotules après utilisation intensive.
+-Remplacement préventif des rotules selon les heures de fonctionnement ou dès apparition de jeu.
+-Éviter les manœuvres brutales et les surcharges qui accélèrent l’usure des éléments de direction."
+G7,Nivleuse,P02 - Défaillance hydraulique,Frottement et usure du flexible hydraulique de rotation de lame,"Le flexible hydraulique assurant la rotation de la lame présente un frottement anormal, entraînant une dégradation prématurée du flexible et un dysfonctionnement potentiel du système de rotation.","-Remplacement du flexible hydraulique défectueux par un flexible neuf conforme aux spécifications constructeur.
+-Réajustement du passage du flexible pour éviter tout contact avec les surfaces susceptibles de provoquer frottement ou écrasement.
+-Installation de protections supplémentaires (gaine anti-abrasion, guides) si nécessaire.
+-Vérification de la mobilité de la lame et du système hydraulique pour s’assurer de l’absence de contraintes anormales.",Terminé,Duré de vie des piéces,Panne d'usure,"-Inspection régulière des flexibles hydrauliques pour détecter signes d’usure ou frottement.
+-Contrôle du positionnement et fixation des flexibles pour éviter contacts abrasifs.
+-Application de protections anti-abrasion sur les zones sensibles.
+-Nettoyage périodique des zones de passage du flexible pour limiter la présence de poussières et débris.
+-Remplacement des flexibles suivant le calendrier constructeur ou dès premiers signes de détérioration."
+B7,Mini chargeuse ,P04 - Surchauffe moteur,Dysfonctionnement du manocontact de température d'huile moteur,Le capteur (manocontact) est endommagé accidentellement par le mécanicien lors d’interventions précédentes car il ne se bouche pas naturellement.,"-Nettoyage complet du radiateur moteur.
+-Remplacement du thermostat.
+-Remplacement du manocontact de température.",Terminé,Duré de vie des piéces et LDR NON CONFORME,Panne d'usure,"Vérification régulière de l’état du capteur et du câblage.
+Contrôle périodique du circuit de refroidissement.
+Nettoyage régulier du radiateur pour éviter toute obstruction.
+Remplacement préventif du thermostat selon les heures d’utilisation recommandées"
+C12,Cylindre,"P05 - Usure lame, axe ou articulation",Usure du demi-arbre de roue et jeu anormal dans la couronne du réducteur de moyeu," L’usure avancée du demi-arbre de roue a engendré un frottement excessif, entraînant un jeu important dans la couronne du réducteur de moyeu.
+","-Remplacement du demi-arbre de roue usé.
+-Remplacement de la couronne endommagée du réducteur de moyeu.",Terminé,Duré de vie des piéces,Panne d'usure,"Surveillance régulière des jeux dans les transmissions de roue.
+Contrôle et remplacement périodique des lubrifiants du réducteur.
+Inspection visuelle et mécanique des composants (couronne +demi-arbre +roue) après un nombre d’heures défini.à chaque vidange ?"
+F2,Finisseur,P10 -accident suite à un choc,Rupture de la chenille suite à un choc ,Rupture brutale de la chenille causée par un choc direct avec un regard ,Remplacement complet de la chenille endommagée.,Terminé,manque d'attention de l'opérateur,Mauvaise utilisation,"Inspection visuelle quotidienne de la voie de roulement.
+Sensibilisation des opérateurs à la détection des obstacles.
+Amélioration du balisage et du repérage des regards sur les zones de travail."
+P1,Pelle ,P99 - Autre panne,Moteur ne démarre pas malgré révision ( A verifier),"Après une révision moteur, le moteur ne démarre toujours pas. Inspection approfondie a révélé plusieurs anomalies mécaniques  (vilebrequin, chemises, pistons, coussinets, soupapes) à cause de l’intrusion de poussières et débris suite à jauge d’huile et bouchon moteur laissés ouverts précedemment.","Révision complète du moteur, incluant :
+Remplacement des chemises et pistons,
+Installation d’une pochette complète d’étanchéité (interne + externe),
+Changement des coussinets de ligne d’arbre à cames et de bielles, 
+Remplacement des soupapes . 
+Remplacement du vilebrequin",Terminé,"Jauge d’huile laissée ouverte par le conducteur.
+Bouchon de logement moteur non refermé correctement.
+Intrusion de corps étrangers (poussières, ferraille) due à u à l’oubli du bouchon ouvert.
+Usure du vilebrequin et des composants internes suite à frottements anormaux.
+",Panne d'usure,"Vérification systématique du bouchon de jauge et des trappes moteur après chaque intervention.
+Formation et sensibilisation des conducteurs à l’importance des vérifications de routine.
+Mise en place d’un contrôle de conformité après maintenance (check-list de fermeture et serrage).
+Surveillance régulière de la  lubrification pour prévenir toute usure prématurée.
+"
+CH4,Chargeuse ,P02 - Défaillance hydraulique,Présence d’un bouchon plastique dans la pompe hydraulique,"Le bouchon plastique introduit accidentellement dans le circuit a provoqué un blocage partiel de la pompe hydraulique, entraînant une baisse de performance et un risque de détérioration des organes internes.","Remplacement de 2 para-huiles (filtres hydrauliques du surplus de gaz et vapeur).
+Remplacement de 2 crousillons du.
+Remplacement du cardan ( transmission de puissance hydraulique au niveau de la pompe ).
+Nettoyage complet du circuit hydraulique pour éliminer toute trace de plastique.",Terminé,bouchon plastique ,mauvaise utilisation,"Mise en place d’un protocole strict de fermeture et protection des orifices lors des interventions.
+Contrôle périodique des filtres et remplacement préventif des para-huiles.
+Formation des opérateurs et techniciens sur le risque   des contaminations internes.
+Inspection régulière du circuit pour détecter toute présence de débris."
+B14,Mini chargeuse ,P02 - Défaillance hydraulique,"Fuite d’huile hydraulique + panne manette d’accélérateur 
+Perte de pression et risque de défaillance hydraulique liés à la fuite.","
+
+Dysfonctionnement de la manette d’accélérateur entraînant une perte de contrôle du régime moteur.","Identifier l’origine de la fuite, Réparer ou remplacer les composants défectueux, Refaire le niveau d’huile, Vérifier la pression du circuit, Nettoyer la zone",Terminé,Duré de vie des piéces,Panne d'usure,"-Inspection étanchéité circuit hydraulique
+-Serrage raccords hydrauliques (couple recommandé)
+-Lubrification et réglage commandes mécaniques (accélérateur)
+-Remplacement préventif flexibles (préconisations constructeur)"
+B15,Mini chargeuse ,P09 -Fuite de gasoil ,"Fuite de gasoil 
+( risque d’incendie, de pollution et de baisse d’autonomie",".
+
+Présence d’impuretés dans le réservoir favorisant l’usure du circuit d’alimentation.",remplacement des joints d'étencheité ,terminé,Duré de vie des joints,Panne d'entretien -Panne d'usure,"changement du filtre carburant Inspection durites et raccords (usure/fissures ,et odeur gazoil intense au niveau de la diurite).
+Contrôle visuel d’étanchéité
+Tous les 250 h (avec la vidange moteur)
+Remplacement préventif des joints de conduites carburant
+Tous les 2 000"
+C15,Cylindre ,P10 -accident suite à un choc,Bras endommagé suite à un choc,Déformation et/ou fissuration suite à un choc sur chantier.,"Soudure des zones fissurées.
+
+Dressage du bras pour rétablir sa forme initiale.",Terminé,manque d'attention de l'opérateur,Mauvaise utilisation,
+C13,Cylindre ,"P05 - Usure lame, axe ou articulation",Rupture de l’axe de rotation du cylindre,"L’axe de rotation s’est rompu en deux, probablement dû à un couple de torsion excessif.
+
+Cette rupture a été aggravée par une usure avancée ou une fissure mal réparée.","Remplacement complet de l’axe de rotation.
+
+Graissage systématique de l’axe et des points mobiles.
+
+Remplacement de 2 électrovannes Fibreu.
+
+Réparation du faisceau électrique.
+",Terminé,manque de graissage,Panne d'entretien,"-Inspection régulière de l’état de l’axe et des composants associés.
+-Lubrification périodique selon recommandations constructeur.
+-Surveillance des efforts mécaniques pour éviter les surcharges.
+-Contrôle et maintenance du système électrique (électrovannes et faisceau).
+"
+B7,Mini chargeuse ,P04 - Surchauffe moteur,Surchauffe du moteur ,"Radiateur encrassé ou bouché réduisant l’échange thermique.
+
+Pompe à eau défectueuse empêchant la circulation correcte du liquide de refroidissement.","Nettoyage radiateur.
+
+Nettoyage approfondi (circuit de lubrification du moteur ""ailettes et passages"" ).
+",Terminé,"Manque d’entretien régulier du système de refroidissement et utlisiation de produit non conforme,",Panne d'entretien,"-Lavage et inspection du radiateur toutes les 100–150 heures pour environnements poussiéreux.
+-Vérification régulière du fonctionnement de la pompe à eau.
+-Contrôle du niveau et qualité du liquide de refroidissement.
+-Sensibilisation des opérateurs à l’importance du refroidissement moteur."
+C4,"Cylindre pneumatique ""monobulle""",P04 - Surchauffe moteur,Surchauffe du moteur ,radiateur colmaté,"Nettoyage radiateur.
+
+À vérifier : Nettoyage approfondi (circuit de lubrification du moteur ""ailettes et passages"" ). ",Terminé,LDR non conforme,Panne aléatoire,"-Contrôle régulier du niveau d’huile.
+-Entretien périodique de la pompe à huile et du système de lubrification.
+-Sensibilisation aux procédures de maintenance adaptées."
+CH13,chargeuse ,P04 - Surchauffe moteur,Surchauffe du moteur ,"Surchauffe causée par un échangeur thermique encrassé ou une fuite de liquide de refroidissement (LDR).
+
+Ventilateur inefficace réduisant la dissipation de chaleur.",Entretien complet et lavage de l’échangeur thermique.,Terminé,LDR non conforme,Panne aléatoire,"-Inspection régulière de l’échangeur et du circuit de refroidissement.
+-Contrôle périodique du niveau et de l’état du liquide de refroidissement.
+-Vérification du bon fonctionnement du ventilateur.
+-Nettoyage périodique tous les 250 à 500 heures pour éviter l’accumulation de poussières."
+P3,Pelle ,P11 - Panne mécanique,Porte-vérin endommagé,l'Usure ou dégradation du porte-vérin  entraine un Risque de jeu excessif ou fuite hydraulique.,"Remplacement d'axe, des joints d'étencheité et des bagues usés.
+
+",Terminé,manque de lubrification,Panne aléatoire,"-Lubrification périodique selon recommandations constructeur.
+-Inspection régulière des joints, bagues et porte-vérin.
+-Formation des opérateurs pour éviter les chocs et mauvaises utilisations."
+T13,Tractopelle,P07 - Problème électrique général,Problème de démarreur,Démarreur défectueux empêchant le moteur de démarrer correctement.,"Remplacement complet du démarreur.
+",Terminé,duré de vie d'alternateur ,Panne d'usure,"-Contrôle serrage des bornes et câbles et Nettoyage oxydation éventuelle.
+-Test périodique du démarreur (Faire tourner le démarreur à vide + Mesurer intensité absorbée et tension)
+-Protection contre l’humidité et la corrosion des composants électriques (Utiliser graisses ou sprays isolants sur bornes ou Protéger câblage avec gaines/étanchéité)."
+T11,Tractopelle,P02 - défaillance hydraulique,Fuite d’huile et échappement,"Fuite d’huile au niveau du convertisseur et du cardan.
+
+Fuite d’huile sur la roue avant (parahuile).
+
+Fuite d’huile dans la boîte de vitesses, causant surchauffe.
+
+Échappement lié à des fissures ou dommages nécessitant soudure sur le réservoir d’huile.
+","Changement du distributeur hydraulique.
+
+Remplacement ou réparation de la boîte de vitesses.
+
+Soudure des fuites sur le réservoir d’huile et échappement.",Terminé,"
+
+Défaillance du distributeur hydraulique.
+
+Surchauffe due à un mauvais fonctionnement de la boîte de vitesses.",Panne aléatoire,"-Contrôle régulier des niveaux et état des huiles.
+-Inspection fréquente des joints ,parahuiles ,distributeurs et engrenages.
+-Surveillance des températures de fonctionnement."
+T10,Tractopelle,P02 - Défaillance hydraulique,"Panne commodo, pneus, distributeurs et démarrage+mano température + compteur ","Dysfonctionnement du comodo (commande électrique multifonction).
+
+Problèmes liés aux pneus (usure ou pression insuffisante).
+
+Défauts sur 2 distributeurs hydrauliques de boîte.
+
+Problème de démarrage électrique.
+
+Circuit gasoil encrassé nécessitant nettoyage et remplacement de composants d’étanchéité.","-Remplacement ou réparation des 2 distributeurs hydrauliques de boîte.
+-Nettoyage complet du circuit gasoil.
+-Remplacement du kit de joints (coupelle, cale).
+-Contrôle et maintenance des pneus.
+-Changement mano température + compteur de la T11",Terminé,,Panne aléatoire,"-Entretien régulier du circuit hydraulique et des distributeurs.
+-Nettoyage périodique du circuit gasoil.
+-Vérification régulière du commodo et du système électrique de démarrage.
+-Surveillance et entretien des pneus selon recommandations."
+T8,Tractopelle,P07 - Problème électrique général,Coupure de courant due à des  fils électriques,"Interruption de l’alimentation électrique causée par des fils déconnectés ou retirés.
+
+","-Remise en place normale des fils retirés.
+-Contrôle des connexions et sécurisation du câblage.",Terminé,manque d'inspection cablage faisceau electrique lors de l'entretien préventif,Panne aléatoire-Panne d'entretien,"-Inspection systématique du câblage après toute intervention.
+-Formation des techniciens à la manipulation rigoureuse du faisceau électrique.
+-Mise en place de procédures de vérification avant remise en service."
+CH6,Chargueuse,"P04 - Surchauffe moteur
+P09 -Fuite de gasoil ",Fuite d’eau pompe à eau / fuite gasoil injecteur,"-Fuite d’eau au niveau de la pompe à eau entraînant une perte de liquide de refroidissement.
+
+-Fuite de gasoil au niveau des injecteurs, risquant une perte de carburant et dysfonctionnement moteur.
+
+-Problème d’amortissement pouvant affecter la stabilité ou le confort.","Remplacement ou réparation des joints et pièces défectueuses de la pompe à eau.
+Réparation ou remplacement des joints et composants des injecteurs.
+Vérification et réparation du système d’amortissement.
+",Terminé,durée de vie des pièces (pomope à eau et injecteurs),Panne d'usure,"-Contrôler régulièrement niveaux, propreté, filtres et fuites des circuits d’eau et carburant.
+-Inspection périodique des injecteurs et de leurs raccords.
+-Entretien des amortisseurs selon recommandations constructeur."
+B3,Mini-Chargeuse,P11 - Panne mécanique,Problème de goujon,"Goujon endommagé ou cassé affectant la fixation des roues
+","Remplacement des goujons sur les 4 roues
+",Terminé,Couple élevée,Panne aléatoire,"-Vérification régulière de l’état des goujons.
+-Contrôle du serrage et fixation correcte des roues.
+-Éviter les surcharges et chocs violents."
+G4,Nivleuse ,"P05 - Usure lame, axe ou articulation","Usure des cales, lames, pignons, amortissement et distributeurs","-Les cales, lames et pignons sont usés, ce qui réduit l’efficacité de la machine.
+-Le système d’amortissement est défaillant, affectant la stabilité.
+-Deux distributeurs hydrauliques doivent être remplacés","-Remplacement des cales, lames et pignons usés.
+-Réparation ou remplacement du système d’amortissement.
+-Changement des deux distributeurs hydrauliques",Terminé,"durée de vie des pièces (cales, lames, pignons, amortisseurs et distributeurs)",Panne d'usure,"un stock de sécurité des piéces (,,,,,,,) pour éviter la rupture en cas de délai d’approvisionnement.
+Contrôle régulier des pièces d’usure.
+Entretien périodique du système d’amortissement.
+Vérification des distributeurs et remplacement préventif."
+T16,Tractopelle,P07 - Problème électrique général,Croie alternateur défectueuse,"La courroie d’alternateur est usée ou cassée, empêchant la recharge de la batterie et le bon fonctionnement électrique.",changement de courroie,Terminé,duré de vie de courroie,Panne d'usure,"-Contrôle régulier de l’état et de la tension de la courroie.
+-Remplacement préventif avant rupture."
+T8,Tractopelle,P07 - Problème électrique général,Problèmes de démarrage,"Démarreur défectueux
+",changement de démarreur,Terminé,fin de vie de démarreur,Panne d'usure,"-Vérification régulière de la batterie et du démarreur.
+-Nettoyage du circuit carburant.
+-Contrôle des commandes électriques."
+C1,Cylindre ,P07 - Problème électrique général,Problème électrique marche avant et arrière,Dysfonctionnement du système électrique contrôlant les mouvements avant et arrière.,changement de selecteur de vitesse + changement d'alternateur,Terminé,Défaut de fabrication,Défaut de fabrication,"-Inspection régulière du système électrique.
+-Vérification des connexions et relais.
+-Entretien préventif des composants électriques."
+T10,Tractopelle,P07 - Problème électrique général,mano temperature moteur+comodo +entretien,oxydation des fils electrique,"entretien complet fait , réparation faisceau mano temperature et comodo",Terminé,Infiltration d’humidité dans le faisceau électrique due à une protection insuffisante des connecteurs et à un mauvais routage des câbles exposés aux projections d’eau ou aux lavages.,Panne d'entretien,Pose de gain(es) thermo-rétractable(s) chauffante(s) sur les câbles réparés et les jonctions pour assurer une étanchéité durable.
+P2,Pelle ,P07 - Problème électrique général,courroie alternateur,duré de vie de courroie,changement de courroie et alternateur,Terminé,Duré de vie des pieces,Panne d'usure,
+G9,Nivleuse,P11 - Panne mécanique,flexible de frein,fin de vie de flexible,changement de flexible de frein et purger tout le système,Terminé,Duré de vie de flexible,Panne d'usure,
+B13,Mini chargeuse ,P11 - Panne mécanique,deux pneus usés,fin de vie des pneus ,changement des pneus neuf ,Terminé,Duré de vie des pneus,Panne d'usure,
+CH4,Chargeuse ,P02 - Défaillance hydraulique,Pression hydraulique insuffisante,Pompe à huile obstruée par huile contaminée,démontage de carter et rincage de crépine de pompe a huile et changement des injecteurs,Terminé,"Huile sale ou vieille, il n’ y pas eu changement d'huile à temps pendant la vidange",Panne d'usure,"Utilisation huile adaptée et ne pas dépassé la période de vidange 
+"
+G7,Nivleuse,"P05 - Usure lame, axe ou articulation",Système de lame (cales et tige )d’une niveleuse : jeu excessif et perte de précision de nivellement.,Usure mécanique des cales et de l’axe due aux frottements répétés et manque de lubrification,démontage du système de lame et changement d'axe et cales ,Terminé, insuffisance de graissage régulier et absence de contrôle périodique du jeu +Durée de vie atteinte des cales et axes ,Panne d'usure,
+FR1,Fraiseuse,P04 - Surchauffe moteur,Température élevée ,Surchauffe moteur due à un radiateur colmaté par des feuilles d’arbre aspirées par le ventilateur dans la zone verte de Morneg.,Nettoyage complet du radiateur.,Terminé,manque de lavage,Panne d'entretien,"-Nettoyage périodique du radiateur, surtout en zones à forte végétation.
+-Vérification visuelle régulière pour éviter accumulation de débris."
+P9,Pelle,P07 - Problème électrique général,Alternateur + batterie,"batterie + roulement alternateur defectueux (probleme ddu rotor ""induit"" qui est cher donc vaut mieux proceder au remplacement de tout l'alternateur) et regulateur fin de vie",changement alternateur et batterie,Terminé,Duré de vie des pieces,Panne d'usure,mesurer tension alternateur avec multimètre
+P3,Pelle,P07 - Problème électrique général,Démarreur,"Aucune alimentation n’arrive au démarreur,  ou le démarreur est en fin de vie",Nettoyage les cosses des fils  avec un produit antioxydant WD40 et resserrage des connexions électriques.,Terminé,Oxydation ou mauvais contact électrique au niveau des cosses,Panne aléatoire,Intégrer un contrôle périodique des connexions électriques (tous les 250 h)
+CP2,Compresseur,P04 -Surchauffe moteur,Système de refroidissement,"manque de LDR
+ et radiateur boucher
+pompe à eau defectuex",changement de radiateur  et rincage de tout le circuit de refroidissement,Terminé,qualite du LDR ,Panne aléatoire,"analyse du LDR  chez SOTULIB ou SpectroLab International SA ou MediClean | Fluides Auto
+"
+T5,Tractopelle,P07 - Problème électrique général,probleme Electrique pas de contact ou temoin allumé en continu,oxydation des fils electrique,Réparation du faisceau electrique ,Terminé,"Vieillissement naturel du câble
+Exposition du faisceau électrique à l’humidité, à la poussière
+rat 
+Détérioration du faisceau électrique causée par des rongeurs (morsures entraînant court-circuit ou perte de continuité).",Panne d'usure,"Nettoyage régulier, répulsifs, gaines blindées."
+T7,Tractopelle,"P02 - Défaillance hydraulique
+P09 -Fuite de gasoil",Vérin +circuit carburant,"Usure des éléments d’étanchéité du vérin ou manque d’huile dans le système.
+Présence d’impuretés, de saletés ou obstruction du circuit de carburant.","changement des éléments nécessaire de vérin (parahuile) ou purger le circuit d'huile.
+vérification de tout le circuit de carburant (reservoir,tuyauterie, pompe à gazoil)  et changement du filtre de carburant.",Terminé,"Manque d'entretien (lavage) (
+ 
+Usure naturelle (étanchéité du vérin)
+
+mauvaise qualité carburant : Contamination / manque de filtration (circuit carburant)
+
+Défaut d’entretien préventif (remplacement fluide/filtre non respecté)",Panne d'usure,"lavage quotidien (un torchom imbibé d'un produit antioxydant puis graissage avec un pinceau), changement de parahuile"
+C4,Cylindre,P11 - Panne mécanique,Tendeur + courroie,durée de vie de courroie + tendeur,changement de kit courroie  + tendeur,Terminé,Duré de vie des pieces,Panne d'usure,
+B4,Mini chargeuse ,P04 -Surchauffe moteur,Joint de culasse,surchauffe moteur,"Démontage de la culasse et vérification de l’état de surface.
+Rectification de la culasse et remplacement du joint de culasse.",Terminé,LDR non compatible,Panne aléatoire,
+CH13,Chargeuse ,P11 - Panne mécanique,"Système
+de freinage",plaquettes ou machoirs usé  ou bien fuite d'huile au niveau de systéme de freinage ,"Remplacement des plaquettes ou des mâchoires de frein.
+remplacement des durites et Purge du système de freinage ,",Terminé,Duré de vie des pieces,Panne d'usure,
+T8,Tractopelle,P11 - Panne mécanique,"Rotules direction +
+roulement roue avant",Rotule direction et roulement en fin de vie ,changement du rotule de direction et roulement des roues avant,Terminé,Duré de vie des pieces,Panne d'usure,
+G7,Niveleuse,"P05 - Usure lame, axe ou articulation",Cales lame,cales lames usés réduits  l'éfficacité de machine,changement des cales lames,Terminé,,Panne aléatoire,
+G4,Niveleuse,P07 - Problème électrique général,Absence du courant,court circuit,Réparation du faisceau electrique et remplacement du fusible,Terminé,,Panne aléatoire,
+C8,Cylindre,P04 -Surchauffe moteur,Fuite d'eau au niveau du radiateur,radiateur defectueux,Réparation radiateur (soudure  du radiateur en cuivre avec du plomb),Terminé,problème lié au LDR ou oubli de remplacement du LDR lors vidange radiateur,Panne d'entretien,
+P3,Pelle,P07 - Problème électrique général,Problème de démarrage,batterie fin de vie,Changement de batterie,Terminé,Duré de vie des pieces,Panne d'usure,
+CH10,Chargeuse ,P04 -Surchauffe moteur,Pastille de déssablage au niveau du bloc moteur (appartient au système de refroidissemnt),corrosion de pastille a cause de LDR  non conforme,changement de pastille et rincage de circuit de refroidissment ,Terminé,mauvaise qualité du LDR ou non compatible,Mauvaise utilisation,
+C8,Cylindre,P04 -Surchauffe moteur,casse au niveau de cage radiateur (fuite LDR) + masse  électrique coupe courant,Surpression d’air (probleme de joint)  dans le circuit de refroidissement entraînant la rupture du boîtier (ou de la cage) du radiateur,démontage et changement du joint de culasse,Terminé,"niveau bas du LDR ou lors de la vidange radiateur  : Mauvais entretien  du système de refroidissement (purge non faite, bouchon de radiateur défectueux)",Panne d'entretien,
+B7,mini Chargeuse,P04 - Surchauffe moteur,Surchauffe du moteur ,ventilateur de refroidissment radiateur tourne faible,augmenter la pression jusqu'à 40 bars  d'huile afin d'augmenter le nombre de tour du  ventilateur  500 tour/min,Terminé,Duré de vie du ventilateur donc il y a eu juste prolongation  de duree de vie  par augmenter la pression temporairement ,Panne d'usure,"changer le susteme de ventilation ,,,,,,, viscocoupleur"
+CH6,Chargeur,P11 - Panne mécanique,Défaut injecteurs,Injecteurs défaillants ou mal tarés ,changement des injecteurs,Terminé,Duré de vie des injecteurs,Panne d'usure,
+G10,Gradere,P06 - Utilisation intensive sur terrain,couronne de lame,surcharge,changement de couronne de lame,Terminé,surcharge,Mauvaise utilisation,formation chauffeur
+CH2,Chargeuse ,"P04 - Surchauffe moteur
+P11- Panne mecanique",Probléme de vitesse 1er et 3éme + fuite au niveau de pompe à eau ,"la tige de sélection de vitesses est mal fixée
+pompe a eau fin de vie",correction de l'emplacement de tige de sélection des vitesse + changement de pompe à eau ,Terminé,défaut de fabrication Tige de commande du sélecteur de vitesses desserrée et duré de vie de pompe à eau,Panne d'usure,
+C8,Cylindre,P07 - Problème électrique général,Problême de démarrage,rupture de courroie d'accessoires,changement de courroie,Terminé,Duré de vie de courroie,Panne d'usure,
+G4,Gradere,P11 - Panne mécanique,Rotule de direction,fin de vie de Rotule de direction,changer la rotule de direction ,Terminé,Duré de vie de rotule,Panne d'usure,
+C12,Cylindre,P07 - Problème électrique général,Probléme electrique,oxydation des fils electrique,réparation des fils électrique,Terminé,,Panne aléatoire,
+G7,Gradere,P03 - Fuite huile moteur,Fuite d'huile moteur,Parahuile vilebrequin,changement de parahuile de vilebrequin,Terminé,Duré de vie de parahuile,Panne d'usure,
+B5,Mini Chargeuse,P07 - Problème électrique général,Problème électrique ( Alternateur),Durée de vie d'alternateur,changement d'alternateur,Terminé,Duré de vie d'alternateur,Panne d'usure,entretien ?
+G7,Gradere,P11 - Panne mécanique,Défaut injecteurs,Injecteurs défaillants ou mal tarés,Changement des injecteurs,Terminé,Duré de vie des injecteurs,Panne d'usure,
+CH2,Chargeur,P07 - Problème électrique général,Probléme de démarrage,2 batteries fin de vie,changement des deux batteries,Terminé,Duré de vie des batterie,Panne d'usure,
+B3,Mini chargeur,"P11 - Panne mécanique
+P06 - Utilisation intensive sur terrain",TOC (POUR LIAISON AMORTISSEUR-CHASSIS) + BATTERIE + LAME DU GODET,fin de vie pour toc et batterie + CHANGEMENT DE LAME,"changement de toc,  batterie et lames",Terminé,Duré de vie des pieces,Panne d'usure,
+G6,Nivleuse,"P05 - Usure lame, axe ou articulation",démarrage dificile  et jeu cales et lames,injecteurs défaillants et duré de vie des cales et lames ,changement kit lames complet et injecteurs (6),Terminé,Duré de vie des pieces,Panne d'usure,
+CH9,chargeuse ,P04 - Surchauffe moteur,Surchauffe du moteur ,pompe à eau défectueuse,Changement de pompe à eau,Terminé,Duré de vie de pompe à eau,Panne d'usure,
+CH3,chargeuse ,P04 - Surchauffe moteur,Surchauffe du moteur ,pompe à eau défectueuse,Changement de necessaire et presse étoupe du pompe à eau ,Terminé,Duré de vie des pieces,Panne d'usure,
+T22,Tractopelle,P07 - Problème électrique général,probléme de démarrage,pas de gasoil aux injecteurs,Changement de pompe electrique haute pression,Terminé,Duré de vie des piéces interne de pompe HP,Panne d'usure,
+T18,Tractopelle,P03 - Fuite huile moteur,fuite d'huile pont,parahuile d'étencheité fin de vie,Changement de parahuile de pont,Terminé,Duré de vie de parahuile,Panne d'usure,
+B10,Mini chargeuse ,P04 - Surchauffe moteur,Surchauffe du moteur ,ventilateur de refroidissment radiateur ne tourne pas,Changement moteur ventilateurs et garder les helices,Terminé,"Duré de vie de moteur 
+ ventilateurs",Panne d'usure,c
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
