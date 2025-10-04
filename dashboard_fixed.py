@@ -685,8 +685,8 @@ with tab5:
                            title="Heatmap causes × Equipment Type",
                            color_continuous_scale="Reds",
                            labels={
-                               "x": "Equipment Type",  # X-axis label for heatmap
-                               "y": "Root Cause",       # Y-axis label for heatmap
+                               "x": "Root Cause",  # X-axis label for heatmap
+                               "y": "Equipment Type",       # Y-axis label for heatmap
                                "color": "Percentage (%)"  # Color bar label
                            })
             st.plotly_chart(fig8, use_container_width=True)
@@ -697,7 +697,7 @@ with tab5:
     # KPI 1: Disponibilité des pièces
     if categories_stats["disponibilite"]["pct"] is not None and not categories_stats["disponibilite"]["pct"].empty:
         st.subheader("Breakdown Category % in Terms of Availability")
-        fig_disp = px.bar(categories_stats["disponibilite"]["pct"], x="class", y="pct", 
+        fig_disp = px.bar(categories_stats["disponibilite"]["pct"], x="classe", y="pct", 
                          title="Distribution by Spare Parts Availability",
                          color_discrete_sequence=["#4e73df"])
         st.plotly_chart(fig_disp, use_container_width=True)
