@@ -317,7 +317,7 @@ def kpi_causes(df):
     
     for c in cols:
         low = str(c).strip().lower()
-        if "classification des causes racine" in low:
+        if "classification root cause" in low:
             c_cause = c
         if low in ["désignation", "désignation ", "designation"]:
             c_des = c
