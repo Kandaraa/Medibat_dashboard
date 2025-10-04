@@ -496,7 +496,7 @@ with c1:
 with c2:
     st.metric("Index functional", idx_stats["marche"])
 with c3:
-    st.metric("Index to check", idx_stats["verifier"])
+    st.metric("Index to be checked", idx_stats["verifier"])
 with c4:
     panne_pct = pct(idx_stats["panne"], idx_stats["total"])
     st.metric("% Breakdown vs Total", f"{panne_pct:.1f}%")
@@ -547,7 +547,7 @@ with tab1:
             "val": [idx_stats["panne"], idx_stats["marche"], idx_stats["verifier"]]
         })
         fig2 = px.pie(donut_data, names="cat", values="val", hole=0.5, 
-                     title="Composition globale",
+                     title="Global Composition",
                      color="cat",
                      color_discrete_map={"Out of Service": "#dc3545", "Functional": "#28a745", "To be checked": "#ffc107"})
         colB.plotly_chart(fig2, use_container_width=True)
@@ -573,8 +573,7 @@ with tab3:
     vals = pd.DataFrame({
         "Conformité": ["Compliant", "Partial"],
         "count": [conf_stats["conf_count"], 
-                 conf_stats["part_count"], 
-                 conf_stats["total"] - conf_stats["conf_count"] - conf_stats["part_count"]]
+                 conf_stats["part_count"] ]
     })
     
     fig4 = px.pie(vals, names="Conformity", values="count", hole=0.35,
