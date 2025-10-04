@@ -668,7 +668,7 @@ with tab5:
     if not cause_stats["pct_tbl"].empty:
         fig7 = px.bar(cause_stats["pct_tbl"], x="cause", y="pct", 
                      title="Root Causes (global)",
-                     color_discrete_sequence=["#dc3545"]),
+                     color_discrete_sequence=["#dc3545"],
                      labels={
                          "cause": "Root Cause",  # X-axis label
                          "pct": "Percentage (%)"  # Y-axis label
