@@ -668,7 +668,7 @@ with tab5:
     if not cause_stats["pct_tbl"].empty:
         fig7 = px.bar(cause_stats["pct_tbl"], x="cause", y="pct", 
                      title="Root Causes (global)",
-                     color_discrete_sequence=["#dc3545"])
+                     color_discrete_sequence=["#dc3545"]),
                      labels={
                          "cause": "Root Cause",  # X-axis label
                          "pct": "Percentage (%)"  # Y-axis label
@@ -683,7 +683,7 @@ with tab5:
                 values="pct", fill_value=0.0)
             fig8 = px.imshow(pivot, aspect="auto", 
                            title="Heatmap causes × Equipment Type",
-                           color_continuous_scale="Reds"
+                           color_continuous_scale="Reds",
                            labels={
                                "x": "Equipment Type",  # X-axis label for heatmap
                                "y": "Root Cause",       # Y-axis label for heatmap
