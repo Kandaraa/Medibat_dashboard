@@ -669,6 +669,10 @@ with tab5:
         fig7 = px.bar(cause_stats["pct_tbl"], x="cause", y="pct", 
                      title="Root Causes (global)",
                      color_discrete_sequence=["#dc3545"])
+                     labels={
+                         "cause": "Root Cause",  # X-axis label
+                         "pct": "Percentage (%)"  # Y-axis label
+                     })
         st.plotly_chart(fig7, use_container_width=True)
         
         if cause_stats["by_engine"] is not None and not cause_stats["by_engine"].empty:
@@ -679,7 +683,12 @@ with tab5:
                 values="pct", fill_value=0.0)
             fig8 = px.imshow(pivot, aspect="auto", 
                            title="Heatmap causes × Equipment Type",
-                           color_continuous_scale="Reds")
+                           color_continuous_scale="Reds"
+                           labels={
+                               "x": "Equipment Type",  # X-axis label for heatmap
+                               "y": "Root Cause",       # Y-axis label for heatmap
+                               "color": "Percentage (%)"  # Color bar label
+                           })
             st.plotly_chart(fig8, use_container_width=True)
     
     # Nouveaux KPIs pour l'analyse des causes
@@ -688,7 +697,7 @@ with tab5:
     # KPI 1: Disponibilité des pièces
     if categories_stats["disponibilite"]["pct"] is not None and not categories_stats["disponibilite"]["pct"].empty:
         st.subheader("Breakdown Category % in Terms of Availability")
-        fig_disp = px.bar(categories_stats["disponibilite"]["pct"], x="classe", y="pct", 
+        fig_disp = px.bar(categories_stats["disponibilite"]["pct"], x="class", y="pct", 
                          title="Distribution by Spare Parts Availability",
                          color_discrete_sequence=["#4e73df"])
         st.plotly_chart(fig_disp, use_container_width=True)
@@ -706,7 +715,7 @@ with tab5:
                 values="count", fill_value=0)
             
             fig_disp_heat = px.imshow(pivot_disp, aspect="auto", 
-                                    title="Heatmap disponibilité × Equipment Type",
+                                    title="Heatmap disponibility × Equipment Type",
                                     color_continuous_scale="Blues")
             st.plotly_chart(fig_disp_heat, use_container_width=True)
     
@@ -770,7 +779,7 @@ with tab6:
     
     fig9 = go.Figure(data=[go.Bar(x=labels, y=vals, marker_color=colors)])
     fig9.update_layout(title="On-Schedule / Off-Schedule",
-                      xaxis_title="Catégorie", yaxis_title="Nombre")
+                      xaxis_title="Category", yaxis_title="Number")
     st.plotly_chart(fig9, use_container_width=True)
     
     # Gauge
