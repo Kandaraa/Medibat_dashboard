@@ -649,7 +649,7 @@ with tab4:
         st.subheader("Durations in Chronological Order")
         timeline_df = pd.DataFrame({
             "Index": range(len(maint_stats["valid_durations"])),
-            "Durée": maint_stats["valid_durations"].values
+            "Duration": maint_stats["valid_durations"].values
         })
         fig7 = px.scatter(timeline_df, x="Index", y="Duration",
                          title="Evolution of Downtime",
