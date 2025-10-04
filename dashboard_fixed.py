@@ -571,9 +571,8 @@ with tab3:
     st.header("Oil Conformity")
     
     vals = pd.DataFrame({
-        "Conformité": ["Compliant", "Partial"],
-        "count": [conf_stats["conf_count"], 
-                 conf_stats["part_count"] ]
+     "Conformité": ["Compliant", "Partial"],
+     "count": [conf_stats["conf_count"], conf_stats["part_count"]]
     })
     
     fig4 = px.pie(vals, names="Conformity", values="count", hole=0.35,
