@@ -492,34 +492,34 @@ st.caption("Accurate • Organized • Insightful • Production-Ready")
 st.subheader("Executive Summary")
 c1, c2, c3, c4 = st.columns(4)
 with c1:
-    st.metric("Index en panne", idx_stats["panne"])
+    st.metric("Index down", idx_stats["panne"])
 with c2:
-    st.metric("Index en marche", idx_stats["marche"])
+    st.metric("Index functional", idx_stats["marche"])
 with c3:
-    st.metric("Index à vérifier", idx_stats["verifier"])
+    st.metric("Index to check", idx_stats["verifier"])
 with c4:
     panne_pct = pct(idx_stats["panne"], idx_stats["total"])
     st.metric("% Panne vs Total", f"{panne_pct:.1f}%")
 
 c5, c6, c7, c8 = st.columns(4)
 with c5:
-    st.metric("% Huiles conformes", f"{conf_stats['pct_conf']:.1f}%")
+    st.metric("% Compliant oils", f"{conf_stats['pct_conf']:.1f}%")
 with c6:
-    st.metric("% Huiles partielles", f"{conf_stats['pct_partielle']:.1f}%")
+    st.metric("% Partial oils", f"{conf_stats['pct_partielle']:.1f}%")
 with c7:
-    st.metric("Mal planifications", maint_stats["n_misplan"])
+    st.metric("Miscalculations in Planning", maint_stats["n_misplan"])
 with c8:
     avg_dur = maint_stats["avg_duration_days"]
-    st.metric("Durée moy. panne (jours)", f"{avg_dur:.1f}" if not np.isnan(avg_dur) else "N/A")
+    st.metric("Avg. Downtime (days)", f"{avg_dur:.1f}" if not np.isnan(avg_dur) else "N/A")
 
 # Tabs
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-    "Etat Index", "Hours/Prochain", "Fluids Conformity", "Maintenance", "Causes Analysis", "Vidange Planning"
+    "Index status", "Index hours", "Fluids Conformity", "Maintenance", "Causes Analysis", "Oil Change Schedule"
 ])
 
 # ----- Tab 1: Etat Index -----
 with tab1:
-    st.header("Etat Index – KPIs & Visuals")
+    st.header("Index status – KPIs & Visuals")
     colA, colB = st.columns([1, 1])
     
     df_idx = df_index.copy()
@@ -534,70 +534,70 @@ with tab1:
         
         # Stacked bar with correct colors
         fig = go.Figure()
-        fig.add_bar(x=grp[c_design], y=grp["is_panne"], name="Panne", marker_color="#dc3545")
-        fig.add_bar(x=grp[c_design], y=grp["is_marche"], name="Marche", marker_color="#28a745")
-        fig.add_bar(x=grp[c_design], y=grp["is_verifier"], name="À vérifier", marker_color="#ffc107")
-        fig.update_layout(barmode="stack", title="Répartition par type d'engin", 
-                         xaxis_title="Type d'engin", yaxis_title="Nombre")
+        fig.add_bar(x=grp[c_design], y=grp["is_panne"], name="Out of Service", marker_color="#dc3545")
+        fig.add_bar(x=grp[c_design], y=grp["is_marche"], name="Functional", marker_color="#28a745")
+        fig.add_bar(x=grp[c_design], y=grp["is_verifier"], name="To be checked", marker_color="#ffc107")
+        fig.update_layout(barmode="stack", title="Status by Equipment Type", 
+                         xaxis_title="Equipment Type", yaxis_title="Number")
         colA.plotly_chart(fig, use_container_width=True)
         
         # Donut chart with correct colors
         donut_data = pd.DataFrame({
-            "cat": ["Panne", "Marche", "À vérifier"],
+            "cat": ["Out of Service", "Functional", "To be checked"],
             "val": [idx_stats["panne"], idx_stats["marche"], idx_stats["verifier"]]
         })
         fig2 = px.pie(donut_data, names="cat", values="val", hole=0.5, 
                      title="Composition globale",
                      color="cat",
-                     color_discrete_map={"Panne": "#dc3545", "Marche": "#28a745", "À vérifier": "#ffc107"})
+                     color_discrete_map={"Out of Service": "#dc3545", "Functional": "#28a745", "To be checked": "#ffc107"})
         colB.plotly_chart(fig2, use_container_width=True)
 
 # ----- Tab 2: Hours/Prochain -----
 with tab2:
-    st.header("Index Hours – Moyenne de vidange par an")
-    st.metric("Moyenne annuelle globale", 
+    st.header("Index Hours – Average Oil Changes per Year")
+    st.metric("Global Annual Average", 
              f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A")
     
     if isinstance(hours_stats["by_cat"], pd.DataFrame) and not hours_stats["by_cat"].empty:
         fig3 = px.bar(hours_stats["by_cat"], 
                      x=hours_stats["by_cat"].columns[0], 
                      y="avg_per_year", 
-                     title="Moyenne par catégorie",
+                     title="Average by Category",
                      color_discrete_sequence=["#007bff"])
         st.plotly_chart(fig3, use_container_width=True)
 
 # ----- Tab 3: Fluids Conformity -----
 with tab3:
-    st.header("Conformité des huiles")
+    st.header("Oil Conformity")
     
     vals = pd.DataFrame({
-        "Conformité": ["Conforme", "Partielle", "Autres"],
+        "Conformité": ["Compliant", "Partial"],
         "count": [conf_stats["conf_count"], 
                  conf_stats["part_count"], 
                  conf_stats["total"] - conf_stats["conf_count"] - conf_stats["part_count"]]
     })
     
-    fig4 = px.pie(vals, names="Conformité", values="count", hole=0.35,
-                 title="Répartition des conformités",
-                 color="Conformité",
-                 color_discrete_map={"Conforme": "#28a745", "Partielle": "#ffc107", "Autres": "#6c757d"})
+    fig4 = px.pie(vals, names="Conformity", values="count", hole=0.35,
+                 title="Compliance Distribution",
+                 color="Conformity",
+                 color_discrete_map={"Compliant": "#28a745", "Partial": "#ffc107"})
     st.plotly_chart(fig4, use_container_width=True)
 
 # ----- Tab 4: Maintenance -----
 with tab4:
-    st.header("Suivi de maintenance")
+    st.header("Maintenance Monitoring")
     
     col1, col2 = st.columns(2)
     
     with col1:
-        st.metric("Nombre de mal planifications", maint_stats["n_misplan"],
-                 help="Nombre de lignes où Date prévue d'intervention ≠ Date fin d'intervention")
+        st.metric("Number of Misplans", maint_stats["n_misplan"],
+                 help="Number of lines where Date prévue d'intervention ≠ Date fin d'intervention")
     
     with col2:
         avg_dur = maint_stats["avg_duration_days"]
-        st.metric("Durée moyenne des engins en panne (jours)", 
+        st.metric("Average Downtime of Equipment (days)", 
                  f"{avg_dur:.1f}" if not np.isnan(avg_dur) else "N/A",
-                 help="Moyenne de (Date fin d'intervention - Date de Détection) en jours")
+                 help="Average (Date fin d'intervention - Date de Détection) per day")
     
     # Display column names being used
     with st.expander("ℹ️ Colonnes utilisées"):
@@ -607,7 +607,7 @@ with tab4:
     
     # Distribution of durations
     if len(maint_stats["valid_durations"]) > 0:
-        st.subheader("Distribution des durées de panne")
+        st.subheader("Downtime Distribution")
         
         col_chart1, col_chart2 = st.columns([2, 1])
         
@@ -615,17 +615,17 @@ with tab4:
             # Histogram
             fig5 = px.histogram(maint_stats["valid_durations"], 
                                nbins=30, 
-                               title="Distribution des durées de panne (jours)",
-                               labels={"value": "Durée (jours)", "count": "Fréquence"},
+                               title="Downtime Distribution (days)",
+                               labels={"value": "Duration (days)", "count": "Frequency"},
                                color_discrete_sequence=["#007bff"])
-            fig5.update_layout(showlegend=False, xaxis_title="Durée (jours)", yaxis_title="Nombre d'interventions")
+            fig5.update_layout(showlegend=False, xaxis_title="Duration (days)", yaxis_title="interventions number")
             st.plotly_chart(fig5, use_container_width=True)
         
         with col_chart2:
             # Statistics box
-            st.markdown("#### 📊 Statistiques")
+            st.markdown("#### 📊 Statistics")
             stats_df = pd.DataFrame({
-                "Métrique": ["Minimum", "Q1 (25%)", "Médiane", "Q3 (75%)", "Maximum", "Moyenne", "Écart-type"],
+                "Métrique": ["Minimum", "Q1 (25%)", "Median", "Q3 (75%)", "Maximum", "mean", "Écart-type"],
                 "Valeur (jours)": [
                     f"{maint_stats['valid_durations'].min():.0f}",
                     f"{maint_stats['valid_durations'].quantile(0.25):.0f}",
@@ -639,64 +639,64 @@ with tab4:
             st.dataframe(stats_df, use_container_width=True, hide_index=True)
         
         # Box plot for outliers
-        st.subheader("Analyse des outliers")
+        st.subheader("Outliers Analysis")
         fig6 = px.box(maint_stats["valid_durations"], 
-                      title="Box Plot - Identification des durées anormales",
-                      labels={"value": "Durée (jours)"},
+                      title="Box Plot - Identification of Abnormal Durations",
+                      labels={"value": "Duration (days)"},
                       color_discrete_sequence=["#28a745"])
-        fig6.update_layout(showlegend=False, yaxis_title="Durée (jours)")
+        fig6.update_layout(showlegend=False, yaxis_title="Duration (days)")
         st.plotly_chart(fig6, use_container_width=True)
         
         # Timeline scatter
-        st.subheader("Durées par ordre chronologique")
+        st.subheader("Durations in Chronological Order")
         timeline_df = pd.DataFrame({
             "Index": range(len(maint_stats["valid_durations"])),
             "Durée": maint_stats["valid_durations"].values
         })
-        fig7 = px.scatter(timeline_df, x="Index", y="Durée",
-                         title="Évolution des durées de panne",
-                         labels={"Index": "Numéro d'intervention", "Durée": "Durée (jours)"},
+        fig7 = px.scatter(timeline_df, x="Index", y="Duration",
+                         title="Evolution of Downtime",
+                         labels={"Index": "intervention number", "Duration": "Duration (days)"},
                          color="Durée",
                          color_continuous_scale="RdYlGn_r")
         fig7.update_traces(marker=dict(size=8))
         st.plotly_chart(fig7, use_container_width=True)
     else:
-        st.warning("⚠️ Aucune donnée de durée valide disponible.")
+        st.warning("⚠️ No valid duration data available.")
 
 # ----- Tab 5: Causes Analysis -----
 with tab5:
-    st.header("Analyse des causes racines")
+    st.header("Root Cause Analysis")
     
     if not cause_stats["pct_tbl"].empty:
         fig7 = px.bar(cause_stats["pct_tbl"], x="cause", y="pct", 
-                     title="Causes racines (global)",
+                     title="Root Causes (global)",
                      color_discrete_sequence=["#dc3545"])
         st.plotly_chart(fig7, use_container_width=True)
         
         if cause_stats["by_engine"] is not None and not cause_stats["by_engine"].empty:
-            st.subheader("Heatmap – Pourcentage par type d'engin")
+            st.subheader("Heatmap – % by Equipment Type")
             pivot = cause_stats["by_engine"].pivot_table(
                 index=cause_stats["by_engine"].columns[0],
                 columns=cause_stats["by_engine"].columns[1],
                 values="pct", fill_value=0.0)
             fig8 = px.imshow(pivot, aspect="auto", 
-                           title="Heatmap causes × type d'engin",
+                           title="Heatmap causes × Equipment Type",
                            color_continuous_scale="Reds")
             st.plotly_chart(fig8, use_container_width=True)
     
     # Nouveaux KPIs pour l'analyse des causes
-    st.header("Analyse des catégories de panne")
+    st.header("Analysis of Breakdown Categories")
     
     # KPI 1: Disponibilité des pièces
     if categories_stats["disponibilite"]["pct"] is not None and not categories_stats["disponibilite"]["pct"].empty:
-        st.subheader("% catégorie de panne en terme de disponibilité")
+        st.subheader("Breakdown Category % in Terms of Availability")
         fig_disp = px.bar(categories_stats["disponibilite"]["pct"], x="classe", y="pct", 
-                         title="Répartition par disponibilité des pièces de rechange",
+                         title="Distribution by Spare Parts Availability",
                          color_discrete_sequence=["#4e73df"])
         st.plotly_chart(fig_disp, use_container_width=True)
         
         if categories_stats["disponibilite"]["by_engine"] is not None and not categories_stats["disponibilite"]["by_engine"].empty:
-            st.subheader("Heatmap – Disponibilité des pièces par type d'engin")
+            st.subheader("Heatmap – Spare Parts Availability by Engine Type")
             col_disp = categories_stats["columns"]["disponibilite"]
             col_des = categories_stats["columns"]["designation"]
             
@@ -708,20 +708,20 @@ with tab5:
                 values="count", fill_value=0)
             
             fig_disp_heat = px.imshow(pivot_disp, aspect="auto", 
-                                    title="Heatmap disponibilité × type d'engin",
+                                    title="Heatmap disponibilité × Equipment Type",
                                     color_continuous_scale="Blues")
             st.plotly_chart(fig_disp_heat, use_container_width=True)
     
     # KPI 2: Coût de réparation
     if categories_stats["cout"]["pct"] is not None and not categories_stats["cout"]["pct"].empty:
-        st.subheader("% catégorie de panne en terme de coût")
+        st.subheader("% Cost per Breakdown Category")
         fig_cout = px.bar(categories_stats["cout"]["pct"], x="classe", y="pct", 
-                         title="Répartition par coût de réparation",
+                         title="Repair Cost Distribution",
                          color_discrete_sequence=["#1cc88a"])
         st.plotly_chart(fig_cout, use_container_width=True)
         
         if categories_stats["cout"]["by_engine"] is not None and not categories_stats["cout"]["by_engine"].empty:
-            st.subheader("Heatmap – Coût de réparation par type d'engin")
+            st.subheader("Heatmap – Repair Cost by Engine Type")
             col_cout = categories_stats["columns"]["cout"]
             col_des = categories_stats["columns"]["designation"]
             
@@ -733,20 +733,20 @@ with tab5:
                 values="count", fill_value=0)
             
             fig_cout_heat = px.imshow(pivot_cout, aspect="auto", 
-                                    title="Heatmap coût × type d'engin",
+                                    title="Heatmap cost × Equipment Type",
                                     color_continuous_scale="Greens")
             st.plotly_chart(fig_cout_heat, use_container_width=True)
     
     # KPI 3: Complexité de réparation
     if categories_stats["complexite"]["pct"] is not None and not categories_stats["complexite"]["pct"].empty:
-        st.subheader("% catégorie de panne en terme de complexité")
+        st.subheader("% of Breakdown by Complexity")
         fig_comp = px.bar(categories_stats["complexite"]["pct"], x="classe", y="pct", 
-                         title="Répartition par complexité de réparation",
+                         title="Repair Complexity Distribution",
                          color_discrete_sequence=["#f6c23e"])
         st.plotly_chart(fig_comp, use_container_width=True)
         
         if categories_stats["complexite"]["by_engine"] is not None and not categories_stats["complexite"]["by_engine"].empty:
-            st.subheader("Heatmap – Complexité de réparation par type d'engin")
+            st.subheader("Heatmap – Repair Complexity by Engine Type")
             col_comp = categories_stats["columns"]["complexite"]
             col_des = categories_stats["columns"]["designation"]
             
@@ -758,7 +758,7 @@ with tab5:
                 values="count", fill_value=0)
             
             fig_comp_heat = px.imshow(pivot_comp, aspect="auto", 
-                                    title="Heatmap complexité × type d'engin",
+                                    title="Heatmap complexity × Equipment Type",
                                     color_continuous_scale="Oranges")
             st.plotly_chart(fig_comp_heat, use_container_width=True)
 
@@ -766,12 +766,12 @@ with tab5:
 with tab6:
     st.header("Planification de vidange")
     
-    labels = ["Respectée (<3m)", "Non respectée 3-6m", "Non respectée 6-12m", "Non respectée >12m"]
+    labels = ["Respected (<3m)", "Not respected 3-6m", "Not respected 6-12m", "Not respected >12m"]
     vals = [vid_stats["respected"], vid_stats["yellow"], vid_stats["orange"], vid_stats["red"]]
     colors = ["#28a745", "#ffc107", "#fd7e14", "#dc3545"]
     
     fig9 = go.Figure(data=[go.Bar(x=labels, y=vals, marker_color=colors)])
-    fig9.update_layout(title="Respect / Non-respect de la planification",
+    fig9.update_layout(title="On-Schedule / Off-Schedule",
                       xaxis_title="Catégorie", yaxis_title="Nombre")
     st.plotly_chart(fig9, use_container_width=True)
     
@@ -793,4 +793,4 @@ with tab6:
     ))
     st.plotly_chart(gauge, use_container_width=True)
 
-st.caption("Built with Streamlit + Plotly • Cached & validated")
+
