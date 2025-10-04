@@ -571,14 +571,14 @@ with tab3:
     st.header("Oil Conformity")
     
     vals = pd.DataFrame({
-     "Conformité": ["Compliant", "Partial"],
-     "count": [conf_stats["conf_count"], conf_stats["part_count"]]
+    "Conformity": ["Compliant", "Partial"],  # Changed to "Conformity"
+    "count": [conf_stats["conf_count"], conf_stats["part_count"]]
     })
-    
+
     fig4 = px.pie(vals, names="Conformity", values="count", hole=0.35,
-                 title="Compliance Distribution",
-                 color="Conformity",
-                 color_discrete_map={"Compliant": "#28a745", "Partial": "#ffc107"})
+             title="Compliance Distribution",
+             color="Conformity",
+             color_discrete_map={"Compliant": "#28a745", "Partial": "#ffc107"})
     st.plotly_chart(fig4, use_container_width=True)
 
 # ----- Tab 4: Maintenance -----
