@@ -499,7 +499,7 @@ with c3:
     st.metric("Index to check", idx_stats["verifier"])
 with c4:
     panne_pct = pct(idx_stats["panne"], idx_stats["total"])
-    st.metric("% Panne vs Total", f"{panne_pct:.1f}%")
+    st.metric("% Breakdown vs Total", f"{panne_pct:.1f}%")
 
 c5, c6, c7, c8 = st.columns(4)
 with c5:
