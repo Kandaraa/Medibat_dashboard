@@ -5,7 +5,15 @@ import plotly.express as px
 import plotly.graph_objects as go
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
+import os
+import time
 
+# Import du module d'intégration Gemini
+try:
+    import gemini_integration
+    GEMINI_AVAILABLE = True
+except ImportError:
+    GEMINI_AVAILABLE = False
 
 st.set_page_config(page_title="Operations Dashboard", layout="wide", page_icon="📊")
 
@@ -91,7 +99,7 @@ df_maint, src4 = load_csv(default_paths["maintenance"])
 df_causes, src5 = load_csv(default_paths["causes"])
 df_vid, src6 = load_csv(default_paths["vidange"])
 
-st.sidebar.success("✅ Data loaded successfully")
+#st.sidebar.success("✅ Data loaded successfully")
 
 # -----------------------------
 # Helper: Find columns
@@ -594,7 +602,7 @@ with c6:
     st.markdown("<div style='font-size:13px;color:black;'>Wear failure:</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:32px;font-weight:bold;margin-top:-5px;'>53.75%</div>", unsafe_allow_html=True)
 with c7:
-    st.markdown("<div style='font-size:16px;'>the longest unrepaired vehicle</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:16px;'>The longest unrepaired vehicle</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:13px;color:black;'>Backhoe(Tractopelle) (T12):</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:32px;font-weight:bold;margin-top:-5px;'>176 days</div>", unsafe_allow_html=True)
 with c8:
@@ -1250,11 +1258,155 @@ with tab6:
     )
 
     st.plotly_chart(fig_gauge, use_container_width=True)
-
-#----- Tab 7: AI Strategic Analysis demo -----
+    
+# ----- Tab 7: AI Recommendations -----
 with tab7:
-    st.header("AI-Powered Strategic Analysis")
-    st.info(
-    "ℹ️ Note: comming soon tonight, An overall AI-Powered Strategic Analysis")
-
-
+    st.header("Strategic AI Recommendations")
+    
+    # Create a container that we can completely replace
+    tab7_container = st.container()
+    
+    with tab7_container:
+        # Check if strategic_recommendations.md exists
+        recommendations_file = "strategic_recommendations.md"
+        
+        if os.path.exists(recommendations_file):
+            # File exists - show loaders and content
+            #st.info("📄 Found existing strategic recommendations file.")
+            
+            # ALWAYS show loaders - no conditions
+            # First loader: Collecting metrics
+            with st.spinner("🤔 Thinking\n📊 Collecting the metrics"):
+                time.sleep(5)
+            
+            # Second loader: Analyzing
+            with st.spinner("🤔 Thinking\n🔍 Analyzing & Preparing Strategic Insights"):
+                time.sleep(6)
+            
+            # Read and display the markdown file
+            try:
+                with open(recommendations_file, 'r', encoding='utf-8') as f:
+                    recommendations_content = f.read()
+                
+                st.markdown("## 📊 Analysis and Strategic Recommendations")
+                st.markdown(recommendations_content)
+                
+                # Add download button for existing file
+                st.download_button(
+                    label="📥 Download Recommendations",
+                    data=recommendations_content,
+                    file_name="strategic_recommendations.md",
+                    mime="text/markdown"
+                )
+                
+                # Option to regenerate
+                #if st.button("🔄 Regenerate Recommendations", type="secondary"):
+                #    if os.path.exists(recommendations_file):
+                 #       os.remove(recommendations_file)
+                 #   st.rerun()
+                    
+            except Exception as e:
+                st.error(f"❌ Error reading recommendations file: {str(e)}")
+                if st.button("🔄 Try generating new recommendations"):
+                    if os.path.exists(recommendations_file):
+                        os.remove(recommendations_file)
+                    st.rerun()
+        
+        else:
+            # File doesn't exist - execute existing scenario
+            if not GEMINI_AVAILABLE:
+                st.error("📚 The Gemini integration module is not available. Please install the necessary dependencies.")
+                st.code("pip install google-generativeai", language="bash")
+                st.stop()
+            
+            # Gemini API Configuration
+            api_key = st.sidebar.text_input("🔑 Gemini API Key", type="password", help="Enter your Gemini API key to enable AI recommendations")
+            
+            if not api_key:
+                st.info("ℹ️ Please enter your Gemini API key in the sidebar to enable AI recommendations.")
+                st.markdown("""
+                ### How to get a Gemini API key
+                1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
+                2. Sign in with your Google account
+                3. Create a new API key
+                4. Copy the key and paste it in the field on the left
+                """)
+                st.stop()
+            
+            # Initialize the Gemini API
+            try:
+                gemini_integration.setup_gemini_api(api_key)
+                st.sidebar.success("✅ Gemini API configured successfully")
+            except Exception as e:
+                st.sidebar.error(f"❌ Error configuring the Gemini API: {str(e)}")
+                st.error("Unable to configure the Gemini API. Please check your API key.")
+                st.stop()
+            
+            # Prepare data for Gemini
+            with st.spinner("Preparing data for AI analysis..."):
+                data = gemini_integration.prepare_data_for_gemini(
+                    idx_stats, hours_stats, conf_stats, maint_stats, 
+                    cause_stats, categories_stats, vid_stats
+                )
+            
+            # Create the prompt for Gemini
+            prompt = gemini_integration.create_gemini_prompt(data)
+            
+            # Display the prompt (optional, for debugging)
+            with st.expander("🔍 View the prompt sent to the AI"):
+               st.markdown(prompt)
+            
+            # Button to generate recommendations
+            if st.button("🤖 Generate Strategic Recommendations", type="primary"):
+                with st.spinner("The AI is analyzing your data and generating strategic recommendations..."):
+                    try:
+                        # Call the Gemini API
+                        recommendations = gemini_integration.get_gemini_recommendations(prompt)
+                        
+                        # Save recommendations to file
+                        with open(recommendations_file, 'w', encoding='utf-8') as f:
+                            f.write(recommendations)
+                        
+                        # Display the recommendations
+                        st.markdown("## 📊 Analysis and Strategic Recommendations")
+                        st.markdown(recommendations)
+                        
+                        # Add a download button
+                        st.download_button(
+                            label="📥 Download Recommendations",
+                            data=recommendations,
+                            file_name="strategic_recommendations.md",
+                            mime="text/markdown"
+                        )
+                    except Exception as e:
+                        st.error(f"❌ Error generating recommendations: {str(e)}")
+            else:
+                st.info("👆 Click the button above to generate strategic recommendations based on your data.")
+                
+                # Preview of what the AI will analyze
+                st.markdown("### 🔎 The AI will analyze the following data:")
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.markdown("**État des équipements**")
+                    st.metric("Équipements hors service", f"{idx_stats['panne']} ({round((idx_stats['panne'] / idx_stats['total']) * 100 if idx_stats['total'] > 0 else 0, 1)}%)")
+                    
+                    st.markdown("**Maintenance préventive**")
+                    st.metric("Moyenne annuelle globale", f"{round(hours_stats['global_avg'], 3)}" if not pd.isna(hours_stats["global_avg"]) else "N/A")
+                    
+                    st.markdown("**Conformité des fluides**")
+                    st.metric("Pourcentage conforme", f"{round(conf_stats['pct_conf'], 1)}%")
+                
+                with col2:
+                    st.markdown("**Maintenance corrective**")
+                    st.metric("Temps d'arrêt moyen", f"{round(maint_stats['avg_duration_days'], 1)} jours" if not pd.isna(maint_stats["avg_duration_days"]) else "N/A")
+                    
+                    st.markdown("**Planification des vidanges**")
+                    off_schedule_count = vid_stats["yellow"] + vid_stats["orange"] + vid_stats["red"]
+                    off_schedule_percentage = (off_schedule_count / 150) * 100
+                    st.metric("Pourcentage hors calendrier", f"{round(off_schedule_percentage, 1)}%")
+                    
+                    if not cause_stats["pct_tbl"].empty and len(cause_stats["pct_tbl"]) > 0:
+                        top_cause = cause_stats["pct_tbl"].iloc[0]
+                        st.markdown("**Principale cause de panne**")
+                        st.metric(f"{top_cause['cause']}", f"{round(top_cause['pct'], 1)}%")
