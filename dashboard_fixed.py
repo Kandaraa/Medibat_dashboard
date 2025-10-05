@@ -190,6 +190,10 @@ def kpi_hours(df):
     
     if col_prochain is None or col_prochain not in dfc.columns:
         return {"global_avg": np.nan, "by_cat": pd.DataFrame()}
+        
+    # Filter out "camion" category BEFORE any calculations
+    if col_a and col_a in dfc.columns:
+     dfc = dfc[dfc[col_a].astype(str).str.lower() != "camion"]
     
     # Convert to numeric
     x = pd.to_numeric(dfc[col_prochain], errors="coerce")
@@ -572,10 +576,13 @@ with c1:
     st.metric("% Index down", f"{panne_pct:.1f}%")
     #st.metric("Index down", idx_stats["panne"])
 with c2:
-        st.metric("Global Annual Average - Preventive Maintenance", 
+        st.metric("Overall Annual Average - Preventive Maintenance", 
              f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A")
 with c3:
-    st.metric("Top required Preventive Maintenance ", "Truck")
+    st.markdown("<div style='font-size:16px;'>Most vehicle requires preventive maintenance</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:13px;color:black;'>Niveleuse(Motor grader):</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:28px;font-weight:bold;margin-top:-5px;'>10.49 <span style='font-size:16px;'>annual interventions</span></div>", unsafe_allow_html=True)
+
 with c4:
        st.metric("% Off-Schedule Maintenance", "32.7%")
 
@@ -583,20 +590,20 @@ c5, c6, c7, c8 = st.columns(4)
 with c5:
     st.metric("% Compliant Lubrication", f"{conf_stats['pct_conf']:.1f}%")
 with c6:
-    st.markdown("<div style='font-size:20px;font-weight:bold;'>% Breakdown Root Cause</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:16px;'>Highest recurring breakdown root cause</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:13px;color:black;'>Wear failure:</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:32px;font-weight:bold;margin-top:-5px;'>53.75%</div>", unsafe_allow_html=True)
 with c7:
-    st.markdown("<div style='font-size:20px;font-weight:bold;'>Top Longest Downtimes</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:13px;color:black;'>Tractopelle (T12):</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:16px;'>the longest unrepaired vehicle</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:13px;color:black;'>Backhoe(Tractopelle) (T12):</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:32px;font-weight:bold;margin-top:-5px;'>176 days</div>", unsafe_allow_html=True)
 with c8:
     avg_dur = maint_stats["avg_duration_days"]
     st.metric("Avg. Downtime (days)", f"{avg_dur:.1f}" if not np.isnan(avg_dur) else "N/A")
 
 # Tabs
-tab1, tab2, tab3, tab4, tab5, tab6, = st.tabs([
-    "Index status", "Index hours", "Fluids Conformity", "Maintenance", "Causes Analysis", "Oil Change Schedule"
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    "Index status", "Preventive maintenance", "Curative maintenance", "lubrications compliance", "Causes Analysis", "Oil Change Schedule", "🤖 AI Strategic Analysis"
 ])
 
 #Tabs
@@ -639,7 +646,7 @@ with tab1:
             "val": [idx_stats["panne"], idx_stats["marche"], idx_stats["verifier"]]
         })
         fig2 = px.pie(donut_data, names="cat", values="val", hole=0.5, 
-                     title="Global Composition",
+                     title="Overall Composition",
                      color="cat",
                      color_discrete_map={"Out of Service": "#dc3545", "Functional": "#28a745", "To be checked": "#ffc107"})
         colB.plotly_chart(fig2, use_container_width=True)
@@ -647,9 +654,13 @@ with tab1:
 # ----- Tab 2: Hours/Prochain -----
 with tab2:
     st.header("Index Hours – Preventive Maintenance")
-    st.metric("Global Annual Average", 
+    st.metric("Overall Annual Average", 
              f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A")
-    
+             
+    st.info(
+    "ℹ️ Note for the chart below: Truck index hours have been excluded, as preventive maintenance is tracked in kilometers rather than hours."
+
+)
     if isinstance(hours_stats["by_cat"], pd.DataFrame) and not hours_stats["by_cat"].empty:
         x_col = hours_stats["by_cat"].columns[0]
         fig3 = px.bar(
@@ -657,15 +668,12 @@ with tab2:
             x=x_col,
             y="avg_per_year",
             title="Average by Category",
-            labels={x_col: "Equipment Category", "avg_per_year": "Average per year"},  # axis names
+            labels={x_col: "Equipment Category", "avg_per_year": "Average per year"},
             color_discrete_sequence=["#007bff"]
         )
-        # (Optional alternative)
-        # fig3.update_layout(xaxis_title="Category", yaxis_title="Average per year")
         st.plotly_chart(fig3, use_container_width=True)
-
 # ----- Tab 3: Fluids Conformity -----
-with tab3:
+with tab4:
     st.header("Lubrication Conformity")
     
     vals = pd.DataFrame({
@@ -680,8 +688,8 @@ with tab3:
     st.plotly_chart(fig4, use_container_width=True)
 
 # ----- Tab 4: Maintenance -----
-with tab4:
-    st.header("Maintenance Monitoring")
+with tab3:
+    st.header("Curative Maintenance Monitoring")
     
     col1, col2 = st.columns(2)
     
@@ -822,33 +830,13 @@ with tab4:
                     f"• **Downtime**: {dur} days"
                 )
         
-        #Timeline scatter
-        # st.subheader("Durations in Chronological Order")
-        # timeline_df = pd.DataFrame({
-            # "Index": range(len(maint_stats["valid_durations"])),
-            # "Duration": maint_stats["valid_durations"].values
-        # })
-        # fig7 = px.scatter(timeline_df, x="Index", y="Duration",
-                         # title="Evolution of Downtime",
-                         # labels={"Index": "Number interventions", "Duration": "Duration (days)"},
-                         # color="Duration",
-                         # color_continuous_scale="RdYlGn_r")
-        # fig7.update_traces(marker=dict(size=8))
-        # st.plotly_chart(fig7, use_container_width=True)
-    # else:
-        # st.warning("⚠️ No valid duration data available.")
-        
-        # Si tu veux ignorer les durées = 0 (interventions dans la journée), coche
-        #ignore_zero = st.toggle("Hide zero-day cases", value=False)
-        durations_filtered = durations
 
+        durations_filtered = durations
         freq = durations_filtered.value_counts().rename_axis("Duration (days)").reset_index(name="Count")
         # Tri sur la durée croissante
         freq = freq.sort_values("Duration (days)").reset_index(drop=True)
-
         st.subheader("Occurrences per Duration (days)")
         import plotly.express as px
-
         # Nuage de points (taille et couleur = Count)
         fig = px.scatter(
             freq,
@@ -856,11 +844,10 @@ with tab4:
             y="Count",
             size="Count",
             color="Count",
-            color_continuous_scale="Blues",
+            color_continuous_scale=["#808080", "#1e3a8a"],  # Grey to dark blue gradient
             labels={"Count": "Occurrences"},
             title="How often each downtime duration occurs"
         )
-
         # Lignes verticales fines pour l'effet "lollipop" (optionnel mais lisible)
         fig.update_traces(marker=dict(line=dict(width=0)))
         fig.add_bar(
@@ -873,13 +860,11 @@ with tab4:
             showlegend=False,
             hoverinfo='skip'  # This prevents the bar from showing hover labels
         )
-
         fig.update_layout(hovermode="x unified")
         fig.update_traces(
             hovertemplate="Duration: %{x} days<br>Count: %{y}<extra></extra>",
             selector=dict(type='scatter')  # Only apply to scatter trace, not bar
         )
-
         st.plotly_chart(fig, use_container_width=True)
 # ----- Tab 5: Causes Analysis -----
 with tab5:
@@ -887,7 +872,7 @@ with tab5:
     
     if not cause_stats["pct_tbl"].empty:
         fig7 = px.bar(cause_stats["pct_tbl"], x="cause", y="pct", 
-                     title="Root Causes (global)",
+                     title="Root Causes (Overall)",
                      color_discrete_sequence=["#dc3545"],
                      labels={
                          "cause": "Root Cause",  # X-axis label
@@ -1265,5 +1250,11 @@ with tab6:
     )
 
     st.plotly_chart(fig_gauge, use_container_width=True)
+
+#----- Tab 7: AI Strategic Analysis demo -----
+with tab7:
+    st.header("AI-Powered Strategic Analysis")
+    st.info(
+    "ℹ️ Note: comming soon tonight, An overall AI-Powered Strategic Analysis")
 
 
