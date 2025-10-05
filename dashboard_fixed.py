@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
 
+
 st.set_page_config(page_title="Operations Dashboard", layout="wide", page_icon="📊")
 
 # -----------------------------
@@ -345,6 +346,39 @@ def kpi_maintenance(df):
 
 maint_stats = kpi_maintenance(df_maint)
 
+# ---------- Helpers ----------
+def parse_any_date(s):
+    import pandas as pd
+    x = pd.to_datetime(s, errors="coerce", dayfirst=True)
+    mask_num = x.isna() & pd.to_numeric(s, errors="coerce").notna()
+    if mask_num.any():
+        x.loc[mask_num] = pd.to_datetime(pd.to_numeric(s[mask_num]),
+                                         unit="D", origin="1899-12-30", errors="coerce")
+    return x
+
+def compute_durations(df):
+    cols = df.columns.tolist()
+    # Détection / Fin — ajuste les indices si besoin
+    c_detect = cols[10]                 # Date de Détection
+    c_fin    = cols[15] 
+
+    #d_detect = parse_any_date(df[c_detect]) if c_detect else pd.NaT
+    #d_fin    = parse_any_date(df[c_fin])    if c_fin    else pd.NaT
+
+    #dur = (d_fin - d_detect).dt.days
+        # Parse dates
+    d_detect = safe_parse_date(df[c_detect]) if (c_detect in df.columns) else pd.Series([pd.NaT]*len(df))
+    d_fin    = safe_parse_date(df[c_fin])    if (c_fin    in df.columns) else pd.Series([pd.NaT]*len(df))
+        # Duration: index 15 − index 10 = (Date fin d’Intervention - Date de Détection) in days
+    dur = (d_fin - d_detect).dt.days
+    # Nettoyage logique: >=0 et < 3 ans (évite les erreurs de saisie)
+    valid = dur.notna() & (dur >= 0) & (dur <= 365*3)
+    return dur[valid]
+
+# ---------- Core KPI ----------
+durations = compute_durations(df_maint)
+
+
 
 # -----------------------------
 # KPI 5: Causes
@@ -541,7 +575,7 @@ with c2:
         st.metric("Global Annual Average - Preventive Maintenance", 
              f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A")
 with c3:
-    st.metric("Top required Preventive Maintenance ", "Camion")
+    st.metric("Top required Preventive Maintenance ", "Truck")
 with c4:
        st.metric("% Off-Schedule Maintenance", "32.7%")
 
@@ -549,18 +583,25 @@ c5, c6, c7, c8 = st.columns(4)
 with c5:
     st.metric("% Compliant Lubrication", f"{conf_stats['pct_conf']:.1f}%")
 with c6:
-    st.metric("% Breakdown Root Cause", "Pane d'usre:  \n 53.75%")
+    st.markdown("<div style='font-size:20px;font-weight:bold;'>% Breakdown Root Cause</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:13px;color:black;'>Wear failure:</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:32px;font-weight:bold;margin-top:-5px;'>53.75%</div>", unsafe_allow_html=True)
 with c7:
-    st.metric("Miscalculations in Planning", maint_stats["n_misplan"])
+    st.markdown("<div style='font-size:20px;font-weight:bold;'>Top Longest Downtimes</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:13px;color:black;'>Tractopelle (T12):</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:32px;font-weight:bold;margin-top:-5px;'>176 days</div>", unsafe_allow_html=True)
 with c8:
     avg_dur = maint_stats["avg_duration_days"]
     st.metric("Avg. Downtime (days)", f"{avg_dur:.1f}" if not np.isnan(avg_dur) else "N/A")
 
 # Tabs
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6, = st.tabs([
     "Index status", "Index hours", "Fluids Conformity", "Maintenance", "Causes Analysis", "Oil Change Schedule"
 ])
 
+#Tabs
+# tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    # "Index status", "Index hours", "Fluids Conformity", "Maintenance", "Causes Analysis", "Oil Change Schedule", "🤖 AI Strategic Analysis"
 # ----- Tab 1: Etat Index -----
 with tab1:
     st.header("Index status – KPIs & Visuals")
@@ -654,11 +695,11 @@ with tab4:
                  f"{avg_dur:.1f}" if not np.isnan(avg_dur) else "N/A",
                  help="Average (Date fin d'intervention - Date de Détection) per day")
     
-    # Display column names being used
-    with st.expander("ℹ️ Colonnes utilisées"):
-        st.write(f"**Date de Détection:** {maint_stats['cols']['detect']}")
-        st.write(f"**Date prévue d'intervention:** {maint_stats['cols']['prev']}")
-        st.write(f"**Date fin d'Intervention:** {maint_stats['cols']['fin']}")
+    #Display column names being used
+    # with st.expander("ℹ️ Colonnes utilisées"):
+        # st.write(f"**Date de Détection:** {maint_stats['cols']['detect']}")
+        # st.write(f"**Date prévue d'intervention:** {maint_stats['cols']['prev']}")
+        # st.write(f"**Date fin d'Intervention:** {maint_stats['cols']['fin']}")
     
     # Distribution of durations
     if len(maint_stats["valid_durations"]) > 0:
@@ -667,14 +708,59 @@ with tab4:
         col_chart1, col_chart2 = st.columns([2, 1])
         
         with col_chart1:
-            # Histogram
-            fig5 = px.histogram(maint_stats["valid_durations"], 
-                               nbins=30, 
-                               title="Downtime Distribution (days)",
-                               labels={"value": "Duration (days)", "count": "Frequency"},
-                               color_discrete_sequence=["#007bff"])
-            fig5.update_layout(showlegend=False, xaxis_title="Duration (days)", yaxis_title="Number of interventions")
-            fig5.update_xaxes(dtick=20, tick0=0)
+            
+            # Build frame with durations + designation (col index 2)
+            vals = maint_stats["valid_durations"]
+            designation_col = df_maint.columns[2]
+            sub = pd.DataFrame({
+                "Duration": vals,
+                "Designation": df_maint.loc[vals.index, designation_col].astype(str).str.strip().fillna("Unknown")
+            })
+
+            nbins = 30
+            edges = np.histogram_bin_edges(sub["Duration"].values, bins=nbins)
+            sub["bin"] = pd.cut(sub["Duration"], bins=edges, include_lowest=True, right=True)
+
+            bin_counts = sub.groupby("bin", observed=True).size().rename("count")
+            bin_des_counts = (
+                sub.groupby(["bin", "Designation"], observed=True)
+                   .size().reset_index(name="n")
+                   .sort_values(["bin", "n"], ascending=[True, False])
+            )
+
+            def hover_for_bin(b):
+                top = bin_des_counts[bin_des_counts["bin"] == b].head(5)
+                lines = "<br>".join(f"{row.Designation}: {int(row.n)}" for _, row in top.iterrows())
+                total = int(bin_counts.loc[b])
+                left  = int(np.floor(float(b.left)))  if np.isfinite(b.left)  else 0
+                right = int(np.ceil(float(b.right))) if np.isfinite(b.right) else left
+                return f"<b>{left}–{right} days</b><br>Total: {total}<br><br>{lines}"
+
+            bins_order = bin_counts.index
+            x_centers = [(float(b.left) + float(b.right)) / 2 for b in bins_order]
+            y_counts  = bin_counts.values
+            hovertxt  = [hover_for_bin(b) for b in bins_order]
+            bin_widths = [float(b.right) - float(b.left) for b in bins_order]
+            bar_widths = [w * 1.4 for w in bin_widths]  # 95% of bin width
+
+            fig5 = go.Figure(go.Bar(
+                x=x_centers,
+                y=y_counts,
+                width=bar_widths,            # ⬅️ wider bars
+                marker_color="#007bff",
+                hovertext=hovertxt,
+                hoverinfo="text"
+            ))
+
+            fig5.update_layout(
+                title="Downtime Distribution (days)",
+                xaxis_title="Duration (days)",
+                yaxis_title="Number of interventions",
+                showlegend=False,
+                bargap=0.02,                 # small gap between bars
+                bargroupgap=0                # no extra group gap
+            )
+            fig5.update_xaxes(dtick=10, tick0=0)
             st.plotly_chart(fig5, use_container_width=True)
         
         with col_chart2:
@@ -736,22 +822,65 @@ with tab4:
                     f"• **Downtime**: {dur} days"
                 )
         
-        # Timeline scatter
-        st.subheader("Durations in Chronological Order")
-        timeline_df = pd.DataFrame({
-            "Index": range(len(maint_stats["valid_durations"])),
-            "Duration": maint_stats["valid_durations"].values
-        })
-        fig7 = px.scatter(timeline_df, x="Index", y="Duration",
-                         title="Evolution of Downtime",
-                         labels={"Index": "Number interventions", "Duration": "Duration (days)"},
-                         color="Duration",
-                         color_continuous_scale="RdYlGn_r")
-        fig7.update_traces(marker=dict(size=8))
-        st.plotly_chart(fig7, use_container_width=True)
-    else:
-        st.warning("⚠️ No valid duration data available.")
+        #Timeline scatter
+        # st.subheader("Durations in Chronological Order")
+        # timeline_df = pd.DataFrame({
+            # "Index": range(len(maint_stats["valid_durations"])),
+            # "Duration": maint_stats["valid_durations"].values
+        # })
+        # fig7 = px.scatter(timeline_df, x="Index", y="Duration",
+                         # title="Evolution of Downtime",
+                         # labels={"Index": "Number interventions", "Duration": "Duration (days)"},
+                         # color="Duration",
+                         # color_continuous_scale="RdYlGn_r")
+        # fig7.update_traces(marker=dict(size=8))
+        # st.plotly_chart(fig7, use_container_width=True)
+    # else:
+        # st.warning("⚠️ No valid duration data available.")
+        
+        # Si tu veux ignorer les durées = 0 (interventions dans la journée), coche
+        #ignore_zero = st.toggle("Hide zero-day cases", value=False)
+        durations_filtered = durations
 
+        freq = durations_filtered.value_counts().rename_axis("Duration (days)").reset_index(name="Count")
+        # Tri sur la durée croissante
+        freq = freq.sort_values("Duration (days)").reset_index(drop=True)
+
+        st.subheader("Occurrences per Duration (days)")
+        import plotly.express as px
+
+        # Nuage de points (taille et couleur = Count)
+        fig = px.scatter(
+            freq,
+            x="Duration (days)",
+            y="Count",
+            size="Count",
+            color="Count",
+            color_continuous_scale="Blues",
+            labels={"Count": "Occurrences"},
+            title="How often each downtime duration occurs"
+        )
+
+        # Lignes verticales fines pour l'effet "lollipop" (optionnel mais lisible)
+        fig.update_traces(marker=dict(line=dict(width=0)))
+        fig.add_bar(
+            x=freq["Duration (days)"], 
+            y=freq["Count"], 
+            marker_color="rgba(255,255,255,0)",  # transparent
+            marker_line_color="rgba(160,160,160,0.35)", 
+            marker_line_width=1, 
+            width=0.01, 
+            showlegend=False,
+            hoverinfo='skip'  # This prevents the bar from showing hover labels
+        )
+
+        fig.update_layout(hovermode="x unified")
+        fig.update_traces(
+            hovertemplate="Duration: %{x} days<br>Count: %{y}<extra></extra>",
+            selector=dict(type='scatter')  # Only apply to scatter trace, not bar
+        )
+
+        st.plotly_chart(fig, use_container_width=True)
 # ----- Tab 5: Causes Analysis -----
 with tab5:
     st.header("Root Cause Analysis")
@@ -767,7 +896,7 @@ with tab5:
         st.plotly_chart(fig7, use_container_width=True)
         
         if cause_stats["by_engine"] is not None and not cause_stats["by_engine"].empty:
-            st.subheader("Heatmap – % by Equipment Type")
+            st.subheader("Heatmap – % Failure type by Equipment Type")
             
             # Clean the data: strip whitespace and normalize case
             cleaned_df = cause_stats["by_engine"].copy()
@@ -778,14 +907,29 @@ with tab5:
             cleaned_df[col_index] = cleaned_df[col_index].astype(str).str.strip().str.title()
             cleaned_df[col_columns] = cleaned_df[col_columns].astype(str).str.strip().str.title()
             
+            # Create pivot with counts instead of percentages
             pivot = cleaned_df.pivot_table(
                 index=col_index,
                 columns=col_columns,
-                values="pct", 
-                fill_value=0.0,
-                aggfunc='mean')  # Changed from 'sum' to 'mean'
+                values="count",
+                fill_value=0,
+                aggfunc='sum')
             
-            fig8 = px.imshow(pivot, aspect="auto", 
+            # Calculate percentages row-wise (each equipment type = 100%)
+            pivot_pct = pivot.div(pivot.sum(axis=1), axis=0) * 100
+            
+            # Create custom text with different precision for last row
+            custom_text = []
+            for i, row_name in enumerate(pivot_pct.index):
+                row_texts = []
+                for val in pivot_pct.iloc[i]:
+                    if i == len(pivot_pct.index) - 1:  # Last row
+                        row_texts.append(f"{val:.2f}")
+                    else:
+                        row_texts.append(f"{val:.1f}")
+                custom_text.append(row_texts)
+            
+            fig8 = px.imshow(pivot_pct, aspect="auto", 
                            title="Heatmap causes × Equipment Type",
                            color_continuous_scale="Reds",
                            labels={
@@ -793,12 +937,16 @@ with tab5:
                                "y": "Equipment Type",
                                "color": "Percentage (%)"
                            },
-                           text_auto=".1f")
+                           text_auto=False)  # Disable auto text
             
-            # Optional: Cap the color scale at 100%
+            # Add custom text
+            fig8.update_traces(text=custom_text, texttemplate="%{text}")
+            
+            # Cap the color scale at 100%
             fig8.update_traces(zmin=0, zmax=100)
             
-            st.plotly_chart(fig8, use_container_width=True)            
+            st.plotly_chart(fig8, use_container_width=True)
+            
             # Nouveaux KPIs pour l'analyse des causes
             st.header("Analysis of Breakdown Categories")
     
@@ -847,7 +995,7 @@ with tab5:
             by_eng_disp = categories_stats["disponibilite"]["by_engine"]
             
             # Define availability levels
-            availability_levels = ["difficilement accessible", "disponible"]
+            availability_levels = ["hard to obtain", "available"]
             colors = [
                 ["#dc3545", "#e57373", "#ef9a9a"],  # Red shades for difficilement accessible
                 ["#28a745", "#5cb85c", "#7bc77d"]   # Green shades for disponible
@@ -907,8 +1055,10 @@ with tab5:
                 columns=col_cout,
                 values="count", fill_value=0)
             
-            # Sort columns (x-axis) in descending alphabetical order
-            pivot_cout = pivot_cout[sorted(pivot_cout.columns, reverse=True)]
+            # Define custom order for x-axis
+            desired_order = ["low cost", "medium cost", "high cost"]
+            # Only include columns that exist in the pivot table
+            pivot_cout = pivot_cout[[col for col in desired_order if col in pivot_cout.columns]]
             
             fig_cout_heat = px.imshow(pivot_cout, aspect="auto", 
                                     title="Heatmap cost × Equipment Type",
@@ -930,7 +1080,7 @@ with tab5:
             by_eng_cout = categories_stats["cout"]["by_engine"]
             
             # Define cost levels
-            cost_levels = ["pas cher", "moyen", "cher"]
+            cost_levels = ["low cost", "medium cost", "high cost"]
             colors = [
                 ["#28a745", "#5cb85c", "#7bc77d"],  # Green shades for pas cher
                 ["#ffc107", "#ffd454", "#ffe082"],  # Yellow shades for moyenne
@@ -971,7 +1121,7 @@ with tab5:
             st.subheader("% of Breakdown by Complexity")
             
             # Define custom order
-            complexity_order = ["facile", "intermédiaire", "difficile"]
+            complexity_order = ["easy", "intermediate", "hard"]
             
             # Create a copy and set categorical order
             df_comp = categories_stats["complexite"]["pct"].copy()
@@ -1003,7 +1153,7 @@ with tab5:
                 values="count", fill_value=0)
             
             # Define custom order for complexity
-            complexity_order = ["facile", "intermédiaire", "difficile"]
+            complexity_order = ["easy", "intermediate", "hard"]
             
             # Reorder columns based on custom order (only include columns that exist)
             existing_cols = [col for col in complexity_order if col in pivot_comp.columns]
@@ -1029,7 +1179,7 @@ with tab5:
             by_eng_comp = categories_stats["complexite"]["by_engine"]
             
             # Define complexity levels
-            complexity_levels = ["facile", "intermédiaire", "difficile"]
+            complexity_levels = ["easy", "intermediate", "hard"]
             colors = [
                 ["#28a745", "#5cb85c", "#7bc77d"],  # Green shades for facile
                 ["#ffc107", "#ffd454", "#ffe082"],  # Yellow shades for intermédiaire
@@ -1085,7 +1235,7 @@ with tab6:
     off_schedule_percentage = (off_schedule_count / total_capacity) * 100
 
     st.info(
-    "ℹ️ Note: It was not taken into consideration as we are not sure whether it was actually "
+    "ℹ️ Note for the chart bellow: It was not taken into consideration as we are not sure whether it was actually "
     "done or not, as it was part of an inspection context."
 )
     # Create gauge chart
@@ -1115,3 +1265,5 @@ with tab6:
     )
 
     st.plotly_chart(fig_gauge, use_container_width=True)
+
+
