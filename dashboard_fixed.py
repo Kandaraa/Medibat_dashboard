@@ -67,7 +67,7 @@ default_paths = {
     "etat_index": "etat Index.csv",
     "index_hours": "index hours.csv",
     "fluids_conf": "Recommended Fluids and Conformity.csv",
-    "maintenance": "SUIVI DE MAINTENANCE.csv",
+    "maintenance": "SUIVI DE MAINTENANCE - Copy.csv",
     "causes": "categorie panne.csv",
     "vidange": "suivie vidange.csv",
 }
@@ -257,14 +257,14 @@ conf_stats = kpi_conformity(df_conf)
 # -----------------------------
 # KPI 4: Maintenance
 # -----------------------------
-def kpi_maintenance(df):
+def kpi_maintenanceV1(df):
     dfc = df.copy()
     cols = dfc.columns.tolist()
     
     # According to the description and CSV structure:
     # Column 11 (index 10): Date de Détection
-    # Column 14 (index 13): Date prévue d'intervention
-    # Column 16 (index 15): Date fin d'Intervention
+    # Column 13 (index 12): Date prévue d'intervention
+    # Column 14 (index 13): Date fin d'Intervention
     c_detect = cols[10] if len(cols) >= 11 else None
     c_prev = cols[13] if len(cols) >= 14 else None
     c_fin = cols[15] if len(cols) >= 16 else None
@@ -302,7 +302,49 @@ def kpi_maintenance(df):
         "cols": {"detect": c_detect, "prev": c_prev, "fin": c_fin}
     }
 
+
+#maint_stats = kpi_maintenance(df_maint)
+
+
+
+def kpi_maintenance(df):
+    dfc = df.copy()
+    cols = dfc.columns.tolist()
+    
+    # According to the CSV structure after normalize_columns:
+    # Column 11 (index 10): Date de Détection
+    # Column 14 (index 13): Date prévue d'intervention
+    # Column 16 (index 15): Date fin d'Intervention
+    c_detect = cols[10] if len(cols) >= 11 else None
+    c_prev   = cols[13] if len(cols) >= 14 else None
+    c_fin    = cols[15] if len(cols) >= 16 else None
+    
+
+    
+    # Parse dates
+    d_detect = safe_parse_date(dfc[c_detect]) if (c_detect in dfc.columns) else pd.Series([pd.NaT]*len(dfc))
+    d_prev   = safe_parse_date(dfc[c_prev])   if (c_prev   in dfc.columns) else pd.Series([pd.NaT]*len(dfc))
+    d_fin    = safe_parse_date(dfc[c_fin])    if (c_fin    in dfc.columns) else pd.Series([pd.NaT]*len(dfc))
+    
+    # Misplanning: date prévue ≠ date fin (valid dates only)
+    misplan = (d_prev != d_fin) & (~d_prev.isna()) & (~d_fin.isna())
+    n_misplan = int(misplan.sum())
+    
+    # Duration: index 15 − index 10 = (Date fin d’Intervention - Date de Détection) in days
+    dur_days = (d_fin - d_detect).dt.days
+    valid_durations = dur_days[(~dur_days.isna()) & (dur_days >= 0)].dropna()
+    avg_duration = float(valid_durations.mean()) if len(valid_durations) > 0 else np.nan
+    
+    return {
+        "n_misplan": n_misplan,
+        "avg_duration_days": avg_duration,
+        "durations": dur_days,
+        "valid_durations": valid_durations,
+        "cols": {"detect": c_detect, "prev": c_prev, "fin": c_fin}
+    }
+
 maint_stats = kpi_maintenance(df_maint)
+
 
 # -----------------------------
 # KPI 5: Causes
@@ -492,20 +534,22 @@ st.caption("Accurate • Organized • Insightful • Production-Ready")
 st.subheader("Executive Summary")
 c1, c2, c3, c4 = st.columns(4)
 with c1:
-    st.metric("Index down", idx_stats["panne"])
+    panne_pct   = pct(idx_stats["panne"],   idx_stats["total"])
+    st.metric("% Index down", f"{panne_pct:.1f}%")
+    #st.metric("Index down", idx_stats["panne"])
 with c2:
-    st.metric("Index functional", idx_stats["marche"])
+        st.metric("Global Annual Average - Preventive Maintenance", 
+             f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A")
 with c3:
-    st.metric("Index to be checked", idx_stats["verifier"])
+    st.metric("Top required Preventive Maintenance ", "Camion")
 with c4:
-    panne_pct = pct(idx_stats["panne"], idx_stats["total"])
-    st.metric("% Breakdown vs Total", f"{panne_pct:.1f}%")
+       st.metric("% Off-Schedule Maintenance", "32.7%")
 
 c5, c6, c7, c8 = st.columns(4)
 with c5:
-    st.metric("% Compliant oils", f"{conf_stats['pct_conf']:.1f}%")
+    st.metric("% Compliant Lubrication", f"{conf_stats['pct_conf']:.1f}%")
 with c6:
-    st.metric("% Partial oils", f"{conf_stats['pct_partielle']:.1f}%")
+    st.metric("% Breakdown Root Cause", "Pane d'usre:  \n 53.75%")
 with c7:
     st.metric("Miscalculations in Planning", maint_stats["n_misplan"])
 with c8:
@@ -520,6 +564,13 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
 # ----- Tab 1: Etat Index -----
 with tab1:
     st.header("Index status – KPIs & Visuals")
+    col1, col2, col3 = st.columns(3)
+    with col1:
+     st.metric("Index down", idx_stats["panne"])
+    with col2:
+     st.metric("Index functional", idx_stats["marche"])
+    with col3:
+     st.metric("Index to be checked", idx_stats["verifier"])
     colA, colB = st.columns([1, 1])
     
     df_idx = df_index.copy()
@@ -554,21 +605,27 @@ with tab1:
 
 # ----- Tab 2: Hours/Prochain -----
 with tab2:
-    st.header("Index Hours – Average Oil Changes per Year")
+    st.header("Index Hours – Preventive Maintenance")
     st.metric("Global Annual Average", 
              f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A")
     
     if isinstance(hours_stats["by_cat"], pd.DataFrame) and not hours_stats["by_cat"].empty:
-        fig3 = px.bar(hours_stats["by_cat"], 
-                     x=hours_stats["by_cat"].columns[0], 
-                     y="avg_per_year", 
-                     title="Average by Category",
-                     color_discrete_sequence=["#007bff"])
+        x_col = hours_stats["by_cat"].columns[0]
+        fig3 = px.bar(
+            hours_stats["by_cat"],
+            x=x_col,
+            y="avg_per_year",
+            title="Average by Category",
+            labels={x_col: "Equipment Category", "avg_per_year": "Average per year"},  # axis names
+            color_discrete_sequence=["#007bff"]
+        )
+        # (Optional alternative)
+        # fig3.update_layout(xaxis_title="Category", yaxis_title="Average per year")
         st.plotly_chart(fig3, use_container_width=True)
 
 # ----- Tab 3: Fluids Conformity -----
 with tab3:
-    st.header("Oil Conformity")
+    st.header("Lubrication Conformity")
     
     vals = pd.DataFrame({
     "Conformity": ["Compliant", "Partial"],  # Changed to "Conformity"
@@ -616,7 +673,8 @@ with tab4:
                                title="Downtime Distribution (days)",
                                labels={"value": "Duration (days)", "count": "Frequency"},
                                color_discrete_sequence=["#007bff"])
-            fig5.update_layout(showlegend=False, xaxis_title="Duration (days)", yaxis_title="interventions number")
+            fig5.update_layout(showlegend=False, xaxis_title="Duration (days)", yaxis_title="Number of interventions")
+            fig5.update_xaxes(dtick=20, tick0=0)
             st.plotly_chart(fig5, use_container_width=True)
         
         with col_chart2:
@@ -635,15 +693,48 @@ with tab4:
                 ]
             })
             st.dataframe(stats_df, use_container_width=True, hide_index=True)
-        
-        # Box plot for outliers
-        st.subheader("Outliers Analysis")
-        fig6 = px.box(maint_stats["valid_durations"], 
-                      title="Box Plot - Identification of Abnormal Durations",
-                      labels={"value": "Duration (days)"},
-                      color_discrete_sequence=["#28a745"])
-        fig6.update_layout(showlegend=False, yaxis_title="Duration (days)")
-        st.plotly_chart(fig6, use_container_width=True)
+            
+            
+            
+        # Columns used for dates (from your KPI)
+        c_detect = maint_stats["cols"]["detect"]
+        c_fin    = maint_stats["cols"]["fin"]
+
+        # Parse dates to display them nicely
+        d_detect = safe_parse_date(df_maint[c_detect])
+        d_fin    = safe_parse_date(df_maint[c_fin])
+
+        # Indices of the top-3 longest (non-negative) downtimes
+        top_idx = maint_stats["valid_durations"].nlargest(min(3, len(maint_stats["valid_durations"]))).index
+
+        # Try to find descriptive columns
+        col_id  = find_col(df_maint, ["ID Intervention", "ID Intervention عرّف التدخُّل"])
+        col_des = find_col(df_maint, ["Désignation", "Designation"])
+        col_mat = find_col(df_maint, ["Matériel en panne", "Matériel en panne  المعدّات او الجهاز المعطَّل"])
+
+        st.subheader("🚨 Top 3 Longest Downtimes")
+        if len(top_idx) == 0:
+            st.info("No valid downtime data to display.")
+        else:
+            for rank, i in enumerate(top_idx, start=1):
+                row = df_maint.loc[i]
+
+                # Safe fetch of fields
+                idv = (row[col_id]  if col_id  and col_id  in df_maint.columns else "")
+                des = (row[col_des] if col_des and col_des in df_maint.columns else "")
+                mat = (row[col_mat] if col_mat and col_mat in df_maint.columns else "")
+
+                dd  = d_detect.loc[i]
+                df_ = d_fin.loc[i]
+                dur = int(maint_stats["durations"].loc[i])
+
+                # One alert card per item
+                st.error(
+                    f"#{rank} — **{des}** ({mat})\n"
+                    f"• **Date de Détection**: {dd.date() if pd.notna(dd) else 'NA'}\n"
+                    f"• **Date fin d’Intervention**: {df_.date() if pd.notna(df_) else 'NA'}\n"
+                    f"• **Downtime**: {dur} days"
+                )
         
         # Timeline scatter
         st.subheader("Durations in Chronological Order")
@@ -653,7 +744,7 @@ with tab4:
         })
         fig7 = px.scatter(timeline_df, x="Index", y="Duration",
                          title="Evolution of Downtime",
-                         labels={"Index": "intervention number", "Duration": "Duration (days)"},
+                         labels={"Index": "Number interventions", "Duration": "Duration (days)"},
                          color="Duration",
                          color_continuous_scale="RdYlGn_r")
         fig7.update_traces(marker=dict(size=8))
@@ -677,29 +768,51 @@ with tab5:
         
         if cause_stats["by_engine"] is not None and not cause_stats["by_engine"].empty:
             st.subheader("Heatmap – % by Equipment Type")
-            pivot = cause_stats["by_engine"].pivot_table(
-                index=cause_stats["by_engine"].columns[0],
-                columns=cause_stats["by_engine"].columns[1],
-                values="pct", fill_value=0.0)
+            
+            # Clean the data: strip whitespace and normalize case
+            cleaned_df = cause_stats["by_engine"].copy()
+            col_index = cleaned_df.columns[0]
+            col_columns = cleaned_df.columns[1]
+            
+            # Strip whitespace and convert to title case
+            cleaned_df[col_index] = cleaned_df[col_index].astype(str).str.strip().str.title()
+            cleaned_df[col_columns] = cleaned_df[col_columns].astype(str).str.strip().str.title()
+            
+            pivot = cleaned_df.pivot_table(
+                index=col_index,
+                columns=col_columns,
+                values="pct", 
+                fill_value=0.0,
+                aggfunc='mean')  # Changed from 'sum' to 'mean'
+            
             fig8 = px.imshow(pivot, aspect="auto", 
                            title="Heatmap causes × Equipment Type",
                            color_continuous_scale="Reds",
                            labels={
-                               "x": "Root Cause",  # X-axis label for heatmap
-                               "y": "Equipment Type",       # Y-axis label for heatmap
-                               "color": "Percentage (%)"  # Color bar label
-                           })
-            st.plotly_chart(fig8, use_container_width=True)
-    
-    # Nouveaux KPIs pour l'analyse des causes
-    st.header("Analysis of Breakdown Categories")
+                               "x": "Root Cause",
+                               "y": "Equipment Type",
+                               "color": "Percentage (%)"
+                           },
+                           text_auto=".1f")
+            
+            # Optional: Cap the color scale at 100%
+            fig8.update_traces(zmin=0, zmax=100)
+            
+            st.plotly_chart(fig8, use_container_width=True)            
+            # Nouveaux KPIs pour l'analyse des causes
+            st.header("Analysis of Breakdown Categories")
     
     # KPI 1: Disponibilité des pièces
     if categories_stats["disponibilite"]["pct"] is not None and not categories_stats["disponibilite"]["pct"].empty:
         st.subheader("Breakdown Category % in Terms of Availability")
         fig_disp = px.bar(categories_stats["disponibilite"]["pct"], x="classe", y="pct", 
                          title="Distribution by Spare Parts Availability",
-                         color_discrete_sequence=["#4e73df"])
+                         color_discrete_sequence=["#4e73df"],
+                         labels={
+                               "x": "classes",
+                               "y": "Percentage (%)"
+                              })
+        fig_disp.update_layout(xaxis_title="Classes", yaxis_title="Percentage (%)")
         st.plotly_chart(fig_disp, use_container_width=True)
         
         if categories_stats["disponibilite"]["by_engine"] is not None and not categories_stats["disponibilite"]["by_engine"].empty:
@@ -716,15 +829,70 @@ with tab5:
             
             fig_disp_heat = px.imshow(pivot_disp, aspect="auto", 
                                     title="Heatmap disponibility × Equipment Type",
-                                    color_continuous_scale="Blues")
+                                    color_continuous_scale="Blues",
+                                    labels={
+                                        "x": "Availability",  # Changed to "Availability"
+                                        "y": "Designation",   # Changed to "Designation"
+                                        "color": "Count"
+                                    },
+                                    text_auto=True)                                    
             st.plotly_chart(fig_disp_heat, use_container_width=True)
+        
+        #top 3 Availability        
+        if categories_stats["disponibilite"]["by_engine"] is not None and not categories_stats["disponibilite"]["by_engine"].empty:
+            st.subheader("Top 3 Equipment by Availability Level")
+            
+            col_disp = categories_stats["columns"]["disponibilite"]
+            col_des = categories_stats["columns"]["designation"]
+            by_eng_disp = categories_stats["disponibilite"]["by_engine"]
+            
+            # Define availability levels
+            availability_levels = ["difficilement accessible", "disponible"]
+            colors = [
+                ["#dc3545", "#e57373", "#ef9a9a"],  # Red shades for difficilement accessible
+                ["#28a745", "#5cb85c", "#7bc77d"]   # Green shades for disponible
+            ]
+            
+            # Create 2 columns for the donut charts
+            cols = st.columns(2)
+            
+            for idx, availability in enumerate(availability_levels):
+                with cols[idx]:
+                    # Filter data for this availability level
+                    filtered = by_eng_disp[by_eng_disp[col_disp].astype(str).str.strip().str.lower() == availability]
+                    
+                    if not filtered.empty:
+                        # Get top 3 designations by count
+                        top3 = filtered.groupby(col_des)["count"].sum().nlargest(3).reset_index()
+                        
+                        if not top3.empty:
+                            # Create donut chart
+                            fig = px.pie(top3, 
+                                        names=col_des, 
+                                        values="count",
+                                        title=f"{availability.capitalize()}",
+                                        hole=0.4,
+                                        color_discrete_sequence=colors[idx])
+                            
+                            fig.update_traces(textposition='inside', textinfo='percent+label')
+                            fig.update_layout(showlegend=True, height=350)
+                            st.plotly_chart(fig, use_container_width=True)
+                        else:
+                            st.info(f"No data for {availability}")
+                    else:
+                        st.info(f"No data for {availability}")
     
     # KPI 2: Coût de réparation
     if categories_stats["cout"]["pct"] is not None and not categories_stats["cout"]["pct"].empty:
         st.subheader("% Cost per Breakdown Category")
         fig_cout = px.bar(categories_stats["cout"]["pct"], x="classe", y="pct", 
                          title="Repair Cost Distribution",
-                         color_discrete_sequence=["#1cc88a"])
+                         color_discrete_sequence=["#1cc88a"],
+                         labels={
+                                "x": "classes",
+                               "y": "Percentage (%)"
+                                    })
+        fig_cout.update_layout(xaxis_title="Classes", yaxis_title="Percentage (%)")
         st.plotly_chart(fig_cout, use_container_width=True)
         
         if categories_stats["cout"]["by_engine"] is not None and not categories_stats["cout"]["by_engine"].empty:
@@ -739,18 +907,88 @@ with tab5:
                 columns=col_cout,
                 values="count", fill_value=0)
             
+            # Sort columns (x-axis) in descending alphabetical order
+            pivot_cout = pivot_cout[sorted(pivot_cout.columns, reverse=True)]
+            
             fig_cout_heat = px.imshow(pivot_cout, aspect="auto", 
                                     title="Heatmap cost × Equipment Type",
-                                    color_continuous_scale="Greens")
+                                    color_continuous_scale="Greens",
+                                    labels={
+                                        "x": "Cost",
+                                        "y": "Designation",
+                                        "color": "Count"
+                                    },
+                                    text_auto=True)
             st.plotly_chart(fig_cout_heat, use_container_width=True)
+            
+        #top 3 cost    
+        if categories_stats["cout"]["by_engine"] is not None and not categories_stats["cout"]["by_engine"].empty:
+            st.subheader("Top 3 Equipment by Cost Level")
+            
+            col_cout = categories_stats["columns"]["cout"]
+            col_des = categories_stats["columns"]["designation"]
+            by_eng_cout = categories_stats["cout"]["by_engine"]
+            
+            # Define cost levels
+            cost_levels = ["pas cher", "moyen", "cher"]
+            colors = [
+                ["#28a745", "#5cb85c", "#7bc77d"],  # Green shades for pas cher
+                ["#ffc107", "#ffd454", "#ffe082"],  # Yellow shades for moyenne
+                ["#dc3545", "#e57373", "#ef9a9a"]   # Red shades for cher
+            ]
+            
+            # Create 3 columns for the donut charts
+            cols = st.columns(3)
+            
+            for idx, cost_level in enumerate(cost_levels):
+                with cols[idx]:
+                    # Filter data for this cost level
+                    filtered = by_eng_cout[by_eng_cout[col_cout].astype(str).str.strip().str.lower() == cost_level]
+                    
+                    if not filtered.empty:
+                        # Get top 3 designations by count
+                        top3 = filtered.groupby(col_des)["count"].sum().nlargest(3).reset_index()
+                        
+                        if not top3.empty:
+                            # Create donut chart
+                            fig = px.pie(top3, 
+                                        names=col_des, 
+                                        values="count",
+                                        title=f"{cost_level.capitalize()}",
+                                        hole=0.4,
+                                        color_discrete_sequence=colors[idx])
+                            
+                            fig.update_traces(textposition='inside', textinfo='percent+label')
+                            fig.update_layout(showlegend=True, height=350)
+                            st.plotly_chart(fig, use_container_width=True)
+                        else:
+                            st.info(f"No data for {cost_level}")
+                    else:
+                        st.info(f"No data for {cost_level}")
     
-    # KPI 3: Complexité de réparation
-    if categories_stats["complexite"]["pct"] is not None and not categories_stats["complexite"]["pct"].empty:
-        st.subheader("% of Breakdown by Complexity")
-        fig_comp = px.bar(categories_stats["complexite"]["pct"], x="classe", y="pct", 
-                         title="Repair Complexity Distribution",
-                         color_discrete_sequence=["#f6c23e"])
-        st.plotly_chart(fig_comp, use_container_width=True)
+        # KPI 3: Complexité de réparation
+        if categories_stats["complexite"]["pct"] is not None and not categories_stats["complexite"]["pct"].empty:
+            st.subheader("% of Breakdown by Complexity")
+            
+            # Define custom order
+            complexity_order = ["facile", "intermédiaire", "difficile"]
+            
+            # Create a copy and set categorical order
+            df_comp = categories_stats["complexite"]["pct"].copy()
+            df_comp["classe"] = pd.Categorical(df_comp["classe"], 
+                                               categories=complexity_order, 
+                                               ordered=True)
+            df_comp = df_comp.sort_values("classe")
+            
+            fig_comp = px.bar(df_comp, x="classe", y="pct", 
+                             title="Repair Complexity Distribution",
+                             color_discrete_sequence=["#f6c23e"],
+                             labels={
+                                 "classe": "Complexity Level",
+                                 "pct": "Percentage (%)"
+                             })
+            fig_comp.update_layout(xaxis_title="Classes", yaxis_title="Percentage (%)")
+            st.plotly_chart(fig_comp, use_container_width=True)
         
         if categories_stats["complexite"]["by_engine"] is not None and not categories_stats["complexite"]["by_engine"].empty:
             st.subheader("Heatmap – Repair Complexity by Engine Type")
@@ -764,16 +1002,73 @@ with tab5:
                 columns=col_comp,
                 values="count", fill_value=0)
             
+            # Define custom order for complexity
+            complexity_order = ["facile", "intermédiaire", "difficile"]
+            
+            # Reorder columns based on custom order (only include columns that exist)
+            existing_cols = [col for col in complexity_order if col in pivot_comp.columns]
+            pivot_comp = pivot_comp[existing_cols]
+            
             fig_comp_heat = px.imshow(pivot_comp, aspect="auto", 
                                     title="Heatmap complexity × Equipment Type",
-                                    color_continuous_scale="Oranges")
+                                    color_continuous_scale="Oranges",
+                                    labels={
+                                        "x": "Complexity",
+                                        "y": "Designation",
+                                        "color": "Count"
+                                    },
+                                    text_auto=True)  # Display values in each cell
             st.plotly_chart(fig_comp_heat, use_container_width=True)
-
+         
+        #top 3 complexity
+        if categories_stats["complexite"]["by_engine"] is not None and not categories_stats["complexite"]["by_engine"].empty:
+            st.subheader("Top 3 Equipment by Complexity Level")
+            
+            col_comp = categories_stats["columns"]["complexite"]
+            col_des = categories_stats["columns"]["designation"]
+            by_eng_comp = categories_stats["complexite"]["by_engine"]
+            
+            # Define complexity levels
+            complexity_levels = ["facile", "intermédiaire", "difficile"]
+            colors = [
+                ["#28a745", "#5cb85c", "#7bc77d"],  # Green shades for facile
+                ["#ffc107", "#ffd454", "#ffe082"],  # Yellow shades for intermédiaire
+                ["#dc3545", "#e57373", "#ef9a9a"]   # Red shades for difficile
+            ]
+            
+            # Create 3 columns for the donut charts
+            cols = st.columns(3)
+            
+            for idx, complexity in enumerate(complexity_levels):
+                with cols[idx]:
+                    # Filter data for this complexity level
+                    filtered = by_eng_comp[by_eng_comp[col_comp].astype(str).str.strip().str.lower() == complexity]
+                    
+                    if not filtered.empty:
+                        # Get top 3 designations by count
+                        top3 = filtered.groupby(col_des)["count"].sum().nlargest(3).reset_index()
+                        
+                        if not top3.empty:
+                            # Create donut chart
+                            fig = px.pie(top3, 
+                                        names=col_des, 
+                                        values="count",
+                                        title=f"{complexity.capitalize()}",
+                                        hole=0.4,
+                                        color_discrete_sequence=colors[idx])
+                            
+                            fig.update_traces(textposition='inside', textinfo='percent+label')
+                            fig.update_layout(showlegend=True, height=350)
+                            st.plotly_chart(fig, use_container_width=True)
+                        else:
+                            st.info(f"No data for {complexity}")
+                    else:
+                        st.info(f"No data for {complexity}")
 # ----- Tab 6: Vidange Planning -----
 with tab6:
-    st.header("Planification de vidange")
+    st.header("Oil Change Schedule")
     
-    labels = ["Respected (<3m)", "Not respected 3-6m", "Not respected 6-12m", "Not respected >12m"]
+    labels = ["Uncertain/Natural (<3m)", "Slightly Dangerous (3-6m)", "Dangerous (6-12m)", "Extremely Dangerous (>12m)"]
     vals = [vid_stats["respected"], vid_stats["yellow"], vid_stats["orange"], vid_stats["red"]]
     colors = ["#28a745", "#ffc107", "#fd7e14", "#dc3545"]
     
@@ -782,22 +1077,41 @@ with tab6:
                       xaxis_title="Category", yaxis_title="Number")
     st.plotly_chart(fig9, use_container_width=True)
     
-    # Gauge
-    total_v = sum(vals)
-    share_respected = pct(vid_stats["respected"], total_v) if total_v > 0 else 0
-    gauge = go.Figure(go.Indicator(
-        mode="gauge+number",
-        value=share_respected,
-        number={'suffix': "%"},
-        gauge={'axis': {'range': [0, 100]},
-               'bar': {'color': "#28a745"},
-               'steps': [
-                   {'range': [0, 50], 'color': "#f8d7da"},
-                   {'range': [50, 80], 'color': "#fff3cd"},
-                   {'range': [80, 100], 'color': "#d1e7dd"},
-               ]},
-        title={'text': "Taux de respect du planning"}
+    # Calculate the total off-schedule count
+    off_schedule_count = vid_stats["yellow"] + vid_stats["orange"] + vid_stats["red"]
+
+    # Calculate percentage out of 150
+    total_capacity = 150
+    off_schedule_percentage = (off_schedule_count / total_capacity) * 100
+
+    st.info(
+    "ℹ️ Note: It was not taken into consideration as we are not sure whether it was actually "
+    "done or not, as it was part of an inspection context."
+)
+    # Create gauge chart
+    fig_gauge = go.Figure(go.Indicator(
+        mode = "gauge+number",
+        value = off_schedule_percentage,
+        domain = {'x': [0, 1], 'y': [0, 1]},
+        title = {'text': "Off-Schedule Percentage", 'font': {'size': 24}},
+        number = {'suffix': "%", 'font': {'size': 40}},
+        gauge = {
+            'axis': {'range': [None, 100], 'tickwidth': 1, 'tickcolor': "darkblue"},
+            'bar': {'color': "#ffc107"},
+            'bgcolor': "white",
+            'borderwidth': 2,
+            'bordercolor': "gray",
+            'steps': [
+                {'range': [0, 30], 'color': '#d4edda'},
+                {'range': [30, 66], 'color': '#fff3cd'},
+                {'range': [66, 100], 'color': '#f8d7da'}
+            ]
+        }
     ))
-    st.plotly_chart(gauge, use_container_width=True)
 
+    fig_gauge.update_layout(
+        height=400,
+        margin=dict(l=20, r=20, t=80, b=20)
+    )
 
+    st.plotly_chart(fig_gauge, use_container_width=True)
