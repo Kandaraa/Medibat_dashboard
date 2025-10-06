@@ -70,7 +70,7 @@ def pct(n, d):
 # -----------------------------
 # Data Loading
 # -----------------------------
-st.sidebar.title("📂 Data Sources")
+#st.sidebar.title("📂 Data Sources")
 
 default_paths = {
     "etat_index": "etat Index.csv",
