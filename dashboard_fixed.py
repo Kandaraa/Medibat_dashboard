@@ -72,13 +72,24 @@ def pct(n, d):
 # -----------------------------
 #st.sidebar.title("📂 Data Sources")
 
+# Original French file paths (commented out)
+# default_paths = {
+#     "etat_index": "etat Index.csv",
+#     "index_hours": "index hours.csv",
+#     "fluids_conf": "Recommended Fluids and Conformity.csv",
+#     "maintenance": "SUIVI DE MAINTENANCE - Copy.csv",
+#     "causes": "categorie panne.csv",
+#     "vidange": "suivie vidange.csv",
+# }
+
+# English translated file paths from data folder
 default_paths = {
-    "etat_index": "etat Index.csv",
-    "index_hours": "index hours.csv",
-    "fluids_conf": "Recommended Fluids and Conformity.csv",
-    "maintenance": "SUIVI DE MAINTENANCE - Copy.csv",
-    "causes": "categorie panne.csv",
-    "vidange": "suivie vidange.csv",
+    "etat_index": "data/etat Index_eng.csv",
+    "index_hours": "data/index hours_eng.csv",
+    "fluids_conf": "data/Recommended Fluids and Conformity_eng.csv",
+    "maintenance": "data/SUIVI DE MAINTENANCE - Copy_eng.csv",
+    "causes": "data/categorie panne_eng.csv",
+    "vidange": "data/suivie vidange_eng.csv",
 }
 
 @st.cache_data(show_spinner=True)
@@ -588,7 +599,7 @@ with c2:
              f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A")
 with c3:
     st.markdown("<div style='font-size:16px;'>Most vehicle requires preventive maintenance</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:13px;color:black;'>Niveleuse(Motor grader):</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:13px;color:black;'>Garder:</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:28px;font-weight:bold;margin-top:-5px;'>10.49 <span style='font-size:16px;'>annual interventions</span></div>", unsafe_allow_html=True)
 
 with c4:
@@ -603,8 +614,8 @@ with c6:
     st.markdown("<div style='font-size:32px;font-weight:bold;margin-top:-5px;'>53.75%</div>", unsafe_allow_html=True)
 with c7:
     st.markdown("<div style='font-size:16px;'>The longest unrepaired vehicle</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:13px;color:black;'>Backhoe(Tractopelle) (T12):</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:32px;font-weight:bold;margin-top:-5px;'>176 days</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:13px;color:black;'>Bulldozer (BD2):</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:32px;font-weight:bold;margin-top:-5px;'>642 days</div>", unsafe_allow_html=True)
 with c8:
     avg_dur = maint_stats["avg_duration_days"]
     st.metric("Avg. Downtime (days)", f"{avg_dur:.1f}" if not np.isnan(avg_dur) else "N/A")
@@ -776,14 +787,14 @@ with tab3:
                 bargap=0.02,                 # small gap between bars
                 bargroupgap=0                # no extra group gap
             )
-            fig5.update_xaxes(dtick=10, tick0=0)
+            fig5.update_xaxes(dtick=20, tick0=0)
             st.plotly_chart(fig5, use_container_width=True)
         
         with col_chart2:
             # Statistics box
             st.markdown("#### 📊 Statistics")
             stats_df = pd.DataFrame({
-                "Métrique": ["Minimum", "Q1 (25%)", "Median", "Q3 (75%)", "Maximum", "mean", "Écart-type"],
+                "Métrique": ["Minimum", "Q1 (25%)", "Median", "Q3 (75%)", "Maximum", "mean", "Standard deviation"],
                 "Valeur (jours)": [
                     f"{maint_stats['valid_durations'].min():.0f}",
                     f"{maint_stats['valid_durations'].quantile(0.25):.0f}",
