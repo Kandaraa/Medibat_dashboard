@@ -592,22 +592,25 @@ st.subheader("Executive Summary")
 c1, c2, c3, c4 = st.columns(4)
 with c1:
     panne_pct   = pct(idx_stats["panne"],   idx_stats["total"])
-    st.metric("% Index down", f"{panne_pct:.1f}%")
+    st.markdown("<div style='font-size:16px;'>% Index down</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:32px;margin-top:-5px;'>" + f"{panne_pct:.1f}%" + "</div>", unsafe_allow_html=True)
     #st.metric("Index down", idx_stats["panne"])
 with c2:
-        st.metric("Overall Annual Average - Preventive Maintenance", 
-             f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A")
+        st.markdown("<div style='font-size:16px;'>Overall Annual Average - Preventive Maintenance</div>", unsafe_allow_html=True)
+        st.markdown("<div style='font-size:32px;margin-top:-5px;'>" + (f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A") + "</div>", unsafe_allow_html=True)
 with c3:
     st.markdown("<div style='font-size:16px;'>% Highest Breakdown Category Cost</div>", unsafe_allow_html=True)
     #st.markdown("<div style='font-size:13px;color:black;'>Garder:</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:32px;margin-top:-5px;'>58.18% <span style='font-size:16px;'>(Low Cost)</span></div>", unsafe_allow_html=True)
 
 with c4:
-       st.metric("% Off-Schedule Maintenance", "32.7%")
+       st.markdown("<div style='font-size:16px;'>% Off-Schedule Maintenance</div>", unsafe_allow_html=True)
+       st.markdown("<div style='font-size:32px;margin-top:-5px;'>32.7%</div>", unsafe_allow_html=True)
 
 c5, c6, c7, c8 = st.columns(4)
 with c5:
-    st.metric("% Compliant Lubrication", f"{conf_stats['pct_conf']:.1f}%")
+    st.markdown("<div style='font-size:16px;'>% Compliant Lubrication</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:32px;margin-top:-5px;'>" + f"{conf_stats['pct_conf']:.1f}%" + "</div>", unsafe_allow_html=True)
 with c6:
     st.markdown("<div style='font-size:16px;'>% Highest recurring breakdown root cause</div>", unsafe_allow_html=True)
     #st.markdown("<div style='font-size:13px;color:black;'>Wear failure:</div>", unsafe_allow_html=True)
@@ -618,7 +621,8 @@ with c7:
     st.markdown("<div style='font-size:32px;margin-top:-5px;'>24% <span style='font-size:16px;'>(Hydraulic system failure)</span></div>", unsafe_allow_html=True)
 with c8:
     avg_dur = maint_stats["avg_duration_days"]
-    st.metric("Avg. Downtime (days)", f"{avg_dur:.1f}" if not np.isnan(avg_dur) else "N/A")
+    st.markdown("<div style='font-size:16px;'>Avg. Downtime (days)</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:32px;margin-top:-5px;'>" + (f"{avg_dur:.1f}" if not np.isnan(avg_dur) else "N/A") + "</div>", unsafe_allow_html=True)
 
 # Tabs
 tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
