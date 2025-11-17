@@ -679,8 +679,12 @@ with tab2:
     st.header("Index Hours – Preventive Maintenance")
     c1, c2, c3= st.columns(3)
     with c1:
-     st.metric("Overall Annual Average", 
-             f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A")
+     #st.metric("Overall Annual Average", 
+     #        f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A")
+     st.markdown("<div style='font-size:16px;'>Overall Annual Average</div>", unsafe_allow_html=True)
+    #st.markdown("<div style='font-size:13px;color:black;'>Wear failure:</div>", unsafe_allow_html=True)
+     st.markdown("<div style='font-size:34px;margin-top:-5px;'>3.991</div>", unsafe_allow_html=True)
+                 
     with c2:
      st.markdown("<div style='font-size:16px;'>Most vehicle requires preventive maintenance</div>", unsafe_allow_html=True)
     #st.markdown("<div style='font-size:13px;color:black;'>Wear failure:</div>", unsafe_allow_html=True)
