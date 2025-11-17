@@ -600,7 +600,7 @@ with c2:
 with c3:
     st.markdown("<div style='font-size:16px;'>% Highest Breakdown Category Cost</div>", unsafe_allow_html=True)
     #st.markdown("<div style='font-size:13px;color:black;'>Garder:</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:28px;margin-top:-5px;'>58.18% <span style='font-size:16px;'>(Low Cost)</span></div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:32px;margin-top:-5px;'>58.18% <span style='font-size:16px;'>(Low Cost)</span></div>", unsafe_allow_html=True)
 
 with c4:
        st.metric("% Off-Schedule Maintenance", "32.7%")
