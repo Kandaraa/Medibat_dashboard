@@ -599,8 +599,8 @@ with c2:
              f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A")
 with c3:
     st.markdown("<div style='font-size:16px;'>Most vehicle requires preventive maintenance</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:13px;color:black;'>Garder:</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:28px;font-weight:bold;margin-top:-5px;'>10.49 <span style='font-size:16px;'>annual interventions</span></div>", unsafe_allow_html=True)
+    #st.markdown("<div style='font-size:13px;color:black;'>Garder:</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:28px;margin-top:-5px;'>10.49 <span style='font-size:16px;'>annual interventions (Garder)</span></div>", unsafe_allow_html=True)
 
 with c4:
        st.metric("% Off-Schedule Maintenance", "32.7%")
@@ -610,12 +610,12 @@ with c5:
     st.metric("% Compliant Lubrication", f"{conf_stats['pct_conf']:.1f}%")
 with c6:
     st.markdown("<div style='font-size:16px;'>Highest recurring breakdown root cause</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:13px;color:black;'>Wear failure:</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:32px;font-weight:bold;margin-top:-5px;'>53.75%</div>", unsafe_allow_html=True)
+    #st.markdown("<div style='font-size:13px;color:black;'>Wear failure:</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:32px;margin-top:-5px;'>53.75% <span style='font-size:16px;'>(Wear failure)</span> </div>", unsafe_allow_html=True)
 with c7:
     st.markdown("<div style='font-size:16px;'>The longest unrepaired vehicle</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:13px;color:black;'>Bulldozer (BD2):</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:32px;font-weight:bold;margin-top:-5px;'>642 days</div>", unsafe_allow_html=True)
+    #st.markdown("<div style='font-size:13px;color:black;'>Bulldozer (BD2):</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:32px;margin-top:-5px;'>642 days <span style='font-size:16px;'>(Bulldozer (BD2))</span></div>", unsafe_allow_html=True)
 with c8:
     avg_dur = maint_stats["avg_duration_days"]
     st.metric("Avg. Downtime (days)", f"{avg_dur:.1f}" if not np.isnan(avg_dur) else "N/A")
@@ -898,6 +898,35 @@ with tab5:
                          "pct": "Percentage (%)"  # Y-axis label
                      })
         st.plotly_chart(fig7, use_container_width=True)
+        
+        # Load breakdown types data for failure type classification chart
+        try:
+            breakdown_df = pd.read_csv("data/breakdown_types_eng.csv")
+            # Extract numeric value from percentage string
+            breakdown_df["Share_Numeric"] = breakdown_df["Share of Total"].str.rstrip("%").astype(float)
+            # Create hover text with both percentage and frequency
+            breakdown_df["Hover_Text"] = breakdown_df.apply(
+                lambda row: f"Share: {row['Share of Total']}<br>Frequency: {row['Frequency']}", axis=1
+            )
+            
+            # Create bar chart for Failure type classification
+            fig_breakdown = go.Figure()
+            fig_breakdown.add_trace(go.Bar(
+                x=breakdown_df.iloc[:, 0],  # Breakdown Type (column index 0)
+                y=breakdown_df["Share_Numeric"],  # Percentage (column index 2, converted to numeric)
+                hovertemplate='<b>%{x}</b><br>%{customdata}<extra></extra>',
+                customdata=breakdown_df["Hover_Text"],
+                marker_color="#B8860B"
+            ))
+            fig_breakdown.update_layout(
+                title="Failure type classification",
+                xaxis_title="Breakdown Type",
+                yaxis_title="Share of Total (%)",
+                showlegend=False
+            )
+            st.plotly_chart(fig_breakdown, use_container_width=True)
+        except Exception as e:
+            st.warning(f"Could not load breakdown types data: {str(e)}")
         
         if cause_stats["by_engine"] is not None and not cause_stats["by_engine"].empty:
             st.subheader("Heatmap – % Failure type by Equipment Type")
