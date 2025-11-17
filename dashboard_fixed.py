@@ -680,7 +680,7 @@ with tab2:
     with c2:
      st.markdown("<div style='font-size:16px;'>Most vehicle requires preventive maintenance</div>", unsafe_allow_html=True)
     #st.markdown("<div style='font-size:13px;color:black;'>Wear failure:</div>", unsafe_allow_html=True)
-     st.markdown("<div style='font-size:30px;margin-top:-5px;'>10.49 <span style='font-size:16px;'>annual interventions (Wear failure)</span> </div>", unsafe_allow_html=True)
+     st.markdown("<div style='font-size:32px;margin-top:-5px;'>10.49 <span style='font-size:16px;'>annual interventions (Wear failure)</span> </div>", unsafe_allow_html=True)
          
              
     st.info(
