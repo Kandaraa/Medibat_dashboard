@@ -10,6 +10,8 @@ The provided data reveals several critical issues that are significantly impacti
 
 *   **Prevalence of Preventable Failures:** The root cause analysis is a major red flag. **Wear failures (53.75%)** and **Maintenance-related failures (15.0%)** together account for nearly 70% of all breakdowns. These are largely preventable issues that point directly to shortcomings in the current maintenance strategy, procedures, and quality of work. The fact that maintenance activities themselves are a significant cause of failure is a critical concern.
 
+*   **Failure Type Classification/Breakdown Type:** Hydraulic failures (24%) and engine issues (20%) account for nearly half of all breakdowns, followed by oil leaks (16%), transmission/bearing problems (12%), and structural cracks (12%). Less frequent issues like alternator failures (8%), fuel leaks (4%), and track ruptures (4%) still pose risks. The data calls for enhanced preventive maintenance—especially on hydraulic and engine systems—to reduce downtime and extend equipment life.
+
 *   **Catastrophic Downtime Events:** While the median downtime is 0, the maximum of **176 days** and a high standard deviation (38.4) indicate that a few severe breakdowns are crippling fleet availability. These long-tail events skew the average downtime to 15.6 days and represent enormous hidden costs in lost productivity and potential penalties.
 
 *   **Poor Adherence to Basic Maintenance Schedules:** Nearly one-third **(32.7%)** of the fleet has off-schedule oil changes. The 19 pieces of equipment in the "dangerous" or "extremely dangerous" categories are ticking time bombs for major component failure (engine, hydraulics), which are typically high-cost, high-downtime repairs.
