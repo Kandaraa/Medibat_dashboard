@@ -598,9 +598,9 @@ with c2:
         st.metric("Overall Annual Average - Preventive Maintenance", 
              f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A")
 with c3:
-    st.markdown("<div style='font-size:16px;'>Most vehicle requires preventive maintenance</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:16px;'>% Highest Breakdown Category Cost</div>", unsafe_allow_html=True)
     #st.markdown("<div style='font-size:13px;color:black;'>Garder:</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:28px;margin-top:-5px;'>10.49 <span style='font-size:16px;'>annual interventions (Garder)</span></div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:28px;margin-top:-5px;'>58.18% <span style='font-size:16px;'>(Low Cost)</span></div>", unsafe_allow_html=True)
 
 with c4:
        st.metric("% Off-Schedule Maintenance", "32.7%")
@@ -609,13 +609,13 @@ c5, c6, c7, c8 = st.columns(4)
 with c5:
     st.metric("% Compliant Lubrication", f"{conf_stats['pct_conf']:.1f}%")
 with c6:
-    st.markdown("<div style='font-size:16px;'>Highest recurring breakdown root cause</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:16px;'>% Highest recurring breakdown root cause</div>", unsafe_allow_html=True)
     #st.markdown("<div style='font-size:13px;color:black;'>Wear failure:</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:32px;margin-top:-5px;'>53.75% <span style='font-size:16px;'>(Wear failure)</span> </div>", unsafe_allow_html=True)
 with c7:
-    st.markdown("<div style='font-size:16px;'>The longest unrepaired vehicle</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:16px;'>% highest recurring failure</div>", unsafe_allow_html=True)
     #st.markdown("<div style='font-size:13px;color:black;'>Bulldozer (BD2):</div>", unsafe_allow_html=True)
-    st.markdown("<div style='font-size:32px;margin-top:-5px;'>642 days <span style='font-size:16px;'>(Bulldozer (BD2))</span></div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:32px;margin-top:-5px;'>24% <span style='font-size:16px;'>(Hydraulic system failure)</span></div>", unsafe_allow_html=True)
 with c8:
     avg_dur = maint_stats["avg_duration_days"]
     st.metric("Avg. Downtime (days)", f"{avg_dur:.1f}" if not np.isnan(avg_dur) else "N/A")
@@ -673,8 +673,15 @@ with tab1:
 # ----- Tab 2: Hours/Prochain -----
 with tab2:
     st.header("Index Hours – Preventive Maintenance")
-    st.metric("Overall Annual Average", 
+    c1, c2, c3= st.columns(3)
+    with c1:
+     st.metric("Overall Annual Average", 
              f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A")
+    with c2:
+     st.markdown("<div style='font-size:16px;'>Most vehicle requires preventive maintenance</div>", unsafe_allow_html=True)
+    #st.markdown("<div style='font-size:13px;color:black;'>Wear failure:</div>", unsafe_allow_html=True)
+     st.markdown("<div style='font-size:30px;margin-top:-5px;'>10.49 annual interventions<span style='font-size:16px;'>(Wear failure)</span> </div>", unsafe_allow_html=True)
+         
              
     st.info(
     "ℹ️ Note for the chart below: Truck index hours have been excluded, as preventive maintenance is tracked in kilometers rather than hours."
@@ -890,14 +897,7 @@ with tab5:
     st.header("Root Cause Analysis")
     
     if not cause_stats["pct_tbl"].empty:
-        fig7 = px.bar(cause_stats["pct_tbl"], x="cause", y="pct", 
-                     title="Root Causes (Overall)",
-                     color_discrete_sequence=["#dc3545"],
-                     labels={
-                         "cause": "Root Cause",  # X-axis label
-                         "pct": "Percentage (%)"  # Y-axis label
-                     })
-        st.plotly_chart(fig7, use_container_width=True)
+
         
         # Load breakdown types data for failure type classification chart
         try:
@@ -927,6 +927,15 @@ with tab5:
             st.plotly_chart(fig_breakdown, use_container_width=True)
         except Exception as e:
             st.warning(f"Could not load breakdown types data: {str(e)}")
+
+        fig7 = px.bar(cause_stats["pct_tbl"], x="cause", y="pct", 
+                     title="Root Causes (Overall)",
+                     color_discrete_sequence=["#dc3545"],
+                     labels={
+                         "cause": "Root Cause",  # X-axis label
+                         "pct": "Percentage (%)"  # Y-axis label
+                     })
+        st.plotly_chart(fig7, use_container_width=True)
         
         if cause_stats["by_engine"] is not None and not cause_stats["by_engine"].empty:
             st.subheader("Heatmap – % Failure type by Equipment Type")
