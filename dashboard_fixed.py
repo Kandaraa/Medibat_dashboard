@@ -596,7 +596,7 @@ with c1:
     st.markdown("<div style='font-size:32px;margin-top:-5px;'>" + f"{panne_pct:.1f}%" + "</div>", unsafe_allow_html=True)
     #st.metric("Index down", idx_stats["panne"])
 with c2:
-        st.markdown("<div style='font-size:16px;'>Overall Annual Average - Preventive Maintenance</div>", unsafe_allow_html=True)
+        st.markdown("<div style='font-size:15px;'>Overall Annual Average - Preventive Maintenance</div>", unsafe_allow_html=True)
         st.markdown("<div style='font-size:32px;margin-top:-5px;'>" + (f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A") + "</div>", unsafe_allow_html=True)
 with c3:
     st.markdown("<div style='font-size:16px;'>% Highest Breakdown Category Cost</div>", unsafe_allow_html=True)
