@@ -590,15 +590,16 @@ st.caption("Accurate • Organized • Insightful • Production-Ready")
 # Executive Summary
 st.subheader("Executive Summary")
 c1, c2, c3, c4 = st.columns(4)
-with c1:
+c5, c6, c7, c8 = st.columns(4)
+with c7:
     panne_pct   = pct(idx_stats["panne"],   idx_stats["total"])
     st.markdown("<div style='font-size:16px;'>% Index down</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:32px;margin-top:-5px;'>" + f"{panne_pct:.1f}%" + "</div>", unsafe_allow_html=True)
     #st.metric("Index down", idx_stats["panne"])
-with c2:
+with c5:
         st.markdown("<div style='font-size:15px;'>Overall Annual Average - Preventive Maintenance</div>", unsafe_allow_html=True)
         st.markdown("<div style='font-size:32px;margin-top:-5px;'>" + (f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A") + "</div>", unsafe_allow_html=True)
-with c3:
+with c8:
     st.markdown("<div style='font-size:16px;'>% Highest Breakdown Category Cost</div>", unsafe_allow_html=True)
     #st.markdown("<div style='font-size:13px;color:black;'>Garder:</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:32px;margin-top:-5px;'>58.18% <span style='font-size:16px;'>(Low Cost)</span></div>", unsafe_allow_html=True)
@@ -607,26 +608,26 @@ with c4:
        st.markdown("<div style='font-size:16px;'>% Off-Schedule Maintenance</div>", unsafe_allow_html=True)
        st.markdown("<div style='font-size:32px;margin-top:-5px;'>32.7%</div>", unsafe_allow_html=True)
 
-c5, c6, c7, c8 = st.columns(4)
-with c5:
+
+with c6:
     st.markdown("<div style='font-size:16px;'>% Compliant Lubrication</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:32px;margin-top:-5px;'>" + f"{conf_stats['pct_conf']:.1f}%" + "</div>", unsafe_allow_html=True)
-with c6:
+with c2:
     st.markdown("<div style='font-size:16px;'>% Highest recurring breakdown root cause</div>", unsafe_allow_html=True)
     #st.markdown("<div style='font-size:13px;color:black;'>Wear failure:</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:32px;margin-top:-5px;'>53.75% <span style='font-size:16px;'>(Wear failure)</span> </div>", unsafe_allow_html=True)
-with c7:
+with c3:
     st.markdown("<div style='font-size:16px;'>% highest recurring failure</div>", unsafe_allow_html=True)
     #st.markdown("<div style='font-size:13px;color:black;'>Bulldozer (BD2):</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:32px;margin-top:-5px;'>24% <span style='font-size:16px;'>(Hydraulic system failure)</span></div>", unsafe_allow_html=True)
-with c8:
+with c1:
     avg_dur = maint_stats["avg_duration_days"]
     st.markdown("<div style='font-size:16px;'>Avg. Downtime (days)</div>", unsafe_allow_html=True)
     st.markdown("<div style='font-size:32px;margin-top:-5px;'>" + (f"{avg_dur:.1f}" if not np.isnan(avg_dur) else "N/A") + "</div>", unsafe_allow_html=True)
 
 # Tabs
 tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
-    "Index status", "Preventive maintenance", "Curative maintenance", "lubrications compliance", "Causes Analysis", "Oil Change Schedule", "🤖 AI Strategic Analysis"
+    "Index status", "Curative maintenance", "Causes Analysis", "Oil Change Schedule", "Preventive maintenance", "lubrications compliance", "🤖 AI Strategic Analysis"
 ])
 
 #Tabs
@@ -675,7 +676,7 @@ with tab1:
         colB.plotly_chart(fig2, use_container_width=True)
 
 # ----- Tab 2: Hours/Prochain -----
-with tab2:
+with tab5:
     st.header("Index Hours – Preventive Maintenance")
     c1, c2, c3= st.columns(3)
     with c1:
@@ -707,7 +708,7 @@ with tab2:
         )
         st.plotly_chart(fig3, use_container_width=True)
 # ----- Tab 3: Fluids Conformity -----
-with tab4:
+with tab6:
     st.header("Lubrication Conformity")
     
     vals = pd.DataFrame({
@@ -722,7 +723,7 @@ with tab4:
     st.plotly_chart(fig4, use_container_width=True)
 
 # ----- Tab 4: Maintenance -----
-with tab3:
+with tab2:
     st.header("Curative Maintenance Monitoring")
     
     col1, col2 = st.columns(2)
@@ -901,7 +902,7 @@ with tab3:
         )
         st.plotly_chart(fig, use_container_width=True)
 # ----- Tab 5: Causes Analysis -----
-with tab5:
+with tab3:
     st.header("Root Cause Analysis")
     
     if not cause_stats["pct_tbl"].empty:
@@ -1268,7 +1269,7 @@ with tab5:
                     else:
                         st.info(f"No data for {complexity}")
 # ----- Tab 6: Vidange Planning -----
-with tab6:
+with tab4:
     st.header("Oil Change Schedule")
     
     labels = ["Uncertain/Natural (<3m)", "Slightly Dangerous (3-6m)", "Dangerous (6-12m)", "Extremely Dangerous (>12m)"]
