@@ -596,7 +596,7 @@ with c1:
     st.markdown("<div style='font-size:32px;margin-top:-5px;'>" + f"{panne_pct:.1f}%" + "</div>", unsafe_allow_html=True)
     #st.metric("Index down", idx_stats["panne"])
 with c2:
-        st.markdown("<div style='font-size:15px;'>Overall Annual Average - Preventive Maintenance</div>", unsafe_allow_html=True)
+        st.markdown("<div style='font-size:16px;'>Overall Annual Average - Preventive Maintenance</div>", unsafe_allow_html=True)
         st.markdown("<div style='font-size:32px;margin-top:-5px;'>" + (f"{hours_stats['global_avg']:.3f}" if not np.isnan(hours_stats["global_avg"]) else "N/A") + "</div>", unsafe_allow_html=True)
 with c3:
     st.markdown("<div style='font-size:16px;'>% Highest Breakdown Category Cost</div>", unsafe_allow_html=True)
@@ -859,8 +859,8 @@ with tab3:
                 # One alert card per item
                 st.error(
                     f"#{rank} — **{des}** ({mat})\n"
-                    f"• **Date de Détection**: {dd.date() if pd.notna(dd) else 'NA'}\n"
-                    f"• **Date fin d’Intervention**: {df_.date() if pd.notna(df_) else 'NA'}\n"
+                    f"• **Detection date**: {dd.date() if pd.notna(dd) else 'NA'}\n"
+                    f"• **Intervention end date**: {df_.date() if pd.notna(df_) else 'NA'}\n"
                     f"• **Downtime**: {dur} days"
                 )
         
@@ -943,7 +943,10 @@ with tab5:
                          "cause": "Root Cause",  # X-axis label
                          "pct": "Percentage (%)"  # Y-axis label
                      })
+        fig7.update_layout(xaxis_tickangle=-30)
         st.plotly_chart(fig7, use_container_width=True)
+       
+       
         
         if cause_stats["by_engine"] is not None and not cause_stats["by_engine"].empty:
             st.subheader("Heatmap – % Failure type by Equipment Type")
